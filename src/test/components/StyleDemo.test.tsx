@@ -7,7 +7,6 @@ const createStyle = (nameEn: string, nameZh: string): UIStyle => ({
   id: 1,
   nameEn,
   nameZh,
-  category: 'General',
   type: 'General',
   keywords: [],
   primaryColors: '#000000',

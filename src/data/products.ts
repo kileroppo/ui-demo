@@ -49,7 +49,7 @@ export const products: ProductType[] = [
   {
     "id": 3,
     "name": "E-commerce",
-    "nameZh": "E-commerce",
+    "nameZh": "电商平台",
     "keywords": [
       "buy",
       "commerce",
@@ -71,7 +71,7 @@ export const products: ProductType[] = [
   {
     "id": 4,
     "name": "E-commerce Luxury",
-    "nameZh": "E-commerce Luxury",
+    "nameZh": "奢侈品电商",
     "keywords": [
       "buy",
       "commerce",
@@ -98,7 +98,7 @@ export const products: ProductType[] = [
   {
     "id": 5,
     "name": "B2B Service",
-    "nameZh": "B2B Service",
+    "nameZh": "B2B服务",
     "keywords": [
       "appointment",
       "b",
@@ -120,7 +120,7 @@ export const products: ProductType[] = [
   {
     "id": 6,
     "name": "Financial Dashboard",
-    "nameZh": "Financial Dashboard",
+    "nameZh": "金融仪表盘",
     "keywords": [
       "admin",
       "analytics",
@@ -139,7 +139,7 @@ export const products: ProductType[] = [
   {
     "id": 7,
     "name": "Analytics Dashboard",
-    "nameZh": "Analytics Dashboard",
+    "nameZh": "数据分析仪表盘",
     "keywords": [
       "admin",
       "analytics",
@@ -157,7 +157,7 @@ export const products: ProductType[] = [
   {
     "id": 8,
     "name": "Healthcare App",
-    "nameZh": "Healthcare App",
+    "nameZh": "医疗健康应用",
     "keywords": [
       "app",
       "clinic",
@@ -176,7 +176,7 @@ export const products: ProductType[] = [
   {
     "id": 9,
     "name": "Educational App",
-    "nameZh": "Educational App",
+    "nameZh": "教育应用",
     "keywords": [
       "app",
       "course",
@@ -196,7 +196,7 @@ export const products: ProductType[] = [
   {
     "id": 10,
     "name": "Creative Agency",
-    "nameZh": "Creative Agency",
+    "nameZh": "创意机构",
     "keywords": [
       "agency",
       "creative",
@@ -214,7 +214,7 @@ export const products: ProductType[] = [
   {
     "id": 11,
     "name": "Portfolio/Personal",
-    "nameZh": "Portfolio/Personal",
+    "nameZh": "个人作品集",
     "keywords": [
       "creative",
       "personal",
@@ -251,7 +251,7 @@ export const products: ProductType[] = [
   {
     "id": 13,
     "name": "Government/Public Service",
-    "nameZh": "Government/Public Service",
+    "nameZh": "政府/公共服务",
     "keywords": [
       "appointment",
       "booking",
@@ -270,7 +270,7 @@ export const products: ProductType[] = [
   {
     "id": 14,
     "name": "Fintech/Crypto",
-    "nameZh": "Fintech/Crypto",
+    "nameZh": "金融科技/加密货币",
     "keywords": [
       "banking",
       "blockchain",
@@ -293,7 +293,7 @@ export const products: ProductType[] = [
   {
     "id": 15,
     "name": "Social Media App",
-    "nameZh": "Social Media App",
+    "nameZh": "社交媒体应用",
     "keywords": [
       "app",
       "community",
@@ -317,7 +317,7 @@ export const products: ProductType[] = [
   {
     "id": 16,
     "name": "Productivity Tool",
-    "nameZh": "Productivity Tool",
+    "nameZh": "效率工具",
     "keywords": [
       "collaboration",
       "productivity",
@@ -336,7 +336,7 @@ export const products: ProductType[] = [
   {
     "id": 17,
     "name": "Design System/Component Library",
-    "nameZh": "Design System/Component Library",
+    "nameZh": "设计系统/组件库",
     "keywords": [
       "component",
       "design",
@@ -353,7 +353,7 @@ export const products: ProductType[] = [
   {
     "id": 18,
     "name": "AI/Chatbot Platform",
-    "nameZh": "AI/Chatbot Platform",
+    "nameZh": "AI聊天机器人平台",
     "keywords": [
       "ai",
       "artificial-intelligence",
@@ -373,7 +373,7 @@ export const products: ProductType[] = [
   {
     "id": 19,
     "name": "NFT/Web3 Platform",
-    "nameZh": "NFT/Web3 Platform",
+    "nameZh": "NFT/Web3平台",
     "keywords": [
       "nft",
       "platform",
@@ -389,7 +389,7 @@ export const products: ProductType[] = [
   {
     "id": 20,
     "name": "Creator Economy Platform",
-    "nameZh": "Creator Economy Platform",
+    "nameZh": "创作者经济平台",
     "keywords": [
       "creator",
       "economy",
@@ -405,7 +405,7 @@ export const products: ProductType[] = [
   {
     "id": 21,
     "name": "Remote Work/Collaboration Tool",
-    "nameZh": "Remote Work/Collaboration Tool",
+    "nameZh": "远程协作工具",
     "keywords": [
       "collaboration",
       "remote",
@@ -422,7 +422,7 @@ export const products: ProductType[] = [
   {
     "id": 22,
     "name": "Mental Health App",
-    "nameZh": "Mental Health App",
+    "nameZh": "心理健康应用",
     "keywords": [
       "app",
       "health",
@@ -438,7 +438,7 @@ export const products: ProductType[] = [
   {
     "id": 23,
     "name": "Pet Tech App",
-    "nameZh": "Pet Tech App",
+    "nameZh": "宠物科技应用",
     "keywords": [
       "app",
       "pet",
@@ -454,7 +454,7 @@ export const products: ProductType[] = [
   {
     "id": 24,
     "name": "Smart Home/IoT Dashboard",
-    "nameZh": "Smart Home/IoT Dashboard",
+    "nameZh": "智能家居/IoT面板",
     "keywords": [
       "admin",
       "analytics",
@@ -475,7 +475,7 @@ export const products: ProductType[] = [
   {
     "id": 25,
     "name": "EV/Charging Ecosystem",
-    "nameZh": "EV/Charging Ecosystem",
+    "nameZh": "电动车/充电生态",
     "keywords": [
       "charging",
       "ecosystem",
@@ -491,7 +491,7 @@ export const products: ProductType[] = [
   {
     "id": 26,
     "name": "Subscription Box Service",
-    "nameZh": "Subscription Box Service",
+    "nameZh": "订阅盒子服务",
     "keywords": [
       "appointment",
       "booking",
@@ -513,7 +513,7 @@ export const products: ProductType[] = [
   {
     "id": 27,
     "name": "Podcast Platform",
-    "nameZh": "Podcast Platform",
+    "nameZh": "播客平台",
     "keywords": [
       "platform",
       "podcast"
@@ -528,7 +528,7 @@ export const products: ProductType[] = [
   {
     "id": 28,
     "name": "Dating App",
-    "nameZh": "Dating App",
+    "nameZh": "社交约会应用",
     "keywords": [
       "app",
       "dating"
@@ -543,7 +543,7 @@ export const products: ProductType[] = [
   {
     "id": 29,
     "name": "Micro-Credentials/Badges Platform",
-    "nameZh": "Micro-Credentials/Badges Platform",
+    "nameZh": "微证书/徽章平台",
     "keywords": [
       "badges",
       "credentials",
@@ -560,7 +560,7 @@ export const products: ProductType[] = [
   {
     "id": 30,
     "name": "Knowledge Base/Documentation",
-    "nameZh": "Knowledge Base/Documentation",
+    "nameZh": "知识库/文档",
     "keywords": [
       "base",
       "documentation",
@@ -576,7 +576,7 @@ export const products: ProductType[] = [
   {
     "id": 31,
     "name": "Hyperlocal Services",
-    "nameZh": "Hyperlocal Services",
+    "nameZh": "本地化服务",
     "keywords": [
       "appointment",
       "booking",
@@ -595,7 +595,7 @@ export const products: ProductType[] = [
   {
     "id": 32,
     "name": "Beauty/Spa/Wellness Service",
-    "nameZh": "Beauty/Spa/Wellness Service",
+    "nameZh": "美容/水疗服务",
     "keywords": [
       "appointment",
       "beauty",
@@ -615,7 +615,7 @@ export const products: ProductType[] = [
   {
     "id": 33,
     "name": "Luxury/Premium Brand",
-    "nameZh": "Luxury/Premium Brand",
+    "nameZh": "奢侈品/高端品牌",
     "keywords": [
       "brand",
       "elegant",
@@ -634,7 +634,7 @@ export const products: ProductType[] = [
   {
     "id": 34,
     "name": "Restaurant/Food Service",
-    "nameZh": "Restaurant/Food Service",
+    "nameZh": "餐饮服务",
     "keywords": [
       "appointment",
       "booking",
@@ -656,7 +656,7 @@ export const products: ProductType[] = [
   {
     "id": 35,
     "name": "Fitness/Gym App",
-    "nameZh": "Fitness/Gym App",
+    "nameZh": "健身应用",
     "keywords": [
       "app",
       "exercise",
@@ -675,7 +675,7 @@ export const products: ProductType[] = [
   {
     "id": 36,
     "name": "Real Estate/Property",
-    "nameZh": "Real Estate/Property",
+    "nameZh": "房地产/物业",
     "keywords": [
       "buy",
       "estate",
@@ -695,7 +695,7 @@ export const products: ProductType[] = [
   {
     "id": 37,
     "name": "Travel/Tourism Agency",
-    "nameZh": "Travel/Tourism Agency",
+    "nameZh": "旅游机构",
     "keywords": [
       "agency",
       "booking",
@@ -719,7 +719,7 @@ export const products: ProductType[] = [
   {
     "id": 38,
     "name": "Hotel/Hospitality",
-    "nameZh": "Hotel/Hospitality",
+    "nameZh": "酒店/住宿服务",
     "keywords": [
       "hospitality",
       "hotel"
@@ -734,7 +734,7 @@ export const products: ProductType[] = [
   {
     "id": 39,
     "name": "Wedding/Event Planning",
-    "nameZh": "Wedding/Event Planning",
+    "nameZh": "婚礼/活动策划",
     "keywords": [
       "conference",
       "event",
@@ -754,7 +754,7 @@ export const products: ProductType[] = [
   {
     "id": 40,
     "name": "Legal Services",
-    "nameZh": "Legal Services",
+    "nameZh": "法律服务",
     "keywords": [
       "appointment",
       "attorney",
@@ -777,7 +777,7 @@ export const products: ProductType[] = [
   {
     "id": 41,
     "name": "Insurance Platform",
-    "nameZh": "Insurance Platform",
+    "nameZh": "保险平台",
     "keywords": [
       "insurance",
       "platform"
@@ -792,7 +792,7 @@ export const products: ProductType[] = [
   {
     "id": 42,
     "name": "Banking/Traditional Finance",
-    "nameZh": "Banking/Traditional Finance",
+    "nameZh": "银行/传统金融",
     "keywords": [
       "banking",
       "finance",
@@ -808,7 +808,7 @@ export const products: ProductType[] = [
   {
     "id": 43,
     "name": "Online Course/E-learning",
-    "nameZh": "Online Course/E-learning",
+    "nameZh": "在线课程/学习",
     "keywords": [
       "course",
       "e",
@@ -825,7 +825,7 @@ export const products: ProductType[] = [
   {
     "id": 44,
     "name": "Non-profit/Charity",
-    "nameZh": "Non-profit/Charity",
+    "nameZh": "非营利/公益",
     "keywords": [
       "charity",
       "non",
@@ -841,7 +841,7 @@ export const products: ProductType[] = [
   {
     "id": 45,
     "name": "Music Streaming",
-    "nameZh": "Music Streaming",
+    "nameZh": "音乐流媒体",
     "keywords": [
       "music",
       "streaming"
@@ -856,7 +856,7 @@ export const products: ProductType[] = [
   {
     "id": 46,
     "name": "Video Streaming/OTT",
-    "nameZh": "Video Streaming/OTT",
+    "nameZh": "视频流媒体/OTT",
     "keywords": [
       "ott",
       "streaming",
@@ -872,7 +872,7 @@ export const products: ProductType[] = [
   {
     "id": 47,
     "name": "Job Board/Recruitment",
-    "nameZh": "Job Board/Recruitment",
+    "nameZh": "招聘平台",
     "keywords": [
       "board",
       "job",
@@ -888,7 +888,7 @@ export const products: ProductType[] = [
   {
     "id": 48,
     "name": "Marketplace (P2P)",
-    "nameZh": "Marketplace (P2P)",
+    "nameZh": "P2P交易市场",
     "keywords": [
       "buyers",
       "listings",
@@ -907,7 +907,7 @@ export const products: ProductType[] = [
   {
     "id": 49,
     "name": "Logistics/Delivery",
-    "nameZh": "Logistics/Delivery",
+    "nameZh": "物流/配送",
     "keywords": [
       "delivery",
       "logistics"
@@ -922,7 +922,7 @@ export const products: ProductType[] = [
   {
     "id": 50,
     "name": "Agriculture/Farm Tech",
-    "nameZh": "Agriculture/Farm Tech",
+    "nameZh": "农业科技",
     "keywords": [
       "agriculture",
       "farm",
@@ -938,7 +938,7 @@ export const products: ProductType[] = [
   {
     "id": 51,
     "name": "Construction/Architecture",
-    "nameZh": "Construction/Architecture",
+    "nameZh": "建筑/工程",
     "keywords": [
       "architecture",
       "construction"
@@ -953,7 +953,7 @@ export const products: ProductType[] = [
   {
     "id": 52,
     "name": "Automotive/Car Dealership",
-    "nameZh": "Automotive/Car Dealership",
+    "nameZh": "汽车/经销商",
     "keywords": [
       "automotive",
       "car",
@@ -969,7 +969,7 @@ export const products: ProductType[] = [
   {
     "id": 53,
     "name": "Photography Studio",
-    "nameZh": "Photography Studio",
+    "nameZh": "摄影工作室",
     "keywords": [
       "photography",
       "studio"
@@ -984,7 +984,7 @@ export const products: ProductType[] = [
   {
     "id": 54,
     "name": "Coworking Space",
-    "nameZh": "Coworking Space",
+    "nameZh": "联合办公空间",
     "keywords": [
       "coworking",
       "space"
@@ -999,7 +999,7 @@ export const products: ProductType[] = [
   {
     "id": 55,
     "name": "Home Services (Plumber/Electrician)",
-    "nameZh": "Home Services (Plumber/Electrician)",
+    "nameZh": "家庭维修服务",
     "keywords": [
       "appointment",
       "booking",
@@ -1020,7 +1020,7 @@ export const products: ProductType[] = [
   {
     "id": 56,
     "name": "Childcare/Daycare",
-    "nameZh": "Childcare/Daycare",
+    "nameZh": "托儿/幼托",
     "keywords": [
       "childcare",
       "daycare"
@@ -1035,7 +1035,7 @@ export const products: ProductType[] = [
   {
     "id": 57,
     "name": "Senior Care/Elderly",
-    "nameZh": "Senior Care/Elderly",
+    "nameZh": "养老/老年护理",
     "keywords": [
       "care",
       "elderly",
@@ -1051,7 +1051,7 @@ export const products: ProductType[] = [
   {
     "id": 58,
     "name": "Medical Clinic",
-    "nameZh": "Medical Clinic",
+    "nameZh": "医疗诊所",
     "keywords": [
       "clinic",
       "medical"
@@ -1066,7 +1066,7 @@ export const products: ProductType[] = [
   {
     "id": 59,
     "name": "Pharmacy/Drug Store",
-    "nameZh": "Pharmacy/Drug Store",
+    "nameZh": "药店/药房",
     "keywords": [
       "drug",
       "pharmacy",
@@ -1082,7 +1082,7 @@ export const products: ProductType[] = [
   {
     "id": 60,
     "name": "Dental Practice",
-    "nameZh": "Dental Practice",
+    "nameZh": "牙科诊所",
     "keywords": [
       "dental",
       "practice"
@@ -1097,7 +1097,7 @@ export const products: ProductType[] = [
   {
     "id": 61,
     "name": "Veterinary Clinic",
-    "nameZh": "Veterinary Clinic",
+    "nameZh": "宠物医院",
     "keywords": [
       "clinic",
       "veterinary"
@@ -1112,7 +1112,7 @@ export const products: ProductType[] = [
   {
     "id": 62,
     "name": "Florist/Plant Shop",
-    "nameZh": "Florist/Plant Shop",
+    "nameZh": "花店/植物商店",
     "keywords": [
       "florist",
       "plant",
@@ -1128,7 +1128,7 @@ export const products: ProductType[] = [
   {
     "id": 63,
     "name": "Bakery/Cafe",
-    "nameZh": "Bakery/Cafe",
+    "nameZh": "烘焙/咖啡店",
     "keywords": [
       "bakery",
       "cafe"
@@ -1143,7 +1143,7 @@ export const products: ProductType[] = [
   {
     "id": 64,
     "name": "Brewery/Winery",
-    "nameZh": "Brewery/Winery",
+    "nameZh": "酿酒厂/酒庄",
     "keywords": [
       "brewery",
       "winery"
@@ -1158,7 +1158,7 @@ export const products: ProductType[] = [
   {
     "id": 65,
     "name": "Airline",
-    "nameZh": "Airline",
+    "nameZh": "航空公司",
     "keywords": [
       "airline",
       "aviation",
@@ -1178,7 +1178,7 @@ export const products: ProductType[] = [
   {
     "id": 66,
     "name": "News/Media Platform",
-    "nameZh": "News/Media Platform",
+    "nameZh": "新闻媒体平台",
     "keywords": [
       "content",
       "entertainment",
@@ -1198,7 +1198,7 @@ export const products: ProductType[] = [
   {
     "id": 67,
     "name": "Magazine/Blog",
-    "nameZh": "Magazine/Blog",
+    "nameZh": "杂志/博客",
     "keywords": [
       "articles",
       "blog",
@@ -1217,7 +1217,7 @@ export const products: ProductType[] = [
   {
     "id": 68,
     "name": "Freelancer Platform",
-    "nameZh": "Freelancer Platform",
+    "nameZh": "自由职业者平台",
     "keywords": [
       "freelancer",
       "platform"
@@ -1232,7 +1232,7 @@ export const products: ProductType[] = [
   {
     "id": 69,
     "name": "Marketing Agency",
-    "nameZh": "Marketing Agency",
+    "nameZh": "营销机构",
     "keywords": [
       "agency",
       "creative",
@@ -1250,7 +1250,7 @@ export const products: ProductType[] = [
   {
     "id": 70,
     "name": "Event Management",
-    "nameZh": "Event Management",
+    "nameZh": "活动管理",
     "keywords": [
       "conference",
       "event",
@@ -1269,7 +1269,7 @@ export const products: ProductType[] = [
   {
     "id": 71,
     "name": "Membership/Community",
-    "nameZh": "Membership/Community",
+    "nameZh": "会员/社区",
     "keywords": [
       "community",
       "membership"
@@ -1284,7 +1284,7 @@ export const products: ProductType[] = [
   {
     "id": 72,
     "name": "Newsletter Platform",
-    "nameZh": "Newsletter Platform",
+    "nameZh": "新闻通讯平台",
     "keywords": [
       "newsletter",
       "platform"
@@ -1299,7 +1299,7 @@ export const products: ProductType[] = [
   {
     "id": 73,
     "name": "Digital Products/Downloads",
-    "nameZh": "Digital Products/Downloads",
+    "nameZh": "数字产品/下载",
     "keywords": [
       "digital",
       "downloads",
@@ -1315,7 +1315,7 @@ export const products: ProductType[] = [
   {
     "id": 74,
     "name": "Church/Religious Organization",
-    "nameZh": "Church/Religious Organization",
+    "nameZh": "宗教组织",
     "keywords": [
       "church",
       "organization",
@@ -1331,7 +1331,7 @@ export const products: ProductType[] = [
   {
     "id": 75,
     "name": "Sports Team/Club",
-    "nameZh": "Sports Team/Club",
+    "nameZh": "体育俱乐部",
     "keywords": [
       "club",
       "sports",
@@ -1347,7 +1347,7 @@ export const products: ProductType[] = [
   {
     "id": 76,
     "name": "Museum/Gallery",
-    "nameZh": "Museum/Gallery",
+    "nameZh": "博物馆/画廊",
     "keywords": [
       "gallery",
       "museum"
@@ -1362,7 +1362,7 @@ export const products: ProductType[] = [
   {
     "id": 77,
     "name": "Theater/Cinema",
-    "nameZh": "Theater/Cinema",
+    "nameZh": "剧院/影院",
     "keywords": [
       "cinema",
       "theater"
@@ -1377,7 +1377,7 @@ export const products: ProductType[] = [
   {
     "id": 78,
     "name": "Language Learning App",
-    "nameZh": "Language Learning App",
+    "nameZh": "语言学习应用",
     "keywords": [
       "app",
       "language",
@@ -1393,7 +1393,7 @@ export const products: ProductType[] = [
   {
     "id": 79,
     "name": "Coding Bootcamp",
-    "nameZh": "Coding Bootcamp",
+    "nameZh": "编程训练营",
     "keywords": [
       "bootcamp",
       "coding"
@@ -1408,7 +1408,7 @@ export const products: ProductType[] = [
   {
     "id": 80,
     "name": "Cybersecurity Platform",
-    "nameZh": "Cybersecurity Platform",
+    "nameZh": "网络安全平台",
     "keywords": [
       "cyber",
       "security",
@@ -1424,7 +1424,7 @@ export const products: ProductType[] = [
   {
     "id": 81,
     "name": "Developer Tool / IDE",
-    "nameZh": "Developer Tool / IDE",
+    "nameZh": "开发者工具/IDE",
     "keywords": [
       "dev",
       "developer",
@@ -1441,7 +1441,7 @@ export const products: ProductType[] = [
   {
     "id": 82,
     "name": "Biotech / Life Sciences",
-    "nameZh": "Biotech / Life Sciences",
+    "nameZh": "生物科技/生命科学",
     "keywords": [
       "biotech",
       "biology",
@@ -1457,7 +1457,7 @@ export const products: ProductType[] = [
   {
     "id": 83,
     "name": "Space Tech / Aerospace",
-    "nameZh": "Space Tech / Aerospace",
+    "nameZh": "航天科技",
     "keywords": [
       "aerospace",
       "space",
@@ -1473,7 +1473,7 @@ export const products: ProductType[] = [
   {
     "id": 84,
     "name": "Architecture / Interior",
-    "nameZh": "Architecture / Interior",
+    "nameZh": "建筑/室内设计",
     "keywords": [
       "architecture",
       "design",
@@ -1489,7 +1489,7 @@ export const products: ProductType[] = [
   {
     "id": 85,
     "name": "Quantum Computing Interface",
-    "nameZh": "Quantum Computing Interface",
+    "nameZh": "量子计算界面",
     "keywords": [
       "quantum",
       "computing",
@@ -1508,7 +1508,7 @@ export const products: ProductType[] = [
   {
     "id": 86,
     "name": "Biohacking / Longevity App",
-    "nameZh": "Biohacking / Longevity App",
+    "nameZh": "生物黑客/长寿应用",
     "keywords": [
       "biohacking",
       "health",
@@ -1527,7 +1527,7 @@ export const products: ProductType[] = [
   {
     "id": 87,
     "name": "Autonomous Drone Fleet Manager",
-    "nameZh": "Autonomous Drone Fleet Manager",
+    "nameZh": "无人机管理平台",
     "keywords": [
       "drone",
       "autonomous",
@@ -1546,7 +1546,7 @@ export const products: ProductType[] = [
   {
     "id": 88,
     "name": "Generative Art Platform",
-    "nameZh": "Generative Art Platform",
+    "nameZh": "生成艺术平台",
     "keywords": [
       "art",
       "generative",
@@ -1565,7 +1565,7 @@ export const products: ProductType[] = [
   {
     "id": 89,
     "name": "Spatial Computing OS / App",
-    "nameZh": "Spatial Computing OS / App",
+    "nameZh": "空间计算应用",
     "keywords": [
       "spatial",
       "vr",
@@ -1585,7 +1585,7 @@ export const products: ProductType[] = [
   {
     "id": 90,
     "name": "Sustainable Energy / Climate Tech",
-    "nameZh": "Sustainable Energy / Climate Tech",
+    "nameZh": "可持续能源/气候科技",
     "keywords": [
       "climate",
       "energy",
@@ -1604,7 +1604,7 @@ export const products: ProductType[] = [
   {
     "id": 91,
     "name": "Personal Finance Tracker",
-    "nameZh": "Personal Finance Tracker",
+    "nameZh": "个人理财追踪",
     "keywords": [
       "budget",
       "expense",
@@ -1626,7 +1626,7 @@ export const products: ProductType[] = [
   {
     "id": 92,
     "name": "Chat & Messaging App",
-    "nameZh": "Chat & Messaging App",
+    "nameZh": "聊天/通讯应用",
     "keywords": [
       "chat",
       "message",
@@ -1649,7 +1649,7 @@ export const products: ProductType[] = [
   {
     "id": 93,
     "name": "Notes & Writing App",
-    "nameZh": "Notes & Writing App",
+    "nameZh": "笔记/写作应用",
     "keywords": [
       "notes",
       "memo",
@@ -1671,7 +1671,7 @@ export const products: ProductType[] = [
   {
     "id": 94,
     "name": "Habit Tracker",
-    "nameZh": "Habit Tracker",
+    "nameZh": "习惯追踪器",
     "keywords": [
       "habit",
       "streak",
@@ -1692,7 +1692,7 @@ export const products: ProductType[] = [
   {
     "id": 95,
     "name": "Food Delivery / On-Demand",
-    "nameZh": "Food Delivery / On-Demand",
+    "nameZh": "外卖/即时配送",
     "keywords": [
       "delivery",
       "food",
@@ -1713,7 +1713,7 @@ export const products: ProductType[] = [
   {
     "id": 96,
     "name": "Ride Hailing / Transportation",
-    "nameZh": "Ride Hailing / Transportation",
+    "nameZh": "网约车/出行",
     "keywords": [
       "ride",
       "taxi",
@@ -1735,7 +1735,7 @@ export const products: ProductType[] = [
   {
     "id": 97,
     "name": "Recipe & Cooking App",
-    "nameZh": "Recipe & Cooking App",
+    "nameZh": "食谱/烹饪应用",
     "keywords": [
       "recipe",
       "cooking",
@@ -1756,7 +1756,7 @@ export const products: ProductType[] = [
   {
     "id": 98,
     "name": "Meditation & Mindfulness",
-    "nameZh": "Meditation & Mindfulness",
+    "nameZh": "冥想正念",
     "keywords": [
       "meditation",
       "mindfulness",
@@ -1777,7 +1777,7 @@ export const products: ProductType[] = [
   {
     "id": 99,
     "name": "Weather App",
-    "nameZh": "Weather App",
+    "nameZh": "天气应用",
     "keywords": [
       "weather",
       "forecast",
@@ -1798,7 +1798,7 @@ export const products: ProductType[] = [
   {
     "id": 100,
     "name": "Diary & Journal App",
-    "nameZh": "Diary & Journal App",
+    "nameZh": "日记应用",
     "keywords": [
       "diary",
       "journal",
@@ -1819,7 +1819,7 @@ export const products: ProductType[] = [
   {
     "id": 101,
     "name": "CRM & Client Management",
-    "nameZh": "CRM & Client Management",
+    "nameZh": "CRM/客户管理",
     "keywords": [
       "crm",
       "client",
@@ -1841,7 +1841,7 @@ export const products: ProductType[] = [
   {
     "id": 102,
     "name": "Inventory & Stock Management",
-    "nameZh": "Inventory & Stock Management",
+    "nameZh": "库存管理",
     "keywords": [
       "inventory",
       "stock",
@@ -1862,7 +1862,7 @@ export const products: ProductType[] = [
   {
     "id": 103,
     "name": "Flashcard & Study Tool",
-    "nameZh": "Flashcard & Study Tool",
+    "nameZh": "闪卡/学习工具",
     "keywords": [
       "flashcard",
       "quiz",
@@ -1883,7 +1883,7 @@ export const products: ProductType[] = [
   {
     "id": 104,
     "name": "Booking & Appointment App",
-    "nameZh": "Booking & Appointment App",
+    "nameZh": "预约应用",
     "keywords": [
       "booking",
       "appointment",
@@ -1903,7 +1903,7 @@ export const products: ProductType[] = [
   {
     "id": 105,
     "name": "Invoice & Billing Tool",
-    "nameZh": "Invoice & Billing Tool",
+    "nameZh": "发票/账单工具",
     "keywords": [
       "invoice",
       "billing",
@@ -1924,7 +1924,7 @@ export const products: ProductType[] = [
   {
     "id": 106,
     "name": "Grocery & Shopping List",
-    "nameZh": "Grocery & Shopping List",
+    "nameZh": "购物清单应用",
     "keywords": [
       "grocery",
       "shopping",
@@ -1945,7 +1945,7 @@ export const products: ProductType[] = [
   {
     "id": 107,
     "name": "Timer & Pomodoro",
-    "nameZh": "Timer & Pomodoro",
+    "nameZh": "计时器/番茄钟",
     "keywords": [
       "timer",
       "pomodoro",
@@ -1966,7 +1966,7 @@ export const products: ProductType[] = [
   {
     "id": 108,
     "name": "Parenting & Baby Tracker",
-    "nameZh": "Parenting & Baby Tracker",
+    "nameZh": "育儿/宝宝追踪",
     "keywords": [
       "baby",
       "parenting",
@@ -1988,7 +1988,7 @@ export const products: ProductType[] = [
   {
     "id": 109,
     "name": "Scanner & Document Manager",
-    "nameZh": "Scanner & Document Manager",
+    "nameZh": "扫描/文档管理",
     "keywords": [
       "scanner",
       "document",
@@ -2010,7 +2010,7 @@ export const products: ProductType[] = [
   {
     "id": 110,
     "name": "Calendar & Scheduling App",
-    "nameZh": "Calendar & Scheduling App",
+    "nameZh": "日历/日程应用",
     "keywords": [
       "calendar",
       "scheduling",
@@ -2033,7 +2033,7 @@ export const products: ProductType[] = [
   {
     "id": 111,
     "name": "Password Manager",
-    "nameZh": "Password Manager",
+    "nameZh": "密码管理器",
     "keywords": [
       "password",
       "security",
@@ -2056,7 +2056,7 @@ export const products: ProductType[] = [
   {
     "id": 112,
     "name": "Expense Splitter / Bill Split",
-    "nameZh": "Expense Splitter / Bill Split",
+    "nameZh": "AA/分账应用",
     "keywords": [
       "split",
       "expense",
@@ -2080,7 +2080,7 @@ export const products: ProductType[] = [
   {
     "id": 113,
     "name": "Voice Recorder & Memo",
-    "nameZh": "Voice Recorder & Memo",
+    "nameZh": "录音/语音备忘",
     "keywords": [
       "voice",
       "recorder",
@@ -2103,7 +2103,7 @@ export const products: ProductType[] = [
   {
     "id": 114,
     "name": "Bookmark & Read-Later",
-    "nameZh": "Bookmark & Read-Later",
+    "nameZh": "收藏/稍后阅读",
     "keywords": [
       "bookmark",
       "read-later",
@@ -2126,7 +2126,7 @@ export const products: ProductType[] = [
   {
     "id": 115,
     "name": "Translator App",
-    "nameZh": "Translator App",
+    "nameZh": "翻译应用",
     "keywords": [
       "translate",
       "language",
@@ -2149,7 +2149,7 @@ export const products: ProductType[] = [
   {
     "id": 116,
     "name": "Calculator & Unit Converter",
-    "nameZh": "Calculator & Unit Converter",
+    "nameZh": "计算器/单位转换",
     "keywords": [
       "calculator",
       "converter",
@@ -2171,7 +2171,7 @@ export const products: ProductType[] = [
   {
     "id": 117,
     "name": "Alarm & World Clock",
-    "nameZh": "Alarm & World Clock",
+    "nameZh": "闹钟/世界时钟",
     "keywords": [
       "alarm",
       "clock",
@@ -2194,7 +2194,7 @@ export const products: ProductType[] = [
   {
     "id": 118,
     "name": "File Manager & Transfer",
-    "nameZh": "File Manager & Transfer",
+    "nameZh": "文件管理/传输",
     "keywords": [
       "file",
       "manager",
@@ -2217,7 +2217,7 @@ export const products: ProductType[] = [
   {
     "id": 119,
     "name": "Email Client",
-    "nameZh": "Email Client",
+    "nameZh": "邮件客户端",
     "keywords": [
       "email",
       "mail",
@@ -2241,7 +2241,7 @@ export const products: ProductType[] = [
   {
     "id": 120,
     "name": "Casual Puzzle Game",
-    "nameZh": "Casual Puzzle Game",
+    "nameZh": "休闲益智游戏",
     "keywords": [
       "puzzle",
       "casual",
@@ -2265,7 +2265,7 @@ export const products: ProductType[] = [
   {
     "id": 121,
     "name": "Trivia & Quiz Game",
-    "nameZh": "Trivia & Quiz Game",
+    "nameZh": "问答/竞猜游戏",
     "keywords": [
       "trivia",
       "quiz",
@@ -2288,7 +2288,7 @@ export const products: ProductType[] = [
   {
     "id": 122,
     "name": "Card & Board Game",
-    "nameZh": "Card & Board Game",
+    "nameZh": "纸牌/棋盘游戏",
     "keywords": [
       "card",
       "board",
@@ -2311,7 +2311,7 @@ export const products: ProductType[] = [
   {
     "id": 123,
     "name": "Idle & Clicker Game",
-    "nameZh": "Idle & Clicker Game",
+    "nameZh": "放置/点击游戏",
     "keywords": [
       "idle",
       "clicker",
@@ -2334,7 +2334,7 @@ export const products: ProductType[] = [
   {
     "id": 124,
     "name": "Word & Crossword Game",
-    "nameZh": "Word & Crossword Game",
+    "nameZh": "文字/填字游戏",
     "keywords": [
       "word",
       "crossword",
@@ -2357,7 +2357,7 @@ export const products: ProductType[] = [
   {
     "id": 125,
     "name": "Arcade & Retro Game",
-    "nameZh": "Arcade & Retro Game",
+    "nameZh": "街机/复古游戏",
     "keywords": [
       "arcade",
       "retro",
@@ -2382,7 +2382,7 @@ export const products: ProductType[] = [
   {
     "id": 126,
     "name": "Photo Editor & Filters",
-    "nameZh": "Photo Editor & Filters",
+    "nameZh": "照片编辑/滤镜",
     "keywords": [
       "photo",
       "edit",
@@ -2407,7 +2407,7 @@ export const products: ProductType[] = [
   {
     "id": 127,
     "name": "Short Video Editor",
-    "nameZh": "Short Video Editor",
+    "nameZh": "短视频编辑",
     "keywords": [
       "video",
       "edit",
@@ -2432,7 +2432,7 @@ export const products: ProductType[] = [
   {
     "id": 128,
     "name": "Drawing & Sketching Canvas",
-    "nameZh": "Drawing & Sketching Canvas",
+    "nameZh": "绘画/素描画布",
     "keywords": [
       "drawing",
       "sketch",
@@ -2456,7 +2456,7 @@ export const products: ProductType[] = [
   {
     "id": 129,
     "name": "Music Creation & Beat Maker",
-    "nameZh": "Music Creation & Beat Maker",
+    "nameZh": "音乐创作/节拍器",
     "keywords": [
       "music",
       "beat",
@@ -2481,7 +2481,7 @@ export const products: ProductType[] = [
   {
     "id": 130,
     "name": "Meme & Sticker Maker",
-    "nameZh": "Meme & Sticker Maker",
+    "nameZh": "表情包/贴纸制作",
     "keywords": [
       "meme",
       "sticker",
@@ -2506,7 +2506,7 @@ export const products: ProductType[] = [
   {
     "id": 131,
     "name": "AI Photo & Avatar Generator",
-    "nameZh": "AI Photo & Avatar Generator",
+    "nameZh": "AI照片/头像生成",
     "keywords": [
       "ai",
       "photo",
@@ -2530,7 +2530,7 @@ export const products: ProductType[] = [
   {
     "id": 132,
     "name": "Link-in-Bio Page Builder",
-    "nameZh": "Link-in-Bio Page Builder",
+    "nameZh": "个人链接页构建",
     "keywords": [
       "bio",
       "link",
@@ -2554,7 +2554,7 @@ export const products: ProductType[] = [
   {
     "id": 133,
     "name": "Wardrobe & Outfit Planner",
-    "nameZh": "Wardrobe & Outfit Planner",
+    "nameZh": "衣橱/穿搭规划",
     "keywords": [
       "wardrobe",
       "outfit",
@@ -2578,7 +2578,7 @@ export const products: ProductType[] = [
   {
     "id": 134,
     "name": "Plant Care Tracker",
-    "nameZh": "Plant Care Tracker",
+    "nameZh": "植物养护追踪",
     "keywords": [
       "plant",
       "care",
@@ -2602,7 +2602,7 @@ export const products: ProductType[] = [
   {
     "id": 135,
     "name": "Book & Reading Tracker",
-    "nameZh": "Book & Reading Tracker",
+    "nameZh": "阅读追踪器",
     "keywords": [
       "book",
       "reading",
@@ -2626,7 +2626,7 @@ export const products: ProductType[] = [
   {
     "id": 136,
     "name": "Couple & Relationship App",
-    "nameZh": "Couple & Relationship App",
+    "nameZh": "情侣/关系应用",
     "keywords": [
       "couple",
       "relationship",
@@ -2649,7 +2649,7 @@ export const products: ProductType[] = [
   {
     "id": 137,
     "name": "Family Calendar & Chores",
-    "nameZh": "Family Calendar & Chores",
+    "nameZh": "家庭日历/家务",
     "keywords": [
       "family",
       "calendar",
@@ -2673,7 +2673,7 @@ export const products: ProductType[] = [
   {
     "id": 138,
     "name": "Mood Tracker",
-    "nameZh": "Mood Tracker",
+    "nameZh": "情绪追踪",
     "keywords": [
       "mood",
       "emotion",
@@ -2697,7 +2697,7 @@ export const products: ProductType[] = [
   {
     "id": 139,
     "name": "Gift & Wishlist",
-    "nameZh": "Gift & Wishlist",
+    "nameZh": "礼物/愿望清单",
     "keywords": [
       "gift",
       "wishlist",
@@ -2721,7 +2721,7 @@ export const products: ProductType[] = [
   {
     "id": 140,
     "name": "Running & Cycling GPS",
-    "nameZh": "Running & Cycling GPS",
+    "nameZh": "跑步/骑行GPS",
     "keywords": [
       "running",
       "cycling",
@@ -2746,7 +2746,7 @@ export const products: ProductType[] = [
   {
     "id": 141,
     "name": "Yoga & Stretching Guide",
-    "nameZh": "Yoga & Stretching Guide",
+    "nameZh": "瑜伽/拉伸指导",
     "keywords": [
       "yoga",
       "stretch",
@@ -2770,7 +2770,7 @@ export const products: ProductType[] = [
   {
     "id": 142,
     "name": "Sleep Tracker",
-    "nameZh": "Sleep Tracker",
+    "nameZh": "睡眠追踪器",
     "keywords": [
       "sleep",
       "tracker",
@@ -2795,7 +2795,7 @@ export const products: ProductType[] = [
   {
     "id": 143,
     "name": "Calorie & Nutrition Counter",
-    "nameZh": "Calorie & Nutrition Counter",
+    "nameZh": "卡路里/营养计算",
     "keywords": [
       "calorie",
       "nutrition",
@@ -2819,7 +2819,7 @@ export const products: ProductType[] = [
   {
     "id": 144,
     "name": "Period & Cycle Tracker",
-    "nameZh": "Period & Cycle Tracker",
+    "nameZh": "经期追踪",
     "keywords": [
       "period",
       "cycle",
@@ -2844,7 +2844,7 @@ export const products: ProductType[] = [
   {
     "id": 145,
     "name": "Medication & Pill Reminder",
-    "nameZh": "Medication & Pill Reminder",
+    "nameZh": "服药提醒",
     "keywords": [
       "medication",
       "pill",
@@ -2867,7 +2867,7 @@ export const products: ProductType[] = [
   {
     "id": 146,
     "name": "Water & Hydration Reminder",
-    "nameZh": "Water & Hydration Reminder",
+    "nameZh": "喝水提醒",
     "keywords": [
       "water",
       "hydration",
@@ -2891,7 +2891,7 @@ export const products: ProductType[] = [
   {
     "id": 147,
     "name": "Fasting & Intermittent Timer",
-    "nameZh": "Fasting & Intermittent Timer",
+    "nameZh": "间歇性断食计时",
     "keywords": [
       "fasting",
       "intermittent",
@@ -2916,7 +2916,7 @@ export const products: ProductType[] = [
   {
     "id": 148,
     "name": "Anonymous Community / Confession",
-    "nameZh": "Anonymous Community / Confession",
+    "nameZh": "匿名社区/树洞",
     "keywords": [
       "anonymous",
       "community",
@@ -2940,7 +2940,7 @@ export const products: ProductType[] = [
   {
     "id": 149,
     "name": "Local Events & Discovery",
-    "nameZh": "Local Events & Discovery",
+    "nameZh": "本地活动/发现",
     "keywords": [
       "local",
       "events",
@@ -2964,7 +2964,7 @@ export const products: ProductType[] = [
   {
     "id": 150,
     "name": "Study Together / Virtual Coworking",
-    "nameZh": "Study Together / Virtual Coworking",
+    "nameZh": "线上自习室",
     "keywords": [
       "study",
       "focus",
@@ -2988,7 +2988,7 @@ export const products: ProductType[] = [
   {
     "id": 151,
     "name": "Coding Challenge & Practice",
-    "nameZh": "Coding Challenge & Practice",
+    "nameZh": "编程挑战/练习",
     "keywords": [
       "coding",
       "leetcode",
@@ -3011,7 +3011,7 @@ export const products: ProductType[] = [
   {
     "id": 152,
     "name": "Kids Learning (ABC & Math)",
-    "nameZh": "Kids Learning (ABC & Math)",
+    "nameZh": "儿童学习应用",
     "keywords": [
       "kids",
       "children",
@@ -3035,7 +3035,7 @@ export const products: ProductType[] = [
   {
     "id": 153,
     "name": "Music Instrument Learning",
-    "nameZh": "Music Instrument Learning",
+    "nameZh": "乐器学习",
     "keywords": [
       "music",
       "instrument",
@@ -3060,7 +3060,7 @@ export const products: ProductType[] = [
   {
     "id": 154,
     "name": "Parking Finder",
-    "nameZh": "Parking Finder",
+    "nameZh": "停车位查找",
     "keywords": [
       "parking",
       "spot",
@@ -3084,7 +3084,7 @@ export const products: ProductType[] = [
   {
     "id": 155,
     "name": "Public Transit Guide",
-    "nameZh": "Public Transit Guide",
+    "nameZh": "公交导航",
     "keywords": [
       "transit",
       "bus",
@@ -3109,7 +3109,7 @@ export const products: ProductType[] = [
   {
     "id": 156,
     "name": "Road Trip Planner",
-    "nameZh": "Road Trip Planner",
+    "nameZh": "自驾旅行规划",
     "keywords": [
       "road",
       "trip",
@@ -3134,7 +3134,7 @@ export const products: ProductType[] = [
   {
     "id": 157,
     "name": "VPN & Privacy Tool",
-    "nameZh": "VPN & Privacy Tool",
+    "nameZh": "VPN/隐私工具",
     "keywords": [
       "vpn",
       "privacy",
@@ -3158,7 +3158,7 @@ export const products: ProductType[] = [
   {
     "id": 158,
     "name": "Emergency SOS & Safety",
-    "nameZh": "Emergency SOS & Safety",
+    "nameZh": "紧急求助/安全",
     "keywords": [
       "emergency",
       "sos",
@@ -3182,7 +3182,7 @@ export const products: ProductType[] = [
   {
     "id": 159,
     "name": "Wallpaper & Theme App",
-    "nameZh": "Wallpaper & Theme App",
+    "nameZh": "壁纸/主题应用",
     "keywords": [
       "wallpaper",
       "theme",
@@ -3205,7 +3205,7 @@ export const products: ProductType[] = [
   {
     "id": 160,
     "name": "White Noise & Ambient Sound",
-    "nameZh": "White Noise & Ambient Sound",
+    "nameZh": "白噪音/环境音",
     "keywords": [
       "white noise",
       "ambient",
@@ -3229,7 +3229,7 @@ export const products: ProductType[] = [
   {
     "id": 161,
     "name": "Home Decoration & Interior Design",
-    "nameZh": "Home Decoration & Interior Design",
+    "nameZh": "家装/室内设计",
     "keywords": [
       "home",
       "interior",

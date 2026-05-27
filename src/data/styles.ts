@@ -5,7 +5,6 @@ export const styles: UIStyle[] = [
     "id": 1,
     "nameEn": "Minimalism & Swiss Style",
     "nameZh": "极简主义",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Clean",
@@ -34,7 +33,7 @@ export const styles: UIStyle[] = [
     "era": "1950s Swiss",
     "complexity": "Low",
     "promptEn": "Design a minimalist landing page. Use: white space, geometric layouts, sans-serif fonts, high contrast, grid-based structure, essential elements only. Avoid shadows and gradients. Focus on clarity and functionality.",
-    "promptZh": "请设计一个极简主义界面。使用：Subtle hover (200-250ms), smooth transitions, sharp shadows 。配色：Monochromatic, Black #000000, White #FFFFFF。适用于：Enterprise apps, dashboards, documentation sites, 。技术要点：display: grid, gap: 2rem, font-family: sans-serif, color: #0。",
+    "promptZh": "请设计一个极简主义界面。使用：Subtle hover (200-250ms), smooth transitions, sharp shadows。配色：Monochromatic, Black #000000, White #FFFFFF。适用于：Enterprise apps, dashboards, documentation sites。技术要点：display: grid, gap: 2rem, font-family: sans-serif, color:。",
     "cssKeywords": "display: grid, gap: 2rem, font-family: sans-serif, color: #000 or #FFF, max-width: 1200px, clean borders, no box-shadow unless necessary",
     "implementationChecklist": [
       "Grid-based layout 12-16 columns,",
@@ -49,7 +48,6 @@ export const styles: UIStyle[] = [
     "id": 2,
     "nameEn": "Neumorphism",
     "nameZh": "新拟态",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Soft UI",
@@ -77,7 +75,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Create a neumorphic UI with soft 3D effects. Use light pastels, rounded corners (12-16px), subtle soft shadows (multiple layers), no hard lines, monochromatic color scheme with light/dark variations. Embossed/debossed effect on interactive elements.",
-    "promptZh": "请设计一个新拟态界面。使用：Soft box-shadow (multiple: -5px -5px 15px, 5px 5px 15px), sm。配色：Light pastels: Soft Blue #C8E0F4, Soft Pink #F5E0E。适用于：Health/wellness apps, meditation platforms, fitnes。技术要点：border-radius: 12-16px, box-shadow: -5px -5px 15px rgba(0,0,。",
+    "promptZh": "请设计一个新拟态界面。使用：Soft box-shadow (multiple: -5px -5px 15px, 5px 5px 15px)。配色：Light pastels: Soft Blue #C8E0F4, Soft Pink。适用于：Health/wellness apps, meditation platforms。技术要点：border-radius: 12-16px, box-shadow: -5px -5px 15px rgba(0,0。",
     "cssKeywords": "border-radius: 12-16px, box-shadow: -5px -5px 15px rgba(0,0,0,0.1), 5px 5px 15px rgba(255,255,255,0.8), background: linear-gradient(145deg, color1, color2), transform: scale on press",
     "implementationChecklist": [
       "Rounded corners 12-16px consistent,",
@@ -92,7 +90,6 @@ export const styles: UIStyle[] = [
     "id": 3,
     "nameEn": "Glassmorphism",
     "nameZh": "玻璃拟态",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Frosted glass",
@@ -119,7 +116,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a glassmorphic interface with frosted glass effect. Use backdrop blur (10-20px), translucent overlays (rgba 10-30% opacity), vibrant background colors, subtle borders, light source reflection, layered depth. Perfect for modern overlays and cards.",
-    "promptZh": "请设计一个玻璃拟态界面。使用：Backdrop blur (10-20px), subtle border (1px solid rgba white。配色：Translucent white: rgba(255,255,255,0.1-0.3)。适用于：Modern SaaS, financial dashboards, high-end corpor。技术要点：backdrop-filter: blur(15px), background: rgba(255, 255, 255,。",
+    "promptZh": "请设计一个玻璃拟态界面。使用：Backdrop blur (10-20px), subtle border (1px solid rgba。配色：Translucent white: rgba(255,255,255,0.1-0.3)。适用于：Modern SaaS, financial dashboards, high-end。技术要点：backdrop-filter: blur(15px), background: rgba(255, 255, 255。",
     "cssKeywords": "backdrop-filter: blur(15px), background: rgba(255, 255, 255, 0.15), border: 1px solid rgba(255,255,255,0.2), -webkit-backdrop-filter: blur(15px), z-index layering for depth",
     "implementationChecklist": [
       "Backdrop-filter blur 10-20px,",
@@ -134,7 +131,6 @@ export const styles: UIStyle[] = [
     "id": 4,
     "nameEn": "Brutalism",
     "nameZh": "粗野主义",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Raw",
@@ -162,7 +158,7 @@ export const styles: UIStyle[] = [
     "era": "1950s Brutalist",
     "complexity": "Low",
     "promptEn": "Create a brutalist design with raw, unpolished, stark aesthetic. Use pure primary colors (red, blue, yellow), black & white, no smooth transitions (instant), sharp corners, bold large typography, visible grid lines, default system fonts, intentional 'broken' design elements.",
-    "promptZh": "请设计一个粗野主义界面。使用：No smooth transitions (instant), sharp corners (0px), bold t。配色：Primary: Red #FF0000, Blue #0000FF, Yellow #FFFF00。适用于：Design portfolios, artistic projects, counter-cult。技术要点：border-radius: 0px, transition: none or 0s, font-family: sys。",
+    "promptZh": "请设计一个粗野主义界面。使用：No smooth transitions (instant), sharp corners (0px), bold。配色：Primary: Red #FF0000, Blue #0000FF, Yellow。适用于：Design portfolios, artistic projects。技术要点：border-radius: 0px, transition: none or 0s, font-family:。",
     "cssKeywords": "border-radius: 0px, transition: none or 0s, font-family: system-ui or monospace, font-weight: 700+, border: visible 2-4px, colors: #FF0000, #0000FF, #FFFF00, #000000, #FFFFFF",
     "implementationChecklist": [
       "No border-radius (0px),",
@@ -178,7 +174,6 @@ export const styles: UIStyle[] = [
     "id": 5,
     "nameEn": "3D & Hyperrealism",
     "nameZh": "3D超写实",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Depth",
@@ -205,7 +200,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "High",
     "promptEn": "Build an immersive 3D interface using realistic textures, 3D models (Three.js/Babylon.js), complex shadows, realistic lighting, parallax scrolling (3-5 layers), physics-based motion. Include skeuomorphic elements with tactile detail.",
-    "promptZh": "请设计一个3D超写实界面。使用：WebGL/Three.js 3D, realistic shadows (layers), physics light。配色：Deep Navy #001F3F, Forest Green #228B22, Burgundy 。适用于：Gaming, product showcase, immersive experiences, h。技术要点：transform: translate3d, perspective: 1000px, WebGL canvas, T。",
+    "promptZh": "请设计一个3D超写实界面。使用：WebGL/Three.js 3D, realistic shadows (layers), physics。配色：Deep Navy #001F3F, Forest Green #228B22, Burgundy。适用于：Gaming, product showcase, immersive experiences。技术要点：transform: translate3d, perspective: 1000px, WebGL canvas。",
     "cssKeywords": "transform: translate3d, perspective: 1000px, WebGL canvas, Three.js/Babylon.js library, box-shadow: complex multi-layer, background: complex gradients, filter: drop-shadow()",
     "implementationChecklist": [
       "WebGL/Three.js integrated,",
@@ -221,7 +216,6 @@ export const styles: UIStyle[] = [
     "id": 6,
     "nameEn": "Vibrant & Block-based",
     "nameZh": "活力色块",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Bold",
@@ -249,7 +243,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design an energetic, vibrant interface with bold block layouts, geometric shapes, high color contrast, large typography (32px+), animated background patterns, duotone effects. Perfect for startups and youth-focused apps. Use 4-6 contrasting colors from complementary/triadic schemes.",
-    "promptZh": "请设计一个活力色块界面。使用：Large sections (48px+ gaps), animated patterns, bold hover (。配色：Neon Green #39FF14, Electric Purple #BF00FF, Vivid。适用于：Startups, creative agencies, gaming, social media,。技术要点：display: flex/grid with large gaps (48px+), font-size: 32px+。",
+    "promptZh": "请设计一个活力色块界面。使用：Large sections (48px+ gaps), animated patterns, bold hover。配色：Neon Green #39FF14, Electric Purple #BF00FF。适用于：Startups, creative agencies, gaming, social media。技术要点：display: flex/grid with large gaps (48px+), font-size:。",
     "cssKeywords": "display: flex/grid with large gaps (48px+), font-size: 32px+, background: animated patterns (CSS), color: neon/vibrant colors, animation: continuous pattern movement",
     "implementationChecklist": [
       "Block layout with 48px+ gaps,",
@@ -265,7 +259,6 @@ export const styles: UIStyle[] = [
     "id": 7,
     "nameEn": "Dark Mode (OLED)",
     "nameZh": "深色模式",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Dark theme",
@@ -293,7 +286,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Low",
     "promptEn": "Create an OLED-optimized dark interface with deep black (#000000), dark grey (#121212), midnight blue accents. Use minimal glow effects, vibrant neon accents (green, blue, gold, purple), high contrast text. Optimize for eye comfort and OLED power saving.",
-    "promptZh": "请设计一个深色模式界面。使用：Minimal glow (text-shadow: 0 0 10px), dark-to-light transiti。配色：Deep Black #000000, Dark Grey #121212, Midnight Bl。适用于：Night-mode apps, coding platforms, entertainment, 。技术要点：background: #000000 or #121212, color: #FFFFFF or #E0E0E0, t。",
+    "promptZh": "请设计一个深色模式界面。使用：Minimal glow (text-shadow: 0 0 10px), dark-to-light。配色：Deep Black #000000, Dark Grey #121212, Midnight。适用于：Night-mode apps, coding platforms, entertainment。技术要点：background: #000000 or #121212, color: #FFFFFF or #E0E0E0。",
     "cssKeywords": "background: #000000 or #121212, color: #FFFFFF or #E0E0E0, text-shadow: 0 0 10px neon-color (sparingly), filter: brightness(0.8) if needed, color-scheme: dark",
     "implementationChecklist": [
       "Deep black #000000 or #121212,",
@@ -309,7 +302,6 @@ export const styles: UIStyle[] = [
     "id": 8,
     "nameEn": "Accessible & Ethical",
     "nameZh": "无障碍设计",
-    "category": "General",
     "type": "General",
     "keywords": [
       "High contrast",
@@ -335,7 +327,7 @@ export const styles: UIStyle[] = [
     "era": "Universal",
     "complexity": "Low",
     "promptEn": "Design with WCAG AAA compliance. Include: high contrast (7:1+), large text (16px+), keyboard navigation, screen reader compatibility, focus states visible (3-4px ring), semantic HTML, ARIA labels, skip links, reduced motion support (prefers-reduced-motion), 44x44px touch targets.",
-    "promptZh": "请设计一个无障碍设计界面。使用：Clear focus rings (3-4px), ARIA labels, skip links, responsi。配色：WCAG AA/AAA (4.5:1 min), simple primary, clear sec。适用于：Government, healthcare, education, inclusive produ。技术要点：color-contrast: 7:1+, font-size: 16px+, outline: 3-4px on :f。",
+    "promptZh": "请设计一个无障碍设计界面。使用：Clear focus rings (3-4px), ARIA labels, skip links。配色：WCAG AA/AAA (4.5:1 min), simple primary, clear。适用于：Government, healthcare, education, inclusive。技术要点：color-contrast: 7:1+, font-size: 16px+, outline: 3-4px on。",
     "cssKeywords": "color-contrast: 7:1+, font-size: 16px+, outline: 3-4px on :focus-visible, aria-label, role attributes, @media (prefers-reduced-motion), touch-target: 44x44px, cursor: pointer",
     "implementationChecklist": [
       "WCAG AAA verified,",
@@ -352,7 +344,6 @@ export const styles: UIStyle[] = [
     "id": 9,
     "nameEn": "Claymorphism",
     "nameZh": "粘土拟态",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Soft 3D",
@@ -379,7 +370,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a playful, toy-like interface with soft 3D, chunky elements, bubbly aesthetic, rounded edges (16-24px), thick borders (3-4px), double shadows (inner + outer), pastel colors, smooth animations. Perfect for children's apps and creative tools.",
-    "promptZh": "请设计一个粘土拟态界面。使用：Inner+outer shadows (subtle, no hard lines), soft press (200。配色：Pastel: Soft Peach #FDBCB4, Baby Blue #ADD8E6, Min。适用于：Educational apps, children's apps, SaaS platforms,。技术要点：border-radius: 16-24px, border: 3-4px solid, box-shadow: ins。",
+    "promptZh": "请设计一个粘土拟态界面。使用：Inner+outer shadows (subtle, no hard lines), soft press。配色：Pastel: Soft Peach #FDBCB4, Baby Blue #ADD8E6。适用于：Educational apps, children's apps, SaaS platforms。技术要点：border-radius: 16-24px, border: 3-4px solid, box-shadow:。",
     "cssKeywords": "border-radius: 16-24px, border: 3-4px solid, box-shadow: inset -2px -2px 8px, 4px 4px 8px, background: pastel-gradient, animation: soft bounce (cubic-bezier 0.34, 1.56)",
     "implementationChecklist": [
       "Border-radius 16-24px,",
@@ -395,7 +386,6 @@ export const styles: UIStyle[] = [
     "id": 10,
     "nameEn": "Aurora UI",
     "nameZh": "极光界面",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Vibrant gradients",
@@ -421,7 +411,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Create a vibrant gradient interface inspired by Northern Lights with mesh gradients, smooth color blends, flowing animations. Use complementary color pairs (blue-orange, purple-yellow), flowing background gradients, subtle continuous animations (8-12s loops), iridescent effects.",
-    "promptZh": "请设计一个极光界面界面。使用：Large flowing CSS/SVG gradients, subtle 8-12s animations, de。配色：Complementary: Blue-Orange, Purple-Yellow, Electri。适用于：Modern SaaS, creative agencies, branding, music pl。技术要点：background: conic-gradient or radial-gradient with multiple 。",
+    "promptZh": "请设计一个极光界面界面。使用：Large flowing CSS/SVG gradients, subtle 8-12s animations。配色：Complementary: Blue-Orange, Purple-Yellow。适用于：Modern SaaS, creative agencies, branding, music。技术要点：background: conic-gradient or radial-gradient with multiple。",
     "cssKeywords": "background: conic-gradient or radial-gradient with multiple stops, animation: @keyframes gradient (8-12s), background-size: 200% 200%, filter: saturate(1.2), blend-mode: screen or multiply",
     "implementationChecklist": [
       "Mesh/flowing gradients applied,",
@@ -437,7 +427,6 @@ export const styles: UIStyle[] = [
     "id": 11,
     "nameEn": "Retro-Futurism",
     "nameZh": "复古未来",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Vintage sci-fi",
@@ -464,7 +453,7 @@ export const styles: UIStyle[] = [
     "era": "1980s Retro",
     "complexity": "Medium",
     "promptEn": "Build a retro-futuristic (cyberpunk/vaporwave) interface with neon colors (blue, pink, cyan), deep black background, 80s aesthetic, CRT scanlines, glitch effects, neon glow text/borders, monospace fonts, geometric patterns. Use neon text-shadow and animated glitch effects.",
-    "promptZh": "请设计一个复古未来界面。使用：CRT scanlines (::before overlay), neon glow (text-shadow+box。配色：Neon Blue #0080FF, Hot Pink #FF006E, Cyan #00FFFF,。适用于：Gaming, entertainment, music platforms, tech brand。技术要点：color: neon colors (#0080FF, #FF006E, #00FFFF), text-shadow:。",
+    "promptZh": "请设计一个复古未来界面。使用：CRT scanlines (::before overlay), neon glow。配色：Neon Blue #0080FF, Hot Pink #FF006E, Cyan #00FFFF。适用于：Gaming, entertainment, music platforms, tech。技术要点：color: neon colors (#0080FF, #FF006E, #00FFFF)。",
     "cssKeywords": "color: neon colors (#0080FF, #FF006E, #00FFFF), text-shadow: 0 0 10px neon, background: #000 or #1A1A2E, font-family: monospace, animation: glitch (skew+offset), filter: hue-rotate",
     "implementationChecklist": [
       "Neon colors used,",
@@ -481,7 +470,6 @@ export const styles: UIStyle[] = [
     "id": 12,
     "nameEn": "Flat Design",
     "nameZh": "扁平设计",
-    "category": "General",
     "type": "General",
     "keywords": [
       "2D",
@@ -509,7 +497,7 @@ export const styles: UIStyle[] = [
     "era": "2010s Modern",
     "complexity": "Low",
     "promptEn": "Create a flat, 2D interface with bold colors, no shadows/gradients, clean lines, simple geometric shapes, icon-heavy, typography-focused, minimal ornamentation. Use 4-6 solid, bright colors in a limited palette with high saturation.",
-    "promptZh": "请设计一个扁平设计界面。使用：No gradients/shadows, simple hover (color/opacity shift), fa。配色：Solid bright: Red, Orange, Blue, Green, limited pa。适用于：Web apps, mobile apps, cross-platform, startup MVP。技术要点：box-shadow: none, background: solid color, border-radius: 0-。",
+    "promptZh": "请设计一个扁平设计界面。使用：No gradients/shadows, simple hover (color/opacity shift)。配色：Solid bright: Red, Orange, Blue, Green, limited。适用于：Web apps, mobile apps, cross-platform, startup。技术要点：box-shadow: none, background: solid color, border-radius:。",
     "cssKeywords": "box-shadow: none, background: solid color, border-radius: 0-4px, color: solid (no gradients), fill: solid, stroke: 1-2px, font: bold sans-serif, icons: simplified SVG",
     "implementationChecklist": [
       "No shadows/gradients,",
@@ -526,7 +514,6 @@ export const styles: UIStyle[] = [
     "id": 13,
     "nameEn": "Skeuomorphism",
     "nameZh": "拟物化设计",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Realistic",
@@ -555,7 +542,7 @@ export const styles: UIStyle[] = [
     "era": "2007-2012 iOS",
     "complexity": "High",
     "promptEn": "Design a realistic, textured interface with 3D depth, real-world metaphors (leather, wood, metal), complex gradients (8-12 stops), realistic shadows, grain/texture overlays, tactile press animations. Perfect for premium/luxury products.",
-    "promptZh": "请设计一个拟物化设计界面。使用：Realistic shadows (layers), depth (perspective), texture det。配色：Rich realistic: wood, leather, metal colors, detai。适用于：Legacy apps, gaming, immersive storytelling, premi。技术要点：background: complex gradient (8-12 stops), box-shadow: reali。",
+    "promptZh": "请设计一个拟物化设计界面。使用：Realistic shadows (layers), depth (perspective), texture。配色：Rich realistic: wood, leather, metal colors。适用于：Legacy apps, gaming, immersive storytelling。技术要点：background: complex gradient (8-12 stops), box-shadow:。",
     "cssKeywords": "background: complex gradient (8-12 stops), box-shadow: realistic multi-layer, background-image: texture overlay (noise, grain), filter: drop-shadow, transform: scale on press (300-500ms)",
     "implementationChecklist": [
       "Realistic textures applied,",
@@ -571,7 +558,6 @@ export const styles: UIStyle[] = [
     "id": 14,
     "nameEn": "Liquid Glass",
     "nameZh": "流体玻璃",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Flowing glass",
@@ -598,7 +584,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "High",
     "promptEn": "Create a premium liquid glass effect with morphing shapes, flowing animations, chromatic aberration, iridescent gradients, smooth 400-600ms transitions. Use SVG morphing for shape changes, dynamic blur, smooth color transitions creating a fluid, premium feel.",
-    "promptZh": "请设计一个流体玻璃界面。使用：Morphing elements (SVG/CSS), fluid animations (400-600ms cur。配色：Vibrant iridescent (rainbow spectrum), translucent。适用于：Premium SaaS, high-end e-commerce, creative platfo。技术要点：animation: morphing SVG paths (400-600ms), backdrop-filter: 。",
+    "promptZh": "请设计一个流体玻璃界面。使用：Morphing elements (SVG/CSS), fluid animations (400-600ms。配色：Vibrant iridescent (rainbow spectrum)。适用于：Premium SaaS, high-end e-commerce, creative。技术要点：animation: morphing SVG paths (400-600ms), backdrop-filter:。",
     "cssKeywords": "animation: morphing SVG paths (400-600ms), backdrop-filter: blur + saturate, filter: hue-rotate + brightness, blend-mode: screen, background: iridescent gradient",
     "implementationChecklist": [
       "Morphing animations 400-600ms,",
@@ -614,7 +600,6 @@ export const styles: UIStyle[] = [
     "id": 15,
     "nameEn": "Motion-Driven",
     "nameZh": "动效驱动",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Animation-heavy",
@@ -640,7 +625,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "High",
     "promptEn": "Build an animation-heavy interface with scroll-triggered animations, microinteractions, parallax scrolling (3-5 layers), smooth transitions (300-400ms), entrance animations, page transitions. Use Intersection Observer for scroll effects, transform for performance, GPU acceleration.",
-    "promptZh": "请设计一个动效驱动界面。使用：Scroll anim (Intersection Observer), hover (300-400ms), entr。配色：Bold colors emphasize movement, high contrast anim。适用于：Portfolio sites, storytelling platforms, interacti。技术要点：animation: @keyframes scroll-reveal, transform: translateY/X。",
+    "promptZh": "请设计一个动效驱动界面。使用：Scroll anim (Intersection Observer), hover (300-400ms)。配色：Bold colors emphasize movement, high contrast。适用于：Portfolio sites, storytelling platforms。技术要点：animation: @keyframes scroll-reveal, transform:。",
     "cssKeywords": "animation: @keyframes scroll-reveal, transform: translateY/X, Intersection Observer API, will-change: transform, scroll-behavior: smooth, animation-duration: 300-400ms",
     "implementationChecklist": [
       "Scroll animations active,",
@@ -656,7 +641,6 @@ export const styles: UIStyle[] = [
     "id": 16,
     "nameEn": "Micro-interactions",
     "nameZh": "微交互",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Small animations",
@@ -681,7 +665,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design with delightful micro-interactions: small 50-100ms animations, gesture-based responses, tactile feedback, loading spinners, success/error states, subtle hover effects, haptic feedback triggers for mobile. Focus on responsive, contextual interactions.",
-    "promptZh": "请设计一个微交互界面。使用：Small hover (50-100ms), loading spinners, success/error stat。配色：Subtle color shifts (10-20%), feedback: Green #22C。适用于：Mobile apps, touchscreen UIs, productivity tools, 。技术要点：animation: short 50-100ms, transition: hover states, @media 。",
+    "promptZh": "请设计一个微交互界面。使用：Small hover (50-100ms), loading spinners, success/error。配色：Subtle color shifts (10-20%), feedback: Green。适用于：Mobile apps, touchscreen UIs, productivity tools。技术要点：animation: short 50-100ms, transition: hover states, @media。",
     "cssKeywords": "animation: short 50-100ms, transition: hover states, @media (hover: hover) for desktop, :active for press, haptic-feedback CSS/API, loading animation smooth loop",
     "implementationChecklist": [
       "Micro-animations 50-100ms,",
@@ -697,7 +681,6 @@ export const styles: UIStyle[] = [
     "id": 17,
     "nameEn": "Inclusive Design",
     "nameZh": "包容性设计",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Accessible",
@@ -724,7 +707,7 @@ export const styles: UIStyle[] = [
     "era": "Universal",
     "complexity": "Low",
     "promptEn": "Design for universal accessibility: high contrast (7:1+), large text (16px+), keyboard-only navigation, screen reader optimization, WCAG AAA compliance, symbol-based color indicators (not color-only), haptic feedback, voice interaction support, reduced motion options.",
-    "promptZh": "请设计一个包容性设计界面。使用：Haptic feedback (vibration), voice guidance, focus indicator。配色：WCAG AAA (7:1+ contrast), avoid red-green only, sy。适用于：Public services, education, healthcare, finance, g。技术要点：aria-* attributes complete, role attributes semantic, focus-。",
+    "promptZh": "请设计一个包容性设计界面。使用：Haptic feedback (vibration), voice guidance, focus。配色：WCAG AAA (7:1+ contrast), avoid red-green only。适用于：Public services, education, healthcare, finance。技术要点：aria-* attributes complete, role attributes semantic。",
     "cssKeywords": "aria-* attributes complete, role attributes semantic, focus-visible: 3-4px ring, color-contrast: 7:1+, @media (prefers-reduced-motion), alt text on all images, form labels properly associated",
     "implementationChecklist": [
       "WCAG AAA verified,",
@@ -741,7 +724,6 @@ export const styles: UIStyle[] = [
     "id": 18,
     "nameEn": "Zero Interface",
     "nameZh": "零界面",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Minimal visible UI",
@@ -768,7 +750,7 @@ export const styles: UIStyle[] = [
     "era": "2020s AI-Era",
     "complexity": "Low",
     "promptEn": "Create a voice-first, gesture-based, AI-driven interface with minimal visible UI, progressive disclosure, voice recognition UI, gesture detection, AI predictions, smart suggestions, context-aware actions. Hide controls until needed.",
-    "promptZh": "请设计一个零界面界面。使用：Voice recognition UI, gesture detection, AI predictions (smo。配色：Neutral backgrounds: Soft white #FAFAFA, light gre。适用于：Voice assistants, AI platforms, future-forward UX,。技术要点：voice-commands: Web Speech API, gesture-detection: touch eve。",
+    "promptZh": "请设计一个零界面界面。使用：Voice recognition UI, gesture detection, AI predictions。配色：Neutral backgrounds: Soft white #FAFAFA, light。适用于：Voice assistants, AI platforms, future-forward UX。技术要点：voice-commands: Web Speech API, gesture-detection: touch。",
     "cssKeywords": "voice-commands: Web Speech API, gesture-detection: touch events, AI-predictions: hidden by default (reveal on hover), progressive-disclosure: show on demand, minimal UI visible",
     "implementationChecklist": [
       "Voice commands responsive,",
@@ -784,7 +766,6 @@ export const styles: UIStyle[] = [
     "id": 19,
     "nameEn": "Soft UI Evolution",
     "nameZh": "柔和界面进化",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Evolved soft UI",
@@ -810,7 +791,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design evolved neumorphism with improved contrast (WCAG AA+), modern aesthetics, subtle depth, accessibility focus. Use soft shadows (softer than flat but clearer than pure neumorphism), better color hierarchy, improved focus states, modern 200-300ms animations.",
-    "promptZh": "请设计一个柔和界面进化界面。使用：Improved shadows (softer than flat, clearer than neumorphism。配色：Improved contrast pastels: Soft Blue #87CEEB, Soft。适用于：Modern enterprise apps, SaaS platforms, health/wel。技术要点：box-shadow: softer multi-layer (0 2px 4px), background: impr。",
+    "promptZh": "请设计一个柔和界面进化界面。使用：Improved shadows (softer than flat, clearer than。配色：Improved contrast pastels: Soft Blue #87CEEB。适用于：Modern enterprise apps, SaaS platforms。技术要点：box-shadow: softer multi-layer (0 2px 4px), background:。",
     "cssKeywords": "box-shadow: softer multi-layer (0 2px 4px), background: improved contrast pastels, border-radius: 8-12px, animation: 200-300ms smooth, outline: 2-3px on focus, contrast: 4.5:1+",
     "implementationChecklist": [
       "Improved contrast AA/AAA,",
@@ -826,7 +807,6 @@ export const styles: UIStyle[] = [
     "id": 20,
     "nameEn": "Hero-Centric Design",
     "nameZh": "主视觉设计",
-    "category": "Landing Page",
     "type": "Landing Page",
     "keywords": [
       "Large hero section",
@@ -852,7 +832,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a hero-centric landing page. Use: full-width hero section, compelling headline (60-80 chars), high-contrast CTA button, product screenshot or video, value proposition above fold, gradient or image background, clear visual hierarchy.",
-    "promptZh": "请设计一个主视觉设计界面。使用：Smooth scroll reveal, fade-in animations on hero, subtle bac。配色：Brand primary color, white/light backgrounds for c。适用于：SaaS landing pages, product launches, service land。技术要点：min-height: 100vh, display: flex, align-items: center, backg。",
+    "promptZh": "请设计一个主视觉设计界面。使用：Smooth scroll reveal, fade-in animations on hero, subtle。配色：Brand primary color, white/light backgrounds for。适用于：SaaS landing pages, product launches, service。技术要点：min-height: 100vh, display: flex, align-items: center。",
     "cssKeywords": "min-height: 100vh, display: flex, align-items: center, background: linear-gradient or image, text-shadow for readability, max-width: 800px for text, button with hover scale (1.05)",
     "implementationChecklist": [
       "Hero section full viewport height,",
@@ -868,7 +848,6 @@ export const styles: UIStyle[] = [
     "id": 21,
     "nameEn": "Conversion-Optimized",
     "nameZh": "转化优化",
-    "category": "Landing Page",
     "type": "Landing Page",
     "keywords": [
       "Form-focused",
@@ -895,7 +874,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a conversion-optimized landing page. Use: single primary CTA, minimal distractions, trust badges, urgency elements (limited time), social proof (testimonials), clear value proposition, form above fold, progress indicators.",
-    "promptZh": "请设计一个转化优化界面。使用：Hover states on CTA (color shift, slight scale), form field 。配色：Primary brand color, high-contrast white/light bac。适用于：E-commerce product pages, free trial signups, lead。技术要点：form with focus states, input:focus ring, button: primary co。",
+    "promptZh": "请设计一个转化优化界面。使用：Hover states on CTA (color shift, slight scale), form field。配色：Primary brand color, high-contrast white/light。适用于：E-commerce product pages, free trial signups。技术要点：form with focus states, input:focus ring, button: primary。",
     "cssKeywords": "form with focus states, input:focus ring, button: primary color high contrast, position: sticky for CTA, max-width: 600px for form, loading spinner, success/error states",
     "implementationChecklist": [
       "Single primary CTA visible,",
@@ -912,7 +891,6 @@ export const styles: UIStyle[] = [
     "id": 22,
     "nameEn": "Feature-Rich Showcase",
     "nameZh": "Feature-Rich Showcase",
-    "category": "Landing Page",
     "type": "Landing Page",
     "keywords": [
       "Multiple feature sections",
@@ -937,7 +915,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a feature showcase landing page. Use: grid layout for features (3-4 columns), feature cards with icons, benefit-focused copy, alternating sections, comparison tables, interactive demos, problem-solution pairs.",
-    "promptZh": "请设计一个Feature-Rich Showcase界面。使用：Card hover effects (lift/scale), icon animations on scroll, 。配色：Primary brand, bright secondary colors for feature。适用于：Enterprise SaaS, software tools landing pages, pla。技术要点：display: grid, grid-template-columns: repeat(auto-fit, minma。",
+    "promptZh": "请设计一个Feature-Rich Showcase界面。使用：Card hover effects (lift/scale), icon animations on scroll。配色：Primary brand, bright secondary colors for。适用于：Enterprise SaaS, software tools landing pages。技术要点：display: grid, grid-template-columns: repeat(auto-fit。",
     "cssKeywords": "display: grid, grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)), gap: 2rem, card hover effects (translateY -4px), icon containers, alternating background colors",
     "implementationChecklist": [
       "Feature grid responsive,",
@@ -953,7 +931,6 @@ export const styles: UIStyle[] = [
     "id": 23,
     "nameEn": "Minimal & Direct",
     "nameZh": "极简直达",
-    "category": "Landing Page",
     "type": "Landing Page",
     "keywords": [
       "Minimal text",
@@ -979,7 +956,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a minimal direct landing page. Use: single column layout, maximum white space, essential content only, one CTA, clean typography, no decorative elements, fast loading, direct messaging.",
-    "promptZh": "请设计一个极简直达界面。使用：Very subtle hover effects, minimal animations, fast page loa。配色：Monochromatic primary, white background, single ac。适用于：Simple service landing pages, indie products, cons。技术要点：max-width: 680px, margin: 0 auto, padding: 4rem 2rem, font-s。",
+    "promptZh": "请设计一个极简直达界面。使用：Very subtle hover effects, minimal animations, fast page。配色：Monochromatic primary, white background, single。适用于：Simple service landing pages, indie products。技术要点：max-width: 680px, margin: 0 auto, padding: 4rem 2rem。",
     "cssKeywords": "max-width: 680px, margin: 0 auto, padding: 4rem 2rem, font-size: 18-20px, line-height: 1.6, minimal animations, no box-shadow, clean borders only",
     "implementationChecklist": [
       "Single column centered,",
@@ -995,7 +972,6 @@ export const styles: UIStyle[] = [
     "id": 24,
     "nameEn": "Social Proof-Focused",
     "nameZh": "Social Proof-Focused",
-    "category": "Landing Page",
     "type": "Landing Page",
     "keywords": [
       "Testimonials prominent",
@@ -1021,7 +997,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a social proof landing page. Use: testimonials with photos, client logos grid, case study cards, review ratings (stars), user count metrics, success stories, trust indicators, before/after comparisons.",
-    "promptZh": "请设计一个Social Proof-Focused界面。使用：Testimonial carousel animations, logo grid fade-in, stat cou。配色：Primary brand, trust colors (blue), success/growth。适用于：B2B SaaS, professional services, premium products,。技术要点：testimonial cards with avatar, logo grid (grayscale filter),。",
+    "promptZh": "请设计一个Social Proof-Focused界面。使用：Testimonial carousel animations, logo grid fade-in, stat。配色：Primary brand, trust colors (blue)。适用于：B2B SaaS, professional services, premium products。技术要点：testimonial cards with avatar, logo grid (grayscale filter)。",
     "cssKeywords": "testimonial cards with avatar, logo grid (grayscale filter), star rating SVGs, counter animations (count-up), blockquote styling, carousel for testimonials, metric cards",
     "implementationChecklist": [
       "Testimonials with real photos,",
@@ -1037,7 +1013,6 @@ export const styles: UIStyle[] = [
     "id": 25,
     "nameEn": "Interactive Product Demo",
     "nameZh": "Interactive Product Demo",
-    "category": "Landing Page",
     "type": "Landing Page",
     "keywords": [
       "Embedded product mockup/video",
@@ -1062,7 +1037,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design an interactive demo landing page. Use: embedded product mockup, video walkthrough, step-by-step guide, hover-to-reveal features, live demo button, screenshot carousel, feature highlights on interaction.",
-    "promptZh": "请设计一个Interactive Product Demo界面。使用：Product animation playback, step progression animations, hov。配色：Primary brand, interface colors matching product, 。适用于：SaaS platforms, tool/software products, productivi。技术要点：video element with controls, position: relative for overlays。",
+    "promptZh": "请设计一个Interactive Product Demo界面。使用：Product animation playback, step progression animations。配色：Primary brand, interface colors matching product。适用于：SaaS platforms, tool/software products。技术要点：video element with controls, position: relative for。",
     "cssKeywords": "video element with controls, position: relative for overlays, hover reveal (opacity transition), step indicators, modal for full demo, screenshot lightbox, play button overlay",
     "implementationChecklist": [
       "Demo video loads fast,",
@@ -1078,7 +1053,6 @@ export const styles: UIStyle[] = [
     "id": 26,
     "nameEn": "Trust & Authority",
     "nameZh": "Trust & Authority",
-    "category": "Landing Page",
     "type": "Landing Page",
     "keywords": [
       "Certificates/badges displayed",
@@ -1103,7 +1077,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a trust-focused landing page. Use: certification badges, security indicators, expert credentials, industry awards, case study metrics, compliance logos (GDPR, SOC2), guarantee badges, professional photography.",
-    "promptZh": "请设计一个Trust & Authority界面。使用：Badge hover effects, metric pulse animations, certificate ca。配色：Professional colors (blue/grey), trust colors, cer。适用于：Healthcare/medical landing pages, financial servic。技术要点：badge grid layout, shield icons, lock icons for security, ce。",
+    "promptZh": "请设计一个Trust & Authority界面。使用：Badge hover effects, metric pulse animations, certificate。配色：Professional colors (blue/grey), trust colors。适用于：Healthcare/medical landing pages, financial。技术要点：badge grid layout, shield icons, lock icons for security。",
     "cssKeywords": "badge grid layout, shield icons, lock icons for security, certificate styling, metric cards with icons, professional color scheme (blue/grey), subtle shadows for depth",
     "implementationChecklist": [
       "Security badges visible,",
@@ -1119,7 +1093,6 @@ export const styles: UIStyle[] = [
     "id": 27,
     "nameEn": "Storytelling-Driven",
     "nameZh": "Storytelling-Driven",
-    "category": "Landing Page",
     "type": "Landing Page",
     "keywords": [
       "Narrative flow",
@@ -1144,7 +1117,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a storytelling landing page. Use: narrative flow sections, scroll-triggered reveals, chapter-like structure, emotional imagery, brand journey visualization, founder story, mission statement, timeline progression.",
-    "promptZh": "请设计一个Storytelling-Driven界面。使用：Section-to-section animations, scroll-triggered reveals, cha。配色：Brand primary, warm/emotional colors, varied accen。适用于：Brand/startup stories, mission-driven products, pr。技术要点：scroll-snap sections, Intersection Observer for reveals, par。",
+    "promptZh": "请设计一个Storytelling-Driven界面。使用：Section-to-section animations, scroll-triggered reveals。配色：Brand primary, warm/emotional colors, varied。适用于：Brand/startup stories, mission-driven products。技术要点：scroll-snap sections, Intersection Observer for reveals。",
     "cssKeywords": "scroll-snap sections, Intersection Observer for reveals, parallax backgrounds, section transitions, timeline CSS, narrative typography (varied sizes), image-text alternating",
     "implementationChecklist": [
       "Story flows naturally,",
@@ -1160,7 +1133,6 @@ export const styles: UIStyle[] = [
     "id": 28,
     "nameEn": "Data-Dense Dashboard",
     "nameZh": "数据密集仪表盘",
-    "category": "BI/Analytics",
     "type": "BI/Analytics",
     "keywords": [
       "Multiple charts/widgets",
@@ -1186,7 +1158,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a data-dense dashboard. Use: multiple chart widgets, KPI cards row, data tables with sorting, minimal padding (8-12px), efficient grid layout, filter sidebar, dense but readable typography, maximum information density.",
-    "promptZh": "请设计一个数据密集仪表盘界面。使用：Hover tooltips, chart zoom on click, row highlighting on hov。配色：Neutral primary (light grey/white #F5F5F5), data c。适用于：Business intelligence dashboards, financial analyt。技术要点：display: grid, grid-template-columns: repeat(12, 1fr), gap: 。",
+    "promptZh": "请设计一个数据密集仪表盘界面。使用：Hover tooltips, chart zoom on click, row highlighting on。配色：Neutral primary (light grey/white #F5F5F5), data。适用于：Business intelligence dashboards, financial。技术要点：display: grid, grid-template-columns: repeat(12, 1fr), gap:。",
     "cssKeywords": "display: grid, grid-template-columns: repeat(12, 1fr), gap: 8px, padding: 12px, font-size: 12-14px, overflow: auto for tables, compact card design, sticky headers",
     "implementationChecklist": [
       "Grid layout 12 columns,",
@@ -1202,7 +1174,6 @@ export const styles: UIStyle[] = [
     "id": 29,
     "nameEn": "Heat Map & Heatmap Style",
     "nameZh": "Heat Map & Heatmap Style",
-    "category": "BI/Analytics",
     "type": "BI/Analytics",
     "keywords": [
       "Color-coded grid/matrix",
@@ -1227,7 +1198,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a heatmap visualization. Use: color gradient scale (cool to hot), cell-based grid, intensity legend, hover tooltips, geographic or matrix layout, divergent color scheme for +/- values, accessible color alternatives.",
-    "promptZh": "请设计一个Heat Map & Heatmap Style界面。使用：Color gradient transitions on data change, cell highlighting。配色：Gradient scale: Cool (blue #0080FF) to hot (red #F。适用于：Geographical analysis, performance matrices, corre。技术要点：display: grid, background: linear-gradient for legend, cell 。",
+    "promptZh": "请设计一个Heat Map & Heatmap Style界面。使用：Color gradient transitions on data change, cell。配色：Gradient scale: Cool (blue #0080FF) to hot (red。适用于：Geographical analysis, performance matrices。技术要点：display: grid, background: linear-gradient for legend, cell。",
     "cssKeywords": "display: grid, background: linear-gradient for legend, cell hover states, tooltip positioning, color scale (blue→white→red), SVG for geographic, canvas for large datasets",
     "implementationChecklist": [
       "Color scale clear,",
@@ -1243,7 +1214,6 @@ export const styles: UIStyle[] = [
     "id": 30,
     "nameEn": "Executive Dashboard",
     "nameZh": "管理层仪表盘",
-    "category": "BI/Analytics",
     "type": "BI/Analytics",
     "keywords": [
       "High-level KPIs",
@@ -1269,7 +1239,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design an executive dashboard. Use: large KPI cards (4-6 max), trend sparklines, high-level summary only, clean layout with white space, traffic light indicators (red/yellow/green), at-a-glance insights, minimal detail.",
-    "promptZh": "请设计一个管理层仪表盘界面。使用：KPI value animations (count-up), trend arrow direction anima。配色：Brand colors, professional palette (blue/grey/whit。适用于：C-suite dashboards, business summary reports, deci。技术要点：display: flex for KPI row, large font-size (24-48px) for met。",
+    "promptZh": "请设计一个管理层仪表盘界面。使用：KPI value animations (count-up), trend arrow direction。配色：Brand colors, professional palette。适用于：C-suite dashboards, business summary reports。技术要点：display: flex for KPI row, large font-size (24-48px) for。",
     "cssKeywords": "display: flex for KPI row, large font-size (24-48px) for metrics, sparkline SVG inline, status indicators (border-left color), card shadows for hierarchy, responsive breakpoints",
     "implementationChecklist": [
       "KPIs 4-6 maximum,",
@@ -1285,7 +1255,6 @@ export const styles: UIStyle[] = [
     "id": 31,
     "nameEn": "Real-Time Monitoring",
     "nameZh": "实时监控",
-    "category": "BI/Analytics",
     "type": "BI/Analytics",
     "keywords": [
       "Live data updates",
@@ -1310,7 +1279,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a real-time monitoring dashboard. Use: live status indicators (pulsing), streaming charts, alert notifications, connection status, auto-refresh indicators, critical alerts prominent, system health overview.",
-    "promptZh": "请设计一个实时监控界面。使用：Real-time chart animations, alert pulse/glow, status indicat。配色：Alert colors: critical (red #FF0000), warning (ora。适用于：System monitoring dashboards, DevOps dashboards, r。技术要点：animation: pulse for live, WebSocket for streaming, position。",
+    "promptZh": "请设计一个实时监控界面。使用：Real-time chart animations, alert pulse/glow, status。配色：Alert colors: critical (red #FF0000), warning。适用于：System monitoring dashboards, DevOps dashboards。技术要点：animation: pulse for live, WebSocket for streaming。",
     "cssKeywords": "animation: pulse for live, WebSocket for streaming, position: fixed for alerts, status-dot with animation, chart real-time updates, notification toast, connection indicator",
     "implementationChecklist": [
       "Live updates working,",
@@ -1326,7 +1295,6 @@ export const styles: UIStyle[] = [
     "id": 32,
     "nameEn": "Drill-Down Analytics",
     "nameZh": "Drill-Down Analytics",
-    "category": "BI/Analytics",
     "type": "BI/Analytics",
     "keywords": [
       "Hierarchical data exploration",
@@ -1350,7 +1318,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a drill-down analytics dashboard. Use: breadcrumb navigation, expandable sections, summary-to-detail flow, back button prominent, level indicators, context preservation, hierarchical data display.",
-    "promptZh": "请设计一个Drill-Down Analytics界面。使用：Drill-down expand animations, breadcrumb click transitions, 。配色：Primary brand, breadcrumb colors, drill-level indi。适用于：Sales analytics, product analytics, funnel analysi。技术要点：breadcrumb nav with separators, details/summary for expand, 。",
+    "promptZh": "请设计一个Drill-Down Analytics界面。使用：Drill-down expand animations, breadcrumb click transitions。配色：Primary brand, breadcrumb colors, drill-level。适用于：Sales analytics, product analytics, funnel。技术要点：breadcrumb nav with separators, details/summary for expand。",
     "cssKeywords": "breadcrumb nav with separators, details/summary for expand, transition for drill animation, position: sticky breadcrumb, nested grid layouts, smooth scroll to detail",
     "implementationChecklist": [
       "Breadcrumbs clear,",
@@ -1366,7 +1334,6 @@ export const styles: UIStyle[] = [
     "id": 33,
     "nameEn": "Comparative Analysis Dashboard",
     "nameZh": "Comparative Analysis Dashboard",
-    "category": "BI/Analytics",
     "type": "BI/Analytics",
     "keywords": [
       "Side-by-side comparisons",
@@ -1390,7 +1357,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a comparison dashboard. Use: side-by-side metrics, period selectors (vs last month), delta indicators (+/-), benchmark lines, A/B comparison tables, winning/losing highlights, percentage change badges.",
-    "promptZh": "请设计一个Comparative Analysis Dashboard界面。使用：Comparison bar animations (grow to value), delta indicator a。配色：Comparison colors: primary (blue), comparison (ora。适用于：Period-over-period reporting, A/B test dashboards,。技术要点：display: flex for side-by-side, gap for comparison spacing, 。",
+    "promptZh": "请设计一个Comparative Analysis Dashboard界面。使用：Comparison bar animations (grow to value), delta indicator。配色：Comparison colors: primary (blue), comparison。适用于：Period-over-period reporting, A/B test dashboards。技术要点：display: flex for side-by-side, gap for comparison spacing。",
     "cssKeywords": "display: flex for side-by-side, gap for comparison spacing, color coding (green up, red down), arrow indicators, diff highlighting, comparison table zebra striping",
     "implementationChecklist": [
       "Period selector works,",
@@ -1406,7 +1373,6 @@ export const styles: UIStyle[] = [
     "id": 34,
     "nameEn": "Predictive Analytics",
     "nameZh": "Predictive Analytics",
-    "category": "BI/Analytics",
     "type": "BI/Analytics",
     "keywords": [
       "Forecast lines",
@@ -1431,7 +1397,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a predictive analytics dashboard. Use: forecast lines (dashed), confidence intervals (shaded bands), trend projections, anomaly highlights, scenario toggles, AI insight cards, probability indicators.",
-    "promptZh": "请设计一个Predictive Analytics界面。使用：Forecast line animation on draw, confidence band fade-in, an。配色：Forecast line color (distinct from actual), confid。适用于：Forecasting dashboards, anomaly detection systems,。技术要点：stroke-dasharray for forecast lines, fill-opacity for confid。",
+    "promptZh": "请设计一个Predictive Analytics界面。使用：Forecast line animation on draw, confidence band fade-in。配色：Forecast line color (distinct from actual)。适用于：Forecasting dashboards, anomaly detection systems。技术要点：stroke-dasharray for forecast lines, fill-opacity for。",
     "cssKeywords": "stroke-dasharray for forecast lines, fill-opacity for confidence bands, anomaly markers (circles), tooltip for predictions, toggle switches for scenarios, gradient for probability",
     "implementationChecklist": [
       "Forecast line distinct,",
@@ -1447,7 +1413,6 @@ export const styles: UIStyle[] = [
     "id": 35,
     "nameEn": "User Behavior Analytics",
     "nameZh": "User Behavior Analytics",
-    "category": "BI/Analytics",
     "type": "BI/Analytics",
     "keywords": [
       "Funnel visualization",
@@ -1472,7 +1437,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a user behavior analytics dashboard. Use: funnel visualization, user flow diagrams (Sankey), conversion metrics, engagement heatmaps, cohort tables, retention curves, session replay indicators.",
-    "promptZh": "请设计一个User Behavior Analytics界面。使用：Funnel animation (fill-down), flow diagram animations (conne。配色：Funnel stage colors: high engagement (green), drop。适用于：Conversion funnel analysis, user journey tracking,。技术要点：SVG funnel with gradients, Sankey diagram library, percentag。",
+    "promptZh": "请设计一个User Behavior Analytics界面。使用：Funnel animation (fill-down), flow diagram animations。配色：Funnel stage colors: high engagement (green)。适用于：Conversion funnel analysis, user journey tracking。技术要点：SVG funnel with gradients, Sankey diagram library。",
     "cssKeywords": "SVG funnel with gradients, Sankey diagram library, percentage labels, cohort grid cells, retention chart (line/area), click heatmap overlay, session timeline",
     "implementationChecklist": [
       "Funnel stages clear,",
@@ -1488,7 +1453,6 @@ export const styles: UIStyle[] = [
     "id": 36,
     "nameEn": "Financial Dashboard",
     "nameZh": "Financial Dashboard",
-    "category": "BI/Analytics",
     "type": "BI/Analytics",
     "keywords": [
       "Revenue metrics",
@@ -1514,7 +1478,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a financial dashboard. Use: revenue/expense charts, profit margins, budget vs actual, cash flow waterfall, financial ratios, audit trail table, currency formatting, period comparisons.",
-    "promptZh": "请设计一个Financial Dashboard界面。使用：Number animations (count-up), trend direction indicators, pe。配色：Financial colors: profit (green #22C55E), loss (re。适用于：Financial reporting, accounting dashboards, portfo。技术要点：number formatting (Intl.NumberFormat), waterfall chart (posi。",
+    "promptZh": "请设计一个Financial Dashboard界面。使用：Number animations (count-up), trend direction indicators。配色：Financial colors: profit (green #22C55E), loss。适用于：Financial reporting, accounting dashboards。技术要点：number formatting (Intl.NumberFormat), waterfall chart。",
     "cssKeywords": "number formatting (Intl.NumberFormat), waterfall chart (positive/negative bars), variance coloring, table with totals row, sparkline for trends, sticky column headers",
     "implementationChecklist": [
       "Currency formatted,",
@@ -1530,7 +1494,6 @@ export const styles: UIStyle[] = [
     "id": 37,
     "nameEn": "Sales Intelligence Dashboard",
     "nameZh": "Sales Intelligence Dashboard",
-    "category": "BI/Analytics",
     "type": "BI/Analytics",
     "keywords": [
       "Deal pipeline",
@@ -1556,7 +1519,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design a sales intelligence dashboard. Use: pipeline funnel, deal cards (kanban), quota gauges, leaderboard table, territory map, win/loss ratios, forecast accuracy, activity timeline.",
-    "promptZh": "请设计一个Sales Intelligence Dashboard界面。使用：Deal movement animations, metric updates, leaderboard rankin。配色：Sales colors: won (green), lost (red), in-progress。适用于：CRM dashboards, sales management, opportunity trac。技术要点：kanban columns (flex), gauge chart (SVG arc), leaderboard ra。",
+    "promptZh": "请设计一个Sales Intelligence Dashboard界面。使用：Deal movement animations, metric updates, leaderboard。配色：Sales colors: won (green), lost (red)。适用于：CRM dashboards, sales management, opportunity。技术要点：kanban columns (flex), gauge chart (SVG arc), leaderboard。",
     "cssKeywords": "kanban columns (flex), gauge chart (SVG arc), leaderboard ranking styles, map integration (Mapbox/Google), timeline vertical, deal card with status border",
     "implementationChecklist": [
       "Pipeline stages shown,",
@@ -1572,7 +1535,6 @@ export const styles: UIStyle[] = [
     "id": 38,
     "nameEn": "Neubrutalism",
     "nameZh": "Neubrutalism",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Bold borders",
@@ -1600,7 +1562,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Low",
     "promptEn": "Design a neubrutalist interface. Use: high contrast, hard black borders (3px+), bright pop colors, no blur, sharp or slightly rounded corners, bold typography, hard shadows (offset 4px 4px), raw aesthetic but functional.",
-    "promptZh": "请设计一个Neubrutalism界面。使用：box-shadow: 4px 4px 0 #000, border: 3px solid #000, no gradi。配色：#FFEB3B (Yellow), #FF5252 (Red), #2196F3 (Blue), #。适用于：Gen Z brands, startups, creative agencies, Figma-s。技术要点：border: 3px solid black, box-shadow: 5px 5px 0px black, colo。",
+    "promptZh": "请设计一个Neubrutalism界面。使用：box-shadow: 4px 4px 0 #000, border: 3px solid #000, no。配色：#FFEB3B (Yellow), #FF5252 (Red), #2196F3 (Blue)。适用于：Gen Z brands, startups, creative agencies。技术要点：border: 3px solid black, box-shadow: 5px 5px 0px black。",
     "cssKeywords": "border: 3px solid black, box-shadow: 5px 5px 0px black, colors: #FFDB58 #FF6B6B #4ECDC4, font-weight: 700, no gradients",
     "implementationChecklist": [
       "Hard borders (2-4px),",
@@ -1616,7 +1578,6 @@ export const styles: UIStyle[] = [
     "id": 39,
     "nameEn": "Bento Box Grid",
     "nameZh": "Bento Box Grid",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Modular cards",
@@ -1643,7 +1604,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Apple",
     "complexity": "Low",
     "promptEn": "Design a Bento Box grid layout. Use: modular cards with varied sizes (1x1, 2x1, 2x2), Apple-style aesthetic, rounded corners (16-24px), soft shadows, clean hierarchy, asymmetric grid, neutral backgrounds (#F5F5F7), hover effects.",
-    "promptZh": "请设计一个Bento Box Grid界面。使用：grid-template with varied spans, rounded-xl (16px), subtle s。配色：Neutral base + brand accent, #FFFFFF, #F5F5F5, bra。适用于：Dashboards, product pages, portfolios, Apple-style。技术要点：display: grid, grid-template-columns: repeat(4, 1fr), grid-a。",
+    "promptZh": "请设计一个Bento Box Grid界面。使用：grid-template with varied spans, rounded-xl (16px), subtle。配色：Neutral base + brand accent, #FFFFFF, #F5F5F5。适用于：Dashboards, product pages, portfolios。技术要点：display: grid, grid-template-columns: repeat(4, 1fr)。",
     "cssKeywords": "display: grid, grid-template-columns: repeat(4, 1fr), grid-auto-rows: 200px, gap: 16px, border-radius: 24px, background: #FFFFFF, box-shadow: 0 4px 6px rgba(0,0,0,0.05)",
     "implementationChecklist": [
       "Grid responsive (4→2→1 cols),",
@@ -1659,7 +1620,6 @@ export const styles: UIStyle[] = [
     "id": 40,
     "nameEn": "Y2K Aesthetic",
     "nameZh": "Y2K Aesthetic",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Neon pink",
@@ -1687,7 +1647,7 @@ export const styles: UIStyle[] = [
     "era": "Y2K 2000s",
     "complexity": "Medium",
     "promptEn": "Design a Y2K aesthetic interface. Use: neon pink/cyan colors, chrome/metallic textures, bubblegum gradients, glossy buttons, iridescent effects, 2000s futurism, star/sparkle decorations, bubble shapes, tech-optimistic vibe.",
-    "promptZh": "请设计一个Y2K Aesthetic界面。使用：linear-gradient metallic, glossy buttons, 3D chrome effects,。配色：#FF69B4 (Hot Pink), #00FFFF (Cyan), #C0C0C0 (Silve。适用于：Fashion brands, music platforms, Gen Z brands, nos。技术要点：background: linear-gradient(135deg, #FF69B4, #00FFFF), filte。",
+    "promptZh": "请设计一个Y2K Aesthetic界面。使用：linear-gradient metallic, glossy buttons, 3D chrome effects。配色：#FF69B4 (Hot Pink), #00FFFF (Cyan), #C0C0C0。适用于：Fashion brands, music platforms, Gen Z brands。技术要点：background: linear-gradient(135deg, #FF69B4, #00FFFF)。",
     "cssKeywords": "background: linear-gradient(135deg, #FF69B4, #00FFFF), filter: drop-shadow for glow, border-radius: 50% for bubbles, metallic gradients (silver/chrome), text-shadow: neon glow, ::before for sparkles",
     "implementationChecklist": [
       "Neon colors balanced,",
@@ -1703,7 +1663,6 @@ export const styles: UIStyle[] = [
     "id": 41,
     "nameEn": "Cyberpunk UI",
     "nameZh": "Cyberpunk UI",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Neon",
@@ -1732,7 +1691,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Cyberpunk",
     "complexity": "Medium",
     "promptEn": "Design a cyberpunk interface. Use: neon colors on dark (#0D0D0D), terminal/HUD aesthetic, glitch effects, scanlines overlay, matrix green accents, monospace fonts, angular shapes, dystopian tech feel.",
-    "promptZh": "请设计一个Cyberpunk UI界面。使用：Neon glow (text-shadow), glitch animations (skew/offset), sc。配色：#00FF00 (Matrix Green), #FF00FF (Magenta), #00FFFF。适用于：Gaming platforms, tech products, crypto apps, sci-。技术要点：background: #0D0D0D, color: #00FF00 or #FF00FF, font-family:。",
+    "promptZh": "请设计一个Cyberpunk UI界面。使用：Neon glow (text-shadow), glitch animations (skew/offset)。配色：#00FF00 (Matrix Green), #FF00FF (Magenta)。适用于：Gaming platforms, tech products, crypto apps。技术要点：background: #0D0D0D, color: #00FF00 or #FF00FF。",
     "cssKeywords": "background: #0D0D0D, color: #00FF00 or #FF00FF, font-family: monospace, text-shadow: 0 0 10px neon, animation: glitch (transform skew), ::before scanlines (repeating-linear-gradient)",
     "implementationChecklist": [
       "Dark background only,",
@@ -1748,7 +1707,6 @@ export const styles: UIStyle[] = [
     "id": 42,
     "nameEn": "Organic Biophilic",
     "nameZh": "Organic Biophilic",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Nature",
@@ -1776,7 +1734,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Sustainable",
     "complexity": "Low",
     "promptEn": "Design a biophilic organic interface. Use: nature-inspired colors (greens, browns), organic curved shapes, rounded corners (16-24px), natural textures (wood, stone), flowing SVG elements, wellness aesthetic, earthy palette.",
-    "promptZh": "请设计一个Organic Biophilic界面。使用：Rounded corners (16-24px), organic curves (border-radius var。配色：#228B22 (Forest Green), #8B4513 (Earth Brown), #87。适用于：Wellness apps, sustainability brands, eco products。技术要点：border-radius: 16-24px (varied), background: earth tones, SV。",
+    "promptZh": "请设计一个Organic Biophilic界面。使用：Rounded corners (16-24px), organic curves (border-radius。配色：#228B22 (Forest Green), #8B4513 (Earth Brown)。适用于：Wellness apps, sustainability brands, eco。技术要点：border-radius: 16-24px (varied), background: earth tones。",
     "cssKeywords": "border-radius: 16-24px (varied), background: earth tones, SVG organic shapes (blob), box-shadow: natural soft, color: #228B22 #8B4513 #87CEEB, texture overlays (subtle)",
     "implementationChecklist": [
       "Earth tones dominant,",
@@ -1792,7 +1750,6 @@ export const styles: UIStyle[] = [
     "id": 43,
     "nameEn": "AI-Native UI",
     "nameZh": "AI-Native UI",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Chatbot",
@@ -1820,7 +1777,7 @@ export const styles: UIStyle[] = [
     "era": "2020s AI-Era",
     "complexity": "Low",
     "promptEn": "Design an AI-native interface. Use: minimal chrome, conversational layout, streaming text area, typing indicators (3-dot pulse), context cards, subtle AI accent color (#6366F1), clean input field, response bubbles.",
-    "promptZh": "请设计一个AI-Native UI界面。使用：Typing indicators (3-dot pulse), streaming text animations, 。配色：Neutral + single accent, #6366F1 (AI Purple), #10B。适用于：AI products, chatbots, voice assistants, copilots,。技术要点：chat bubble layout (flex-direction: column), typing animatio。",
+    "promptZh": "请设计一个AI-Native UI界面。使用：Typing indicators (3-dot pulse), streaming text animations。配色：Neutral + single accent, #6366F1 (AI Purple)。适用于：AI products, chatbots, voice assistants, copilots。技术要点：chat bubble layout (flex-direction: column), typing。",
     "cssKeywords": "chat bubble layout (flex-direction: column), typing animation (3 dots pulse), streaming text (overflow: hidden + animation), input: sticky bottom, context cards (border-left accent), minimal borders",
     "implementationChecklist": [
       "Chat layout responsive,",
@@ -1836,7 +1793,6 @@ export const styles: UIStyle[] = [
     "id": 44,
     "nameEn": "Memphis Design",
     "nameZh": "Memphis Design",
-    "category": "General",
     "type": "General",
     "keywords": [
       "80s",
@@ -1866,7 +1822,7 @@ export const styles: UIStyle[] = [
     "era": "1980s Postmodern",
     "complexity": "Medium",
     "promptEn": "Design a Memphis style interface. Use: bold geometric shapes (triangles, squiggles, circles), bright clashing colors, 80s postmodern aesthetic, playful patterns, dotted textures, asymmetric layouts, decorative elements.",
-    "promptZh": "请设计一个Memphis Design界面。使用：transform: rotate(), clip-path: polygon(), mix-blend-mode, r。配色：#FF71CE (Hot Pink), #FFCE5C (Yellow), #86CCCA (Tea。适用于：Creative agencies, music sites, youth brands, even。技术要点：clip-path: polygon() for shapes, background: repeating patte。",
+    "promptZh": "请设计一个Memphis Design界面。使用：transform: rotate(), clip-path: polygon(), mix-blend-mode。配色：#FF71CE (Hot Pink), #FFCE5C (Yellow), #86CCCA。适用于：Creative agencies, music sites, youth brands。技术要点：clip-path: polygon() for shapes, background: repeating。",
     "cssKeywords": "clip-path: polygon() for shapes, background: repeating patterns, transform: rotate() for tilted elements, mix-blend-mode for overlays, border: dashed/dotted patterns, bold sans-serif",
     "implementationChecklist": [
       "Geometric shapes visible,",
@@ -1882,7 +1838,6 @@ export const styles: UIStyle[] = [
     "id": 45,
     "nameEn": "Vaporwave",
     "nameZh": "Vaporwave",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Synthwave",
@@ -1910,7 +1865,7 @@ export const styles: UIStyle[] = [
     "era": "1980s-90s Retro",
     "complexity": "Medium",
     "promptEn": "Design a vaporwave aesthetic interface. Use: sunset gradients (pink/cyan/purple), 80s-90s nostalgia, glitch effects, Greek statue imagery, palm trees, grid patterns, neon glow, retro-futuristic feel, dreamy atmosphere.",
-    "promptZh": "请设计一个Vaporwave界面。使用：text-shadow glow, linear-gradient, filter: hue-rotate(), gli。配色：#FF71CE (Pink), #01CDFE (Cyan), #05FFA1 (Mint), #B。适用于：Music platforms, gaming, creative portfolios, tech。技术要点：background: linear-gradient(180deg, #FF71CE, #01CDFE, #B967F。",
+    "promptZh": "请设计一个Vaporwave界面。使用：text-shadow glow, linear-gradient, filter: hue-rotate()。配色：#FF71CE (Pink), #01CDFE (Cyan), #05FFA1 (Mint)。适用于：Music platforms, gaming, creative portfolios。技术要点：background: linear-gradient(180deg, #FF71CE, #01CDFE。",
     "cssKeywords": "background: linear-gradient(180deg, #FF71CE, #01CDFE, #B967FF), filter: hue-rotate(), text-shadow: neon glow, retro grid (perspective + linear-gradient), VHS scanlines",
     "implementationChecklist": [
       "Sunset gradient present,",
@@ -1926,7 +1881,6 @@ export const styles: UIStyle[] = [
     "id": 46,
     "nameEn": "Dimensional Layering",
     "nameZh": "Dimensional Layering",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Depth",
@@ -1955,7 +1909,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Medium",
     "promptEn": "Design with dimensional layering. Use: z-index depth (multiple layers), overlapping cards, elevation shadows (4 levels), floating elements, parallax depth, backdrop blur for hierarchy, spatial UI feel.",
-    "promptZh": "请设计一个Dimensional Layering界面。使用：z-index stacking, box-shadow elevation (4 levels), transform。配色：Neutral base (#FFFFFF, #F5F5F5, #E0E0E0) + brand a。适用于：Dashboards, card layouts, modals, navigation, prod。技术要点：z-index: 1-4 levels, box-shadow: elevation scale (sm/md/lg/x。",
+    "promptZh": "请设计一个Dimensional Layering界面。使用：z-index stacking, box-shadow elevation (4 levels)。配色：Neutral base (#FFFFFF, #F5F5F5, #E0E0E0) + brand。适用于：Dashboards, card layouts, modals, navigation。技术要点：z-index: 1-4 levels, box-shadow: elevation scale。",
     "cssKeywords": "z-index: 1-4 levels, box-shadow: elevation scale (sm/md/lg/xl), transform: translateZ(), backdrop-filter: blur(), position: relative for stacking, parallax on scroll",
     "implementationChecklist": [
       "Layers clearly defined,",
@@ -1971,7 +1925,6 @@ export const styles: UIStyle[] = [
     "id": 47,
     "nameEn": "Exaggerated Minimalism",
     "nameZh": "Exaggerated Minimalism",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Bold minimalism",
@@ -1996,7 +1949,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "Low",
     "promptEn": "Design with exaggerated minimalism. Use: oversized typography (clamp 3rem-12rem), extreme negative space, black/white primary, single accent color only, bold statements, minimal elements, dramatic contrast.",
-    "promptZh": "请设计一个Exaggerated Minimalism界面。使用：font-size: clamp(3rem 10vw 12rem), font-weight: 900, letter-。配色：#000000 (Black), #FFFFFF (White), single vibrant a。适用于：Fashion, architecture, portfolios, agency landing 。技术要点：font-size: clamp(3rem, 10vw, 12rem), font-weight: 900, lette。",
+    "promptZh": "请设计一个Exaggerated Minimalism界面。使用：font-size: clamp(3rem 10vw 12rem), font-weight: 900。配色：#000000 (Black), #FFFFFF (White), single vibrant。适用于：Fashion, architecture, portfolios, agency landing。技术要点：font-size: clamp(3rem, 10vw, 12rem), font-weight: 900。",
     "cssKeywords": "font-size: clamp(3rem, 10vw, 12rem), font-weight: 900, letter-spacing: -0.05em, color: #000 or #FFF, padding: 8rem+, single accent, no decorations",
     "implementationChecklist": [
       "Typography oversized,",
@@ -2012,7 +1965,6 @@ export const styles: UIStyle[] = [
     "id": 48,
     "nameEn": "Kinetic Typography",
     "nameZh": "Kinetic Typography",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Motion text",
@@ -2038,7 +1990,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "High",
     "promptEn": "Design with kinetic typography. Use: animated text, scroll-triggered reveals, typing effects, letter-by-letter animations, morphing text, gradient text fills, oversized hero text, text as the main visual element.",
-    "promptZh": "请设计一个Kinetic Typography界面。使用：@keyframes text animation, typing effect, background-clip: t。配色：Flexible - high contrast recommended, bold colors 。适用于：Hero sections, marketing sites, video platforms, s。技术要点：@keyframes for text animation, background-clip: text, GSAP S。",
+    "promptZh": "请设计一个Kinetic Typography界面。使用：@keyframes text animation, typing effect, background-clip:。配色：Flexible - high contrast recommended, bold colors。适用于：Hero sections, marketing sites, video platforms。技术要点：@keyframes for text animation, background-clip: text, GSAP。",
     "cssKeywords": "@keyframes for text animation, background-clip: text, GSAP SplitText, typing effect (steps()), transform on letters, scroll-triggered (Intersection Observer), variable fonts for morphing",
     "implementationChecklist": [
       "Text animations smooth,",
@@ -2054,7 +2006,6 @@ export const styles: UIStyle[] = [
     "id": 49,
     "nameEn": "Parallax Storytelling",
     "nameZh": "Parallax Storytelling",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Scroll-driven",
@@ -2080,7 +2031,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Modern",
     "complexity": "High",
     "promptEn": "Design a parallax storytelling page. Use: scroll-driven narrative, layered backgrounds (3-5 layers), fixed/sticky sections, cinematic transitions, progressive disclosure, full-screen chapters, depth perception.",
-    "promptZh": "请设计一个Parallax Storytelling界面。使用：transform: translateY(scroll), position: fixed/sticky, persp。配色：Story-dependent, often gradients and natural color。适用于：Brand storytelling, product launches, case studies。技术要点：position: fixed/sticky, transform: translateY(calc()), persp。",
+    "promptZh": "请设计一个Parallax Storytelling界面。使用：transform: translateY(scroll), position: fixed/sticky。配色：Story-dependent, often gradients and natural。适用于：Brand storytelling, product launches, case。技术要点：position: fixed/sticky, transform: translateY(calc())。",
     "cssKeywords": "position: fixed/sticky, transform: translateY(calc()), perspective: 1px, z-index layering, scroll-snap-type, Intersection Observer for triggers, will-change: transform",
     "implementationChecklist": [
       "Layers parallax smoothly,",
@@ -2096,7 +2047,6 @@ export const styles: UIStyle[] = [
     "id": 50,
     "nameEn": "Swiss Modernism 2.0",
     "nameZh": "Swiss Modernism 2.0",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Grid system",
@@ -2123,7 +2073,7 @@ export const styles: UIStyle[] = [
     "era": "1950s Swiss + 2020s",
     "complexity": "Low",
     "promptEn": "Design with Swiss Modernism 2.0. Use: strict grid system (12 columns), Helvetica/Inter fonts, mathematical spacing, asymmetric balance, high contrast, minimal decoration, clean hierarchy, single accent color.",
-    "promptZh": "请设计一个Swiss Modernism 2.0界面。使用：display: grid, grid-template-columns: repeat(12 1fr), gap: 1。配色：#000000, #FFFFFF, #F5F5F5, single vibrant accent o。适用于：Corporate sites, architecture, editorial, SaaS, mu。技术要点：display: grid, grid-template-columns: repeat(12, 1fr), gap: 。",
+    "promptZh": "请设计一个Swiss Modernism 2.0界面。使用：display: grid, grid-template-columns: repeat(12 1fr), gap:。配色：#000000, #FFFFFF, #F5F5F5, single vibrant accent。适用于：Corporate sites, architecture, editorial, SaaS。技术要点：display: grid, grid-template-columns: repeat(12, 1fr), gap:。",
     "cssKeywords": "display: grid, grid-template-columns: repeat(12, 1fr), gap: 1rem (8px base unit), font-family: Inter/Helvetica, font-weight: 400-700, color: #000/#FFF, single accent",
     "implementationChecklist": [
       "12-column grid strict,",
@@ -2139,7 +2089,6 @@ export const styles: UIStyle[] = [
     "id": 51,
     "nameEn": "HUD / Sci-Fi FUI",
     "nameZh": "HUD / Sci-Fi FUI",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Futuristic",
@@ -2167,7 +2116,7 @@ export const styles: UIStyle[] = [
     "era": "2010s Sci-Fi",
     "complexity": "High",
     "promptEn": "Design a futuristic HUD (Heads Up Display) or FUI. Use: thin lines (1px), neon cyan/blue on black, technical markers, decorative brackets, data visualization, monospaced tech fonts, glowing elements, transparency.",
-    "promptZh": "请设计一个HUD / Sci-Fi FUI界面。使用：Glow effects, scanning animations, ticker text, blinking mar。配色：Neon Cyan #00FFFF, Holographic Blue #0080FF, Alert。适用于：Sci-fi games, space tech, cybersecurity, movie pro。技术要点：border: 1px solid rgba(0,255,255,0.5), color: #00FFFF, backg。",
+    "promptZh": "请设计一个HUD / Sci-Fi FUI界面。使用：Glow effects, scanning animations, ticker text, blinking。配色：Neon Cyan #00FFFF, Holographic Blue #0080FF。适用于：Sci-fi games, space tech, cybersecurity, movie。技术要点：border: 1px solid rgba(0,255,255,0.5), color: #00FFFF。",
     "cssKeywords": "border: 1px solid rgba(0,255,255,0.5), color: #00FFFF, background: transparent or rgba(0,0,0,0.8), font-family: monospace, text-shadow: 0 0 5px cyan",
     "implementationChecklist": [
       "Fine lines 1px,",
@@ -2183,7 +2132,6 @@ export const styles: UIStyle[] = [
     "id": 52,
     "nameEn": "Pixel Art",
     "nameZh": "Pixel Art",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Retro",
@@ -2210,7 +2158,7 @@ export const styles: UIStyle[] = [
     "era": "1980s Arcade",
     "complexity": "Medium",
     "promptEn": "Design a pixel art inspired interface. Use: pixelated fonts, 8-bit or 16-bit aesthetic, sharp edges (image-rendering: pixelated), limited color palette, blocky UI elements, retro gaming feel.",
-    "promptZh": "请设计一个Pixel Art界面。使用：Frame-by-frame sprite animation, blinking cursor, instant tr。配色：Primary colors (NES Palette), brights, limited pal。适用于：Indie games, retro tools, creative portfolios, nos。技术要点：font-family: 'Press Start 2P', image-rendering: pixelated, b。",
+    "promptZh": "请设计一个Pixel Art界面。使用：Frame-by-frame sprite animation, blinking cursor, instant。配色：Primary colors (NES Palette), brights, limited。适用于：Indie games, retro tools, creative portfolios。技术要点：font-family: 'Press Start 2P', image-rendering: pixelated。",
     "cssKeywords": "font-family: 'Press Start 2P', image-rendering: pixelated, box-shadow: 4px 0 0 #000 (pixel border), no anti-aliasing",
     "implementationChecklist": [
       "Pixelated fonts loaded,",
@@ -2225,7 +2173,6 @@ export const styles: UIStyle[] = [
     "id": 53,
     "nameEn": "Bento Grids",
     "nameZh": "Bento Grids",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Apple-style",
@@ -2253,7 +2200,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Apple/Linear",
     "complexity": "Low",
     "promptEn": "Design a Bento Grid layout. Use: modular grid system, rounded corners (16-24px), different card sizes (1x1, 2x1, 2x2), card-based hierarchy, soft backgrounds (#F5F5F7), subtle borders, content-first, Apple-style aesthetic.",
-    "promptZh": "请设计一个Bento Grids界面。使用：Hover scale (1.02), soft shadow expansion, smooth layout shi。配色：Off-white #F5F5F7, Clean White #FFFFFF, Text #1D1D。适用于：Product features, dashboards, personal sites, mark。技术要点：display: grid, grid-template-columns: repeat(auto-fit, minma。",
+    "promptZh": "请设计一个Bento Grids界面。使用：Hover scale (1.02), soft shadow expansion, smooth layout。配色：Off-white #F5F5F7, Clean White #FFFFFF, Text。适用于：Product features, dashboards, personal sites。技术要点：display: grid, grid-template-columns: repeat(auto-fit。",
     "cssKeywords": "display: grid, grid-template-columns: repeat(auto-fit, minmax(...)), gap: 1rem, border-radius: 20px, background: #FFF, box-shadow: subtle",
     "implementationChecklist": [
       "Grid layout (CSS Grid),",
@@ -2269,7 +2216,6 @@ export const styles: UIStyle[] = [
     "id": 55,
     "nameEn": "Spatial UI (VisionOS)",
     "nameZh": "Spatial UI (VisionOS)",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Glass",
@@ -2297,7 +2243,7 @@ export const styles: UIStyle[] = [
     "era": "2024 Spatial Era",
     "complexity": "High",
     "promptEn": "Design a VisionOS-style spatial interface. Use: frosted glass panels, depth layers, translucent backgrounds (15-30% opacity), vibrant colors for active states, gaze-hover effects, floating windows, immersive feel.",
-    "promptZh": "请设计一个Spatial UI (VisionOS)界面。使用：Parallax depth, dynamic lighting response, gaze-hover effect。配色：Frosted Glass #FFFFFF (15-30% opacity), System Whi。适用于：Spatial computing apps, VR/AR interfaces, immersiv。技术要点：backdrop-filter: blur(40px) saturate(180%), background: rgba。",
+    "promptZh": "请设计一个Spatial UI (VisionOS)界面。使用：Parallax depth, dynamic lighting response, gaze-hover。配色：Frosted Glass #FFFFFF (15-30% opacity), System。适用于：Spatial computing apps, VR/AR interfaces。技术要点：backdrop-filter: blur(40px) saturate(180%), background:。",
     "cssKeywords": "backdrop-filter: blur(40px) saturate(180%), background: rgba(255,255,255,0.2), border-radius: 24px, box-shadow: 0 8px 32px rgba(0,0,0,0.1), transform: scale on focus, depth via shadows",
     "implementationChecklist": [
       "Glass effect visible,",
@@ -2313,7 +2259,6 @@ export const styles: UIStyle[] = [
     "id": 56,
     "nameEn": "E-Ink / Paper",
     "nameZh": "E-Ink / Paper",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Paper-like",
@@ -2340,7 +2285,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Digital Well-being",
     "complexity": "Low",
     "promptEn": "Design an e-ink/paper style interface. Use: high contrast black on off-white, paper texture, no animations (instant transitions), reading-focused, minimal UI chrome, distraction-free, calm aesthetic, monochrome.",
-    "promptZh": "请设计一个E-Ink / Paper界面。使用：No motion blur, distinct page turns, grain/noise texture, sh。配色：Off-White #FDFBF7, Paper White #F5F5F5, Ink Black 。适用于：Reading apps, digital newspapers, minimal journals。技术要点：background: #FDFBF7 (paper white), color: #1A1A1A, transitio。",
+    "promptZh": "请设计一个E-Ink / Paper界面。使用：No motion blur, distinct page turns, grain/noise texture。配色：Off-White #FDFBF7, Paper White #F5F5F5, Ink Black。适用于：Reading apps, digital newspapers, minimal。技术要点：background: #FDFBF7 (paper white), color: #1A1A1A。",
     "cssKeywords": "background: #FDFBF7 (paper white), color: #1A1A1A, transition: none, font-family: serif for reading, no gradients, border: 1px solid #E0E0E0, texture overlay (noise)",
     "implementationChecklist": [
       "Paper background color,",
@@ -2356,7 +2301,6 @@ export const styles: UIStyle[] = [
     "id": 57,
     "nameEn": "Gen Z Chaos / Maximalism",
     "nameZh": "Gen Z Chaos / Maximalism",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Chaos",
@@ -2384,7 +2328,7 @@ export const styles: UIStyle[] = [
     "era": "2023+ Internet Core",
     "complexity": "High",
     "promptEn": "Design a Gen Z chaos maximalist interface. Use: clashing bright colors, sticker overlays, collage aesthetic, raw/unpolished feel, mixed media, ironic elements, loud typography, GIF-heavy, internet culture references.",
-    "promptZh": "请设计一个Gen Z Chaos / Maximalism界面。使用：Marquee scrolls, jitter, sticker layering, GIF overload, ran。配色：Clashing Brights: #FF00FF, #00FF00, #FFFF00, #0000。适用于：Gen Z lifestyle brands, music artists, creative po。技术要点：mix-blend-mode: multiply/screen, transform: rotate(random), 。",
+    "promptZh": "请设计一个Gen Z Chaos / Maximalism界面。使用：Marquee scrolls, jitter, sticker layering, GIF overload。配色：Clashing Brights: #FF00FF, #00FF00, #FFFF00。适用于：Gen Z lifestyle brands, music artists, creative。技术要点：mix-blend-mode: multiply/screen, transform: rotate(random)。",
     "cssKeywords": "mix-blend-mode: multiply/screen, transform: rotate(random), animation: jitter, marquee text, position: absolute for scattered elements, filter: saturate(150%), z-index chaos",
     "implementationChecklist": [
       "Colors clash intentionally,",
@@ -2400,7 +2344,6 @@ export const styles: UIStyle[] = [
     "id": 58,
     "nameEn": "Biomimetic / Organic 2.0",
     "nameZh": "Biomimetic / Organic 2.0",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Nature-inspired",
@@ -2426,7 +2369,7 @@ export const styles: UIStyle[] = [
     "era": "2024+ Generative",
     "complexity": "High",
     "promptEn": "Design a biomimetic organic interface. Use: cellular/fluid shapes, breathing animations, generative patterns, bioluminescent colors, physics-based movement, nature algorithms, life-like elements, flowing gradients.",
-    "promptZh": "请设计一个Biomimetic / Organic 2.0界面。使用：Breathing animations, fluid morphing, generative growth, phy。配色：Cellular Pink #FF9999, Chlorophyll Green #00FF41, 。适用于：Sustainability tech, biotech, advanced health, med。技术要点：SVG morphing (SMIL or GSAP), canvas for generative, animatio。",
+    "promptZh": "请设计一个Biomimetic / Organic 2.0界面。使用：Breathing animations, fluid morphing, generative growth。配色：Cellular Pink #FF9999, Chlorophyll Green #00FF41。适用于：Sustainability tech, biotech, advanced health。技术要点：SVG morphing (SMIL or GSAP), canvas for generative。",
     "cssKeywords": "SVG morphing (SMIL or GSAP), canvas for generative, animation: breathing (scale pulse), filter: blur for organic, clip-path for cellular, WebGL for advanced, physics libraries",
     "implementationChecklist": [
       "Organic shapes present,",
@@ -2442,7 +2385,6 @@ export const styles: UIStyle[] = [
     "id": 59,
     "nameEn": "Anti-Polish / Raw Aesthetic",
     "nameZh": "Anti-Polish / Raw Aesthetic",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Hand-drawn",
@@ -2471,7 +2413,7 @@ export const styles: UIStyle[] = [
     "era": "2025+ Anti-Digital",
     "complexity": "Low",
     "promptEn": "Design with anti-polish raw aesthetic. Use: hand-drawn elements, scanned textures, unfinished look, paper/pencil textures, collage style, authentic imperfection, sketch marks, tape/sticker overlays, human touch.",
-    "promptZh": "请设计一个Anti-Polish / Raw Aesthetic界面。使用：No smooth transitions, hand-drawn animations, paper texture 。配色：Paper White #FAFAF8, Pencil Grey #4A4A4A, Marker B。适用于：Creative portfolios, artist sites, indie brands, h。技术要点：background: url(paper-texture.png), filter: grayscale() cont。",
+    "promptZh": "请设计一个Anti-Polish / Raw Aesthetic界面。使用：No smooth transitions, hand-drawn animations, paper texture。配色：Paper White #FAFAF8, Pencil Grey #4A4A4A, Marker。适用于：Creative portfolios, artist sites, indie brands。技术要点：background: url(paper-texture.png), filter: grayscale()。",
     "cssKeywords": "background: url(paper-texture.png), filter: grayscale() contrast(), border: hand-drawn SVG, transform: rotate(small random), no smooth transitions, sketch-style fonts, opacity variations",
     "implementationChecklist": [
       "Textures loaded,",
@@ -2487,7 +2429,6 @@ export const styles: UIStyle[] = [
     "id": 60,
     "nameEn": "Tactile Digital / Deformable UI",
     "nameZh": "Tactile Digital / Deformable UI",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Jelly buttons",
@@ -2515,7 +2456,7 @@ export const styles: UIStyle[] = [
     "era": "2025+ Tactile Era",
     "complexity": "Medium",
     "promptEn": "Design a tactile deformable interface. Use: jelly/squishy buttons, press deformation effect, bounce-back animations, chrome/clay materials, spring physics, haptic-like feedback, material response, 3D depth on interaction.",
-    "promptZh": "请设计一个Tactile Digital / Deformable UI界面。使用：Press deformation (scale + squish), bounce-back (cubic-bezie。配色：Gradient metallics, Chrome Silver #C0C0C0, Jelly P。适用于：Modern mobile apps, playful brands, entertainment,。技术要点：transform: scale(0.95) on active, animation: bounce (cubic-b。",
+    "promptZh": "请设计一个Tactile Digital / Deformable UI界面。使用：Press deformation (scale + squish), bounce-back。配色：Gradient metallics, Chrome Silver #C0C0C0, Jelly。适用于：Modern mobile apps, playful brands, entertainment。技术要点：transform: scale(0.95) on active, animation: bounce。",
     "cssKeywords": "transform: scale(0.95) on active, animation: bounce (cubic-bezier(0.34, 1.56, 0.64, 1)), box-shadow: inset for press, filter: brightness on press, spring physics (react-spring/framer-motion)",
     "implementationChecklist": [
       "Press effect visible,",
@@ -2531,7 +2472,6 @@ export const styles: UIStyle[] = [
     "id": 61,
     "nameEn": "Nature Distilled",
     "nameZh": "Nature Distilled",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Muted earthy",
@@ -2559,7 +2499,7 @@ export const styles: UIStyle[] = [
     "era": "2025+ Handmade Warmth",
     "complexity": "Low",
     "promptEn": "Design with nature distilled aesthetic. Use: muted earthy colors (terracotta, sand, olive), organic materials feel, warm tones, handmade warmth, natural textures, artisan quality, sustainable vibe, soft gradients.",
-    "promptZh": "请设计一个Nature Distilled界面。使用：Subtle parallax, natural easing (ease-out), texture overlays。配色：Terracotta #C67B5C, Sand Beige #D4C4A8, Warm Clay 。适用于：Wellness brands, sustainable products, artisan goo。技术要点：background: warm earth tones, color: #C67B5C #D4C4A8 #6B7B3C。",
+    "promptZh": "请设计一个Nature Distilled界面。使用：Subtle parallax, natural easing (ease-out), texture。配色：Terracotta #C67B5C, Sand Beige #D4C4A8, Warm Clay。适用于：Wellness brands, sustainable products, artisan。技术要点：background: warm earth tones, color: #C67B5C #D4C4A8。",
     "cssKeywords": "background: warm earth tones, color: #C67B5C #D4C4A8 #6B7B3C, border-radius: organic (varied), box-shadow: soft natural, texture overlays (grain), font: humanist sans-serif",
     "implementationChecklist": [
       "Earth tones dominant,",
@@ -2575,7 +2515,6 @@ export const styles: UIStyle[] = [
     "id": 62,
     "nameEn": "Interactive Cursor Design",
     "nameZh": "Interactive Cursor Design",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Custom cursor",
@@ -2601,7 +2540,7 @@ export const styles: UIStyle[] = [
     "era": "2025+ Interactive",
     "complexity": "Medium",
     "promptEn": "Design with interactive cursor effects. Use: custom cursor, cursor morphing on hover, magnetic cursor pull, cursor trails, blend mode cursors, click feedback animations, cursor as interaction tool, pointer transformation.",
-    "promptZh": "请设计一个Interactive Cursor Design界面。使用：Cursor scale on hover, magnetic pull to elements, cursor mor。配色：Brand-dependent, cursor accent color, high contras。适用于：Creative portfolios, interactive experiences, agen。技术要点：cursor: none (custom), position: fixed for cursor element, m。",
+    "promptZh": "请设计一个Interactive Cursor Design界面。使用：Cursor scale on hover, magnetic pull to elements, cursor。配色：Brand-dependent, cursor accent color, high。适用于：Creative portfolios, interactive experiences。技术要点：cursor: none (custom), position: fixed for cursor element。",
     "cssKeywords": "cursor: none (custom), position: fixed for cursor element, mix-blend-mode: difference, transform on hover targets, magnetic effect (JS position lerp), trail with opacity fade, scale on click",
     "implementationChecklist": [
       "Custom cursor works,",
@@ -2617,7 +2556,6 @@ export const styles: UIStyle[] = [
     "id": 63,
     "nameEn": "Voice-First Multimodal",
     "nameZh": "Voice-First Multimodal",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Voice UI",
@@ -2644,7 +2582,7 @@ export const styles: UIStyle[] = [
     "era": "2025+ Voice Era",
     "complexity": "Medium",
     "promptEn": "Design a voice-first multimodal interface. Use: voice waveform visualization, listening state indicator, speaking animation, minimal visible UI, audio feedback cues, hands-free optimized, conversational flow, ambient design.",
-    "promptZh": "请设计一个Voice-First Multimodal界面。使用：Voice waveform visualization, listening pulse, processing sp。配色：Calm neutrals: Soft White #FAFAFA, Muted Blue #6B8。适用于：Voice assistants, accessibility apps, hands-free t。技术要点：Web Speech API integration, canvas for waveform, animation: 。",
+    "promptZh": "请设计一个Voice-First Multimodal界面。使用：Voice waveform visualization, listening pulse, processing。配色：Calm neutrals: Soft White #FAFAFA, Muted Blue。适用于：Voice assistants, accessibility apps, hands-free。技术要点：Web Speech API integration, canvas for waveform, animation:。",
     "cssKeywords": "Web Speech API integration, canvas for waveform, animation: pulse for listening, status indicators (color change), audio visualization (Web Audio API), minimal chrome, large touch targets",
     "implementationChecklist": [
       "Voice recognition works,",
@@ -2660,7 +2598,6 @@ export const styles: UIStyle[] = [
     "id": 64,
     "nameEn": "3D Product Preview",
     "nameZh": "3D Product Preview",
-    "category": "General",
     "type": "General",
     "keywords": [
       "360 product view",
@@ -2686,7 +2623,7 @@ export const styles: UIStyle[] = [
     "era": "2025+ E-commerce 3D",
     "complexity": "High",
     "promptEn": "Design a 3D product preview interface. Use: 360° rotation, drag-to-spin, pinch-to-zoom, AR preview button, material/color switcher, hotspot annotations, orbit controls, product configurator, smooth rendering.",
-    "promptZh": "请设计一个3D Product Preview界面。使用：Drag-to-rotate, pinch-to-zoom, spin animation, AR placement,。配色：Product-dependent, neutral backgrounds: Soft Grey 。适用于：E-commerce, furniture, fashion, automotive, electr。技术要点：Three.js or model-viewer, OrbitControls, touch events for ro。",
+    "promptZh": "请设计一个3D Product Preview界面。使用：Drag-to-rotate, pinch-to-zoom, spin animation, AR placement。配色：Product-dependent, neutral backgrounds: Soft Grey。适用于：E-commerce, furniture, fashion, automotive。技术要点：Three.js or model-viewer, OrbitControls, touch events for。",
     "cssKeywords": "Three.js or model-viewer, OrbitControls, touch events for rotation, WebXR for AR, canvas with WebGL, loading placeholder, LOD for performance, environment lighting",
     "implementationChecklist": [
       "3D model loads fast,",
@@ -2702,7 +2639,6 @@ export const styles: UIStyle[] = [
     "id": 65,
     "nameEn": "Gradient Mesh / Aurora Evolved",
     "nameZh": "Gradient Mesh / Aurora Evolved",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Complex gradients",
@@ -2729,7 +2665,7 @@ export const styles: UIStyle[] = [
     "era": "2025+ Gradient Evolution",
     "complexity": "Medium",
     "promptEn": "Design with gradient mesh aurora effect. Use: multi-color mesh gradients, flowing color transitions, aurora/northern lights feel, iridescent overlays, holographic shimmer, prismatic effects, smooth color morphing.",
-    "promptZh": "请设计一个Gradient Mesh / Aurora Evolved界面。使用：CSS mesh-gradient (experimental), SVG gradients, canvas grad。配色：Multi-stop gradients: Cyan #00FFFF, Magenta #FF00F。适用于：Hero sections, backgrounds, creative brands, music。技术要点：background: conic-gradient or mesh (SVG), animation: gradien。",
+    "promptZh": "请设计一个Gradient Mesh / Aurora Evolved界面。使用：CSS mesh-gradient (experimental), SVG gradients, canvas。配色：Multi-stop gradients: Cyan #00FFFF, Magenta。适用于：Hero sections, backgrounds, creative brands。技术要点：background: conic-gradient or mesh (SVG), animation:。",
     "cssKeywords": "background: conic-gradient or mesh (SVG), animation: gradient flow (background-position), filter: hue-rotate for shimmer, mix-blend-mode: screen, canvas for complex mesh, multiple gradient layers",
     "implementationChecklist": [
       "Mesh gradient visible,",
@@ -2745,7 +2681,6 @@ export const styles: UIStyle[] = [
     "id": 66,
     "nameEn": "Editorial Grid / Magazine",
     "nameZh": "Editorial Grid / Magazine",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Magazine layout",
@@ -2771,7 +2706,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Editorial Digital",
     "complexity": "Low",
     "promptEn": "Design an editorial magazine layout. Use: asymmetric grid, pull quotes, drop caps, multi-column text, large imagery, bylines, section dividers, print-inspired typography, article hierarchy, white space balance.",
-    "promptZh": "请设计一个Editorial Grid / Magazine界面。使用：Smooth scroll, reveal on scroll, parallax images, text anima。配色：High contrast: Black #000000, White #FFFFFF, accen。适用于：News sites, blogs, magazines, editorial content, l。技术要点：display: grid with named areas, column-count for text, ::fir。",
+    "promptZh": "请设计一个Editorial Grid / Magazine界面。使用：Smooth scroll, reveal on scroll, parallax images, text。配色：High contrast: Black #000000, White #FFFFFF。适用于：News sites, blogs, magazines, editorial content。技术要点：display: grid with named areas, column-count for text。",
     "cssKeywords": "display: grid with named areas, column-count for text, ::first-letter for drop caps, blockquote styling, figure/figcaption, gap variations, font: serif for body, variable widths",
     "implementationChecklist": [
       "Grid asymmetric,",
@@ -2787,7 +2722,6 @@ export const styles: UIStyle[] = [
     "id": 67,
     "nameEn": "Chromatic Aberration / RGB Split",
     "nameZh": "Chromatic Aberration / RGB Split",
-    "category": "General",
     "type": "General",
     "keywords": [
       "RGB split",
@@ -2814,7 +2748,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Retro-Tech",
     "complexity": "Medium",
     "promptEn": "Design with chromatic aberration RGB split effect. Use: color channel offset (R/G/B), glitch aesthetic, retro tech feel, VHS error look, lens distortion, scan lines, noise overlay, analog imperfection.",
-    "promptZh": "请设计一个Chromatic Aberration / RGB Split界面。使用：RGB offset animation, glitch timing, scan line movement, noi。配色：Offset RGB: Red #FF0000, Green #00FF00, Blue #0000。适用于：Music platforms, gaming, tech brands, creative por。技术要点：filter: drop-shadow with offset colors, text-shadow: RGB off。",
+    "promptZh": "请设计一个Chromatic Aberration / RGB Split界面。使用：RGB offset animation, glitch timing, scan line movement。配色：Offset RGB: Red #FF0000, Green #00FF00, Blue。适用于：Music platforms, gaming, tech brands, creative。技术要点：filter: drop-shadow with offset colors, text-shadow: RGB。",
     "cssKeywords": "filter: drop-shadow with offset colors, text-shadow: RGB offset (-2px 0 red, 2px 0 cyan), animation: glitch (random offset), ::before for scanlines, mix-blend-mode: screen for overlays",
     "implementationChecklist": [
       "RGB split visible,",
@@ -2830,7 +2764,6 @@ export const styles: UIStyle[] = [
     "id": 68,
     "nameEn": "Vintage Analog / Retro Film",
     "nameZh": "Vintage Analog / Retro Film",
-    "category": "General",
     "type": "General",
     "keywords": [
       "Film grain",
@@ -2857,7 +2790,7 @@ export const styles: UIStyle[] = [
     "era": "1970s-90s Analog Revival",
     "complexity": "Medium",
     "promptEn": "Design with vintage analog film aesthetic. Use: film grain overlay, faded/desaturated colors, warm sepia tones, light leaks, VHS tracking effect, polaroid frame, analog warmth, nostalgic photography feel.",
-    "promptZh": "请设计一个Vintage Analog / Retro Film界面。使用：Film grain overlay, VHS tracking effect, polaroid shake, fad。配色：Faded Cream #F5E6C8, Warm Sepia #D4A574, Muted Tea。适用于：Photography portfolios, music/vinyl brands, vintag。技术要点：filter: sepia() contrast() saturate(0.8), background: noise 。",
+    "promptZh": "请设计一个Vintage Analog / Retro Film界面。使用：Film grain overlay, VHS tracking effect, polaroid shake。配色：Faded Cream #F5E6C8, Warm Sepia #D4A574, Muted。适用于：Photography portfolios, music/vinyl brands。技术要点：filter: sepia() contrast() saturate(0.8), background: noise。",
     "cssKeywords": "filter: sepia() contrast() saturate(0.8), background: noise texture overlay, animation: VHS tracking (transform skew), light leak gradient overlay, border for polaroid frame, grain via SVG filter",
     "implementationChecklist": [
       "Film grain visible,",
@@ -2873,7 +2806,6 @@ export const styles: UIStyle[] = [
     "id": 69,
     "nameEn": "Bauhaus (包豪斯)",
     "nameZh": "Bauhaus (包豪斯)",
-    "category": "Mobile",
     "type": "Mobile",
     "keywords": [
       "bauhaus",
@@ -2903,7 +2835,7 @@ export const styles: UIStyle[] = [
     "era": "1919 Bauhaus Movement",
     "complexity": "Medium",
     "promptEn": "Design a Bauhaus mobile app. Use strict geometric shapes (circles and squares only), primary color blocking (Red #D02020, Blue #1040C0, Yellow #F0C020), hard 4px offset black shadows, OFF-WHITE canvas (#F0F0F0), massive bold uppercase headlines (Outfit Black 900), rectangular full-width buttons with mechanical press animation. No gradients. No rounded cards. No soft transitions.",
-    "promptZh": "请设计一个Bauhaus (包豪斯)界面。使用：Hard offset shadows (4px 4px 0px black), mechanical press ac。配色：Primary Red #D02020, Primary Blue #1040C0, Primary。适用于：Mobile-first apps needing high personality, onboar。技术要点：border-radius: 0px (cards/inputs) or 9999px (buttons/FAB), b。",
+    "promptZh": "请设计一个Bauhaus (包豪斯)界面。使用：Hard offset shadows (4px 4px 0px black), mechanical press。配色：Primary Red #D02020, Primary Blue #1040C0。适用于：Mobile-first apps needing high personality。技术要点：border-radius: 0px (cards/inputs) or 9999px (buttons/FAB)。",
     "cssKeywords": "border-radius: 0px (cards/inputs) or 9999px (buttons/FAB), box-shadow: 4px 4px 0px 0px #121212, active:translate-x-[2px] active:translate-y-[2px] active:shadow-none, border: 2px solid #121212, font-family: Outfit, font-weight: 900 uppercase tracking-tighter (headlines)",
     "implementationChecklist": [
       "Geometric shapes only (circle/square),",
@@ -2923,7 +2855,6 @@ export const styles: UIStyle[] = [
     "id": 70,
     "nameEn": "Minimalist Monochrome",
     "nameZh": "Minimalist Monochrome",
-    "category": "Mobile",
     "type": "Mobile",
     "keywords": [
       "monochrome",
@@ -2954,7 +2885,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Editorial Mobile",
     "complexity": "Medium",
     "promptEn": "Design a minimalist monochrome mobile app. Use ONLY black (#000000) and white (#FFFFFF). Zero border-radius on every element. No shadows — depth is created by 1–4px black borders and color inversion only. Typography is the primary visual: Playfair Display for heroes (text-5xl–text-6xl, tracking-tighter, leading-[0.9]), Source Serif 4 for body, JetBrains Mono for labels/tags. Tap states instantly invert (bg-black text-white). Full-width horizontal rules separate sections. Use the word 'MENU' instead of hamburger icon.",
-    "promptZh": "请设计一个Minimalist Monochrome界面。使用：Instant inversion active state (tap → bg-black text-white, z。配色：Pure Black #000000, Pure White #FFFFFF。适用于：Luxury fashion e-commerce mobile, editorial public。技术要点：border-radius: 0px (ALL elements including modals), box-shad。",
+    "promptZh": "请设计一个Minimalist Monochrome界面。使用：Instant inversion active state (tap → bg-black text-white。配色：Pure Black #000000, Pure White #FFFFFF。适用于：Luxury fashion e-commerce mobile, editorial。技术要点：border-radius: 0px (ALL elements including modals)。",
     "cssKeywords": "border-radius: 0px (ALL elements including modals), box-shadow: none, active:bg-black active:text-white transition-none, border-b-4 border-black (section dividers), divide-y divide-black (lists), font-family: Playfair Display (headers) + Source Serif 4 (body) + JetBrains Mono (labels), background-image: noise SVG opacity-[0.03]",
     "implementationChecklist": [
       "0px border-radius on ALL elements,",
@@ -2974,7 +2905,6 @@ export const styles: UIStyle[] = [
     "id": 71,
     "nameEn": "Modern Dark (Cinema Mobile)",
     "nameZh": "Modern Dark (Cinema Mobile)",
-    "category": "Mobile",
     "type": "Mobile",
     "keywords": [
       "dark mode",
@@ -3008,7 +2938,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Cinematic Mobile",
     "complexity": "High",
     "promptEn": "Design a cinematic dark mobile app. Background: LinearGradient from #0a0a0f (top) to #020203 (bottom). Add 2–3 absolute animated 'blob' views: circular, blurRadius 30–50, opacity 0.08–0.12, slow Reanimated oscillation. Cards: borderRadius 16, border rgba(255,255,255,0.08) hairline, subtle top-edge shine gradient. Primary button: #5E6AD2, scale press 0.97, haptic on press. BlurView (intensity 20, tint dark) for tab bar and headers. Typography: Inter 700 for headers, 400 for body. Never use pure #000000. Accent glow: rgba(94,106,210,0.2) behind primary actions.",
-    "promptZh": "请设计一个Modern Dark (Cinema Mobile)界面。使用：Expo.out Bezier(0.16,1,0.3,1) easing; spring modals (damping。配色：Deep #020203, Base #050506, Elevated #0a0a0c, Acce。适用于：Developer tools, pro productivity apps, fintech/tr。技术要点：borderRadius: 16 (cards/buttons), background: LinearGradient。",
+    "promptZh": "请设计一个Modern Dark (Cinema Mobile)界面。使用：Expo.out Bezier(0.16,1,0.3,1) easing; spring modals。配色：Deep #020203, Base #050506, Elevated #0a0a0c。适用于：Developer tools, pro productivity apps。技术要点：borderRadius: 16 (cards/buttons), background:。",
     "cssKeywords": "borderRadius: 16 (cards/buttons), background: LinearGradient #0a0a0f→#020203, border: StyleSheet.hairlineWidth rgba(255,255,255,0.08), BlurView intensity={20} tint='dark', useAnimatedStyle + withRepeat (blob oscillation), Easing.bezier(0.16,1,0.3,1), withSpring damping:20 stiffness:90, Haptics.impactAsync(ImpactFeedbackStyle.Light), scale: 0.97 press",
     "implementationChecklist": [
       "No pure #000000 backgrounds,",
@@ -3028,7 +2958,6 @@ export const styles: UIStyle[] = [
     "id": 72,
     "nameEn": "SaaS Mobile (High-Tech Boutique)",
     "nameZh": "SaaS Mobile (High-Tech Boutique)",
-    "category": "Mobile",
     "type": "Mobile",
     "keywords": [
       "saas",
@@ -3062,7 +2991,7 @@ export const styles: UIStyle[] = [
     "era": "2020s SaaS Mobile",
     "complexity": "Medium",
     "promptEn": "Design a high-tech boutique SaaS mobile app. Primary canvas: #FAFAFA (warm off-white). Cards: #FFFFFF with 1pt Slate-200 border, iOS shadow (shadowOpacity:0.1, shadowRadius:10, offset y:4), Android elevation:4, padding 24px, borderRadius 16. Buttons: LinearGradient #0052FF→#4D7CFF, height 56px, borderRadius 16, scale press 0.96 + haptic. Section badges: rounded pill with rgba(0,82,255,0.05) bg and rgba(0,82,255,0.2) border + PulseDot + JetBrains Mono text. Typography: Calistoga for heroes (36–42pt), Inter for body (16–18pt), JetBrains Mono for data labels. All screen transitions: spring (mass:1 damping:15 stiffness:120). Always include SafeAreaView.",
-    "promptZh": "请设计一个SaaS Mobile (High-Tech Boutique)界面。使用：Spring animations (mass:1 damping:15 stiffness:120); gradien。配色：Electric Blue #0052FF, Gradient End #4D7CFF。适用于：B2B SaaS mobile dashboards, fintech apps, develope。技术要点：borderRadius: 16 (buttons/cards), LinearGradient colors={['#。",
+    "promptZh": "请设计一个SaaS Mobile (High-Tech Boutique)界面。使用：Spring animations (mass:1 damping:15 stiffness:120)。配色：Electric Blue #0052FF, Gradient End #4D7CFF。适用于：B2B SaaS mobile dashboards, fintech apps。技术要点：borderRadius: 16 (buttons/cards), LinearGradient。",
     "cssKeywords": "borderRadius: 16 (buttons/cards), LinearGradient colors={['#0052FF','#4D7CFF']}, shadowOpacity: 0.1, shadowRadius: 10, elevation: 4, Haptics.impactAsync(ImpactFeedbackStyle.Light) on press, withSpring({mass:1, damping:15, stiffness:120}), withTiming Y:20→0 opacity:0→1 staggered entrance, LayoutAnimation.configureNext for list updates, BlurView on nav bars",
     "implementationChecklist": [
       "SafeAreaView wraps all screens,",
@@ -3082,7 +3011,6 @@ export const styles: UIStyle[] = [
     "id": 73,
     "nameEn": "Terminal CLI (Mobile)",
     "nameZh": "Terminal CLI (Mobile)",
-    "category": "Mobile",
     "type": "Mobile",
     "keywords": [
       "terminal",
@@ -3115,7 +3043,7 @@ export const styles: UIStyle[] = [
     "era": "Retro-Future 1980s–2020s",
     "complexity": "Medium",
     "promptEn": "Design a Mobile Terminal CLI app. Background: #050505 OLED black. ALL text in Matrix Green #33FF00. Font: JetBrains Mono or SpaceMono ONLY — zero border-radius everywhere. ASCII borders using +, -, |, * characters instead of standard containers. Buttons displayed as [ EXECUTE ] or > PROCEED. On press: instantly inverts to green bg + black text + haptic. Cursor: blinking View opacity 0→1 at 500ms. Show boot sequence on launch (fake log scroll). Progress bars as [#####-----] text. Status bar footer: [BATTERY:88%] [NET:CONNECTED]. Scanline overlay: absolute View with repeating 1px horizontal lines at opacity 0.05. Typewriter effect on new data.",
-    "promptZh": "请设计一个Terminal CLI (Mobile)界面。使用：Blinking cursor (500ms opacity loop), typewriter text reveal。配色：Matrix Green #33FF00, OLED Black #050505。适用于：Developer tools, Web3/blockchain apps, geek-cultur。技术要点：borderRadius: 0 (ALL elements), borderWidth: 1, borderColor:。",
+    "promptZh": "请设计一个Terminal CLI (Mobile)界面。使用：Blinking cursor (500ms opacity loop), typewriter text。配色：Matrix Green #33FF00, OLED Black #050505。适用于：Developer tools, Web3/blockchain apps。技术要点：borderRadius: 0 (ALL elements), borderWidth: 1。",
     "cssKeywords": "borderRadius: 0 (ALL elements), borderWidth: 1, borderColor: '#33FF00', backgroundColor: '#050505', color: '#33FF00', fontFamily: 'SpaceMono-Regular' or JetBrains Mono, fontSize: 12 or 14 or 16 only, lineHeight: 1.2x fontSize, Haptics.impactAsync(Light) on every press, useAnimatedValue blink 500ms, hitSlop: 12px all sides for bracketed buttons",
     "implementationChecklist": [
       "0px border-radius everywhere,",
@@ -3135,7 +3063,6 @@ export const styles: UIStyle[] = [
     "id": 74,
     "nameEn": "Kinetic Brutalism (Mobile)",
     "nameZh": "Kinetic Brutalism (Mobile)",
-    "category": "Mobile",
     "type": "Mobile",
     "keywords": [
       "kinetic",
@@ -3168,7 +3095,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Mobile Brutalism",
     "complexity": "High",
     "promptEn": "Design a Kinetic Brutalism mobile app. Canvas: #09090B. Primary accent: Acid Yellow #DFE104 (text: #000000). Typography: Space Grotesk BOLD. Display text: 60–120pt, uppercase, letterSpacing -1, lineHeight 0.9–1.1x. Body: 18–20pt. Labels: 12pt uppercase letterSpacing +2. Add infinite marquee rows (Reanimated, no easing, hard edge clip). Hero text parallax on scroll (Interpolate: scale 1.0→1.3, opacity 1→0). Card press: instantly flood to #DFE104 + flip text to #000. Haptic Medium on every press. 0px radius. 2px solid borders. NO shadows. No gradients. Scale all fonts by (windowWidth / 375 * size) for responsiveness.",
-    "promptZh": "请设计一个Kinetic Brutalism (Mobile)界面。使用：Infinite marquee (Reanimated, Linear easing, 5s loop, hard c。配色：Acid Yellow #DFE104, Rich Black #09090B。适用于：Immersive storytelling apps, brand flagship mobile。技术要点：borderRadius: 0, borderWidth: 2, borderColor: '#3F3F46', bac。",
+    "promptZh": "请设计一个Kinetic Brutalism (Mobile)界面。使用：Infinite marquee (Reanimated, Linear easing, 5s loop, hard。配色：Acid Yellow #DFE104, Rich Black #09090B。适用于：Immersive storytelling apps, brand flagship。技术要点：borderRadius: 0, borderWidth: 2, borderColor: '#3F3F46'。",
     "cssKeywords": "borderRadius: 0, borderWidth: 2, borderColor: '#3F3F46', backgroundColor: '#09090B', color: '#FAFAFA', fontWeight: '800 or 900', letterSpacing: -1 (large) or 2 (labels), lineHeight: 0.9–1.1 * fontSize, Reanimated withRepeat marquee timing 5000ms Easing.linear, Interpolate scroll→scale + opacity, Haptics.impactAsync(Medium), scale press: 0.95, 100ms color transitions",
     "implementationChecklist": [
       "Infinite marquee rows (Reanimated, no fade edges),",
@@ -3188,7 +3115,6 @@ export const styles: UIStyle[] = [
     "id": 75,
     "nameEn": "Flat Design Mobile (Touch-First)",
     "nameZh": "Flat Design Mobile (Touch-First)",
-    "category": "Mobile",
     "type": "Mobile",
     "keywords": [
       "flat",
@@ -3220,7 +3146,7 @@ export const styles: UIStyle[] = [
     "era": "2010s–2020s Flat Mobile",
     "complexity": "Low",
     "promptEn": "Design a Flat Mobile app. NO shadows (shadowOpacity: 0, elevation: 0). Color creates all hierarchy. Sections: full-width View blocks alternating contrasting bg colors (Blue Hero → White Content → Gray Block). Buttons: solid #3B82F6, borderRadius 8, height 56. Cards: backgroundColor #FFFFFF (on gray bg) or #DBEAFE (blue tint) — no shadow. Text: fontWeight 800 letterSpacing -0.5 (heads), 600 (sub), 400 (body). Inputs: #F3F4F6 bg, focused: borderWidth 2 borderColor #3B82F6. Icons: Lucide strokeWidth 2.5 inside solid colored square/circle. Press feedback: scale 0.97 Pressable. Use position absolute low-opacity geometric shapes (circles, rotated squares) as background decoration.",
-    "promptZh": "请设计一个Flat Design Mobile (Touch-First)界面。使用：Immediate press feedback (scale 0.97, no delay), color secti。配色：Blue #3B82F6, Emerald #10B981。适用于：Cross-platform apps (iOS+Android parity), informat。技术要点：shadowOpacity: 0, elevation: 0, borderRadius: 6/12/999, heig。",
+    "promptZh": "请设计一个Flat Design Mobile (Touch-First)界面。使用：Immediate press feedback (scale 0.97, no delay), color。配色：Blue #3B82F6, Emerald #10B981。适用于：Cross-platform apps (iOS+Android parity)。技术要点：shadowOpacity: 0, elevation: 0, borderRadius: 6/12/999。",
     "cssKeywords": "shadowOpacity: 0, elevation: 0, borderRadius: 6/12/999, height: 48 minimum touch targets, spacing: 4/8/16/24/32/48 system, backgroundColor (section blocking), Pressable scale: pressed ? 0.97 : 1, fontWeight: '800' heads / '600' sub / '400' body, letterSpacing: -0.5 heads / 1 labels, textTransform: 'uppercase' labels, strokeWidth={2.5} icons, borderWidth: 3/4 for featured CTAs",
     "implementationChecklist": [
       "Zero elevation AND shadowOpacity on all elements,",
@@ -3240,7 +3166,6 @@ export const styles: UIStyle[] = [
     "id": 76,
     "nameEn": "Material You (MD3 Mobile)",
     "nameZh": "Material You (MD3 Mobile)",
-    "category": "Mobile",
     "type": "Mobile",
     "keywords": [
       "material design 3",
@@ -3270,7 +3195,7 @@ export const styles: UIStyle[] = [
     "era": "Material Design 3",
     "complexity": "Medium",
     "promptEn": "Design a Material You (MD3) mobile app. Use #FFFBFE background, #6750A4 primary, #E8DEF8 secondary container, #F3EDF7 surface container. All interactive elements are pill-shaped (borderRadius: 999). Buttons use Pressable with scale: 0.95 on press and state-layer overlays (black 10% or primary 12%). Inputs use filled M3 style: background #E7E0EC with floating label animation on focus. Elevation is tonal (layering containers) plus light shadow/elevation on Android. Animations use emphasized easing (0.2,0,0,1) at 100–400ms. FABs are tertiary-colored rounded squares/circles with level 3 elevation.",
-    "promptZh": "请设计一个Material You (MD3 Mobile)界面。使用：Tonal elevation (overlay colors instead of strong shadows), 。配色：Primary Violet #6750A4, Secondary Container #E8DEF。适用于：Android ecosystem apps, cross-platform productivit。技术要点：borderRadius: 999 (buttons/chips), containerRadius: 16–28, b。",
+    "promptZh": "请设计一个Material You (MD3 Mobile)界面。使用：Tonal elevation (overlay colors instead of strong shadows)。配色：Primary Violet #6750A4, Secondary Container。适用于：Android ecosystem apps, cross-platform。技术要点：borderRadius: 999 (buttons/chips), containerRadius: 16–28。",
     "cssKeywords": "borderRadius: 999 (buttons/chips), containerRadius: 16–28, backgroundColor: '#FFFBFE', colorPrimary: '#6750A4', colorSecondaryContainer: '#E8DEF8', colorSurfaceContainer: '#F3EDF7', outlineColor: '#79747E', Pressable state-layer overlay (opacity 0.1–0.15), Easing.bezier(0.2,0,0,1), HapticFeedback.impactMedium on FAB, floating label using Reanimated translateY/scale",
     "implementationChecklist": [
       "MD3 color tokens applied (background/surface/container),",
@@ -3289,7 +3214,6 @@ export const styles: UIStyle[] = [
     "id": 77,
     "nameEn": "Neo Brutalism (Mobile)",
     "nameZh": "Neo Brutalism (Mobile)",
-    "category": "Mobile",
     "type": "Mobile",
     "keywords": [
       "neo brutalism",
@@ -3319,7 +3243,7 @@ export const styles: UIStyle[] = [
     "era": "2020s Neo-Brutalism",
     "complexity": "High",
     "promptEn": "Design a Mobile Neo-Brutalist app. Background: Cream #FFFDF5. All content blocks: white or violet with borderWidth 4 borderColor #000. Shadows are solid offset blocks (no blur) using an extra View behind offset by 4px or 8px. Typography: Space Grotesk Bold/Black only (700–900). Buttons: 56px tall, 4px border, 0 radius; press animation translates button to cover the shadow. Cards slightly rotated (-1deg, 2deg). Colors: Hot Red #FF6B6B for primary, Yellow #FFD93D for focus/badges, Soft Violet #C4B5FD as tertiary. Animation: spring/linear only, no ease-out luxury motion.",
-    "promptZh": "请设计一个Neo Brutalism (Mobile)界面。使用：Thick 4px black borders on all major elements, hard offset s。配色：Cream #FFFDF5, Hot Red #FF6B6B, Vivid Yellow #FFD9。适用于：Creative tools, collab platforms, Gen Z marketing 。技术要点：borderWidth: 4 (primary), 2 (secondary), borderRadius: 0 or 。",
+    "promptZh": "请设计一个Neo Brutalism (Mobile)界面。使用：Thick 4px black borders on all major elements, hard offset。配色：Cream #FFFDF5, Hot Red #FF6B6B, Vivid Yellow。适用于：Creative tools, collab platforms, Gen Z marketing。技术要点：borderWidth: 4 (primary), 2 (secondary), borderRadius: 0 or。",
     "cssKeywords": "borderWidth: 4 (primary), 2 (secondary), borderRadius: 0 or 999 (badges only), backgroundColor: '#FFFDF5', shadow implemented as offset View, transform: [{translateX:4},{translateY:4}] on PressIn, fontFamily: 'SpaceGrotesk-Bold', fontWeight: '700/900', transform: [{ rotate: '-1deg' }] on cards, padding: 20,☐ 4px borders on major elements",
     "implementationChecklist": [
       "Hard offset shadow implemented via extra View"

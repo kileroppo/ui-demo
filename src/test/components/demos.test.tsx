@@ -76,7 +76,6 @@ describe('GenericStyleDemo', () => {
     id: 99,
     nameEn: 'Custom Style',
     nameZh: '自定义风格',
-    category: 'General',
     type: 'General',
     keywords: [],
     primaryColors: '#6366f1',

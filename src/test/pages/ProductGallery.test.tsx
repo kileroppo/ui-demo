@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { ProductGallery } from '../../pages/ProductGallery'
@@ -52,7 +52,9 @@ describe('ProductGallery', () => {
 
     const input = screen.getByPlaceholderText(/搜索风格/)
     await user.type(input, 'zzz_nomatch_xyz')
-    expect(screen.getByText(/未找到/)).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByText(/未找到/)).toBeInTheDocument()
+    })
   })
 
   it('shows result count', () => {
@@ -74,6 +76,8 @@ describe('ProductGallery', () => {
 
     const input = screen.getByPlaceholderText(/搜索风格/)
     await user.type(input, 'zzz_nomatch_xyz')
-    expect(screen.getByText(/试试其他关键词/)).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByText(/试试其他关键词/)).toBeInTheDocument()
+    })
   })
 })

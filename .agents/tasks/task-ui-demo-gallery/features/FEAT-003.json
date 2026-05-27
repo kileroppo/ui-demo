@@ -1,0 +1,31 @@
+{
+  "id": "FEAT-003",
+  "type": "fix",
+  "description": "Address review findings: remove dead data exports, fix broken Chinese prompts, add search debounce, remove redundant category field, fix product nameZh English fallback, add build script tests.",
+  "status": "in_progress",
+  "steps": [
+    "1. Remove dead data exports (colors, typography) from barrel export and remove unused files from bundle.",
+    "2. Fix broken Chinese prompts in build-data.mjs - truncate at proper boundaries.",
+    "3. Add search debounce (150-300ms) to search input handlers.",
+    "4. Remove redundant category field from UIStyle interface and data.",
+    "5. Fix product nameZh English fallback - add comprehensive Chinese translations.",
+    "6. Add tests for the build script CSV parsing logic.",
+    "7. Ensure all changes pass build and tests with >= 90% coverage."
+  ],
+  "acceptance_criteria": [
+    "colors and typography are not exported from barrel or bundled",
+    "Chinese prompts are proper sentences without truncated mid-word text",
+    "Search inputs have 150-300ms debounce",
+    "category field removed from UIStyle (only type remains)",
+    "All product nameZh values are in Chinese",
+    "Build script CSV parsing has test coverage",
+    "pnpm build succeeds",
+    "pnpm test -- --coverage passes with >= 90% coverage"
+  ],
+  "verification": [
+    "Run: pnpm build",
+    "Run: pnpm test -- --coverage"
+  ],
+  "blocked_reason": null,
+  "findings": null
+}

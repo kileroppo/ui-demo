@@ -1,5 +1,3 @@
 export { styles } from './styles'
 export { products } from './products'
-export { colors } from './colors'
-export { typography } from './typography'
 export type { UIStyle, ProductType, ColorPalette, FontPairing, StyleCategory } from './types'

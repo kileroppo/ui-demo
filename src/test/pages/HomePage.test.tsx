@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { HomePage } from '../../pages/HomePage'
@@ -61,7 +61,9 @@ describe('HomePage', () => {
 
     const input = screen.getByPlaceholderText(/搜索风格/)
     await user.type(input, 'Glassmorphism')
-    expect(screen.getByText(/搜索结果/)).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByText(/搜索结果/)).toBeInTheDocument()
+    })
   })
 
   it('renders category quick-links', () => {
@@ -70,7 +72,6 @@ describe('HomePage', () => {
         <HomePage />
       </MemoryRouter>
     )
-    // Should have category buttons
     const nav = screen.getByLabelText('风格类别快速导航')
     expect(nav).toBeInTheDocument()
   })
@@ -85,7 +86,9 @@ describe('HomePage', () => {
 
     const input = screen.getByPlaceholderText(/搜索风格/)
     await user.type(input, 'zzz_nomatch_xyz')
-    expect(screen.getByText(/未找到/)).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByText(/未找到/)).toBeInTheDocument()
+    })
   })
 
   it('renders feature highlights', () => {

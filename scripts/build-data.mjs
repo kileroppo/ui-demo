@@ -1,84 +1,16 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'fs'
 import { join } from 'path'
+import { parseCSV, csvToObjects, truncateClean } from './csv-utils.mjs'
 
 const DATA_DIR = '/projects/sandbox/ui-ux-pro-max-skill/src/ui-ux-pro-max/data'
 const OUT_DIR = join(import.meta.dirname, '..', 'src', 'data')
 
 mkdirSync(OUT_DIR, { recursive: true })
 
-// Simple CSV parser that handles quoted fields with commas
-function parseCSV(text) {
-  const lines = []
-  let current = ''
-  let inQuotes = false
-  
-  for (let i = 0; i < text.length; i++) {
-    const ch = text[i]
-    if (ch === '"') {
-      if (inQuotes && text[i+1] === '"') {
-        current += '"'
-        i++
-      } else {
-        inQuotes = !inQuotes
-      }
-    } else if (ch === ',' && !inQuotes) {
-      lines.push(current)
-      current = ''
-    } else if ((ch === '\n' || ch === '\r') && !inQuotes) {
-      if (ch === '\r' && text[i+1] === '\n') i++
-      lines.push(current)
-      current = ''
-    } else {
-      current += ch
-    }
-  }
-  if (current) lines.push(current)
-  
-  // Re-parse as rows
-  const rawText = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n')
-  const rows = []
-  let row = []
-  let field = ''
-  let insideQuotes = false
-  
-  for (let i = 0; i < rawText.length; i++) {
-    const ch = rawText[i]
-    if (ch === '"') {
-      if (insideQuotes && rawText[i+1] === '"') {
-        field += '"'
-        i++
-      } else {
-        insideQuotes = !insideQuotes
-      }
-    } else if (ch === ',' && !insideQuotes) {
-      row.push(field.trim())
-      field = ''
-    } else if (ch === '\n' && !insideQuotes) {
-      row.push(field.trim())
-      if (row.some(f => f.length > 0)) rows.push(row)
-      row = []
-      field = ''
-    } else {
-      field += ch
-    }
-  }
-  row.push(field.trim())
-  if (row.some(f => f.length > 0)) rows.push(row)
-  
-  return rows
-}
-
 function readCSV(filename) {
   const text = readFileSync(join(DATA_DIR, filename), 'utf-8')
   const rows = parseCSV(text)
-  const headers = rows[0]
-  return rows.slice(1).map(row => {
-    const obj = {}
-    headers.forEach((h, i) => {
-      obj[h] = row[i] || ''
-    })
-    return obj
-  })
+  return csvToObjects(rows)
 }
 
 // Chinese translations for style names
@@ -159,7 +91,7 @@ function generatePromptZh(style) {
   const bestFor = style['Best For'] || '通用场景'
   const css = style['CSS/Technical Keywords'] || 'CSS3'
   
-  return `请设计一个${name}界面。使用：${effects.substring(0, 60)}。配色：${colors.substring(0, 50)}。适用于：${bestFor.substring(0, 50)}。技术要点：${css.substring(0, 60)}。`
+  return `请设计一个${name}界面。使用：${truncateClean(effects, 60)}。配色：${truncateClean(colors, 50)}。适用于：${truncateClean(bestFor, 50)}。技术要点：${truncateClean(css, 60)}。`
 }
 
 // Process styles
@@ -168,7 +100,6 @@ const styles = stylesRaw.map((s, i) => ({
   id: parseInt(s['No']) || i + 1,
   nameEn: s['Style Category'] || '',
   nameZh: zhNames[s['Style Category']] || s['Style Category'],
-  category: s['Type'] || 'General',
   type: s['Type'] || 'General',
   keywords: (s['Keywords'] || '').split(',').map(k => k.trim()).filter(Boolean),
   primaryColors: s['Primary Colors'] || '',
@@ -198,18 +129,176 @@ const productZhNames = {
   'SaaS (General)': '通用SaaS',
   'Micro SaaS': '微型SaaS',
   'E-commerce (General)': '通用电商',
+  'E-commerce': '电商平台',
+  'E-commerce Luxury': '奢侈品电商',
   'FinTech': '金融科技',
+  'Fintech/Crypto': '金融科技/加密货币',
   'EdTech': '教育科技',
   'HealthTech': '健康科技',
   'AI/ML Platform': 'AI/ML平台',
+  'AI/Chatbot Platform': 'AI聊天机器人平台',
   'Social Media': '社交媒体',
+  'Social Media App': '社交媒体应用',
   'Marketplace': '交易市场',
+  'Marketplace (P2P)': 'P2P交易市场',
   'Gaming': '游戏',
   'Food & Delivery': '餐饮外卖',
+  'Food Delivery / On-Demand': '外卖/即时配送',
   'Travel & Booking': '旅行预订',
+  'Travel/Tourism Agency': '旅游机构',
   'Real Estate': '房地产',
+  'Real Estate/Property': '房地产/物业',
   'Fitness & Wellness': '健身养生',
+  'Fitness/Gym App': '健身应用',
   'News & Media': '新闻媒体',
+  'News/Media Platform': '新闻媒体平台',
+  'B2B Service': 'B2B服务',
+  'Financial Dashboard': '金融仪表盘',
+  'Analytics Dashboard': '数据分析仪表盘',
+  'Healthcare App': '医疗健康应用',
+  'Educational App': '教育应用',
+  'Creative Agency': '创意机构',
+  'Portfolio/Personal': '个人作品集',
+  'Government/Public Service': '政府/公共服务',
+  'Productivity Tool': '效率工具',
+  'Design System/Component Library': '设计系统/组件库',
+  'NFT/Web3 Platform': 'NFT/Web3平台',
+  'Creator Economy Platform': '创作者经济平台',
+  'Remote Work/Collaboration Tool': '远程协作工具',
+  'Mental Health App': '心理健康应用',
+  'Pet Tech App': '宠物科技应用',
+  'Smart Home/IoT Dashboard': '智能家居/IoT面板',
+  'EV/Charging Ecosystem': '电动车/充电生态',
+  'Subscription Box Service': '订阅盒子服务',
+  'Podcast Platform': '播客平台',
+  'Dating App': '社交约会应用',
+  'Micro-Credentials/Badges Platform': '微证书/徽章平台',
+  'Knowledge Base/Documentation': '知识库/文档',
+  'Hyperlocal Services': '本地化服务',
+  'Beauty/Spa/Wellness Service': '美容/水疗服务',
+  'Luxury/Premium Brand': '奢侈品/高端品牌',
+  'Restaurant/Food Service': '餐饮服务',
+  'Hotel/Hospitality': '酒店/住宿服务',
+  'Wedding/Event Planning': '婚礼/活动策划',
+  'Legal Services': '法律服务',
+  'Insurance Platform': '保险平台',
+  'Banking/Traditional Finance': '银行/传统金融',
+  'Online Course/E-learning': '在线课程/学习',
+  'Non-profit/Charity': '非营利/公益',
+  'Music Streaming': '音乐流媒体',
+  'Video Streaming/OTT': '视频流媒体/OTT',
+  'Job Board/Recruitment': '招聘平台',
+  'Logistics/Delivery': '物流/配送',
+  'Agriculture/Farm Tech': '农业科技',
+  'Construction/Architecture': '建筑/工程',
+  'Automotive/Car Dealership': '汽车/经销商',
+  'Photography Studio': '摄影工作室',
+  'Coworking Space': '联合办公空间',
+  'Home Services (Plumber/Electrician)': '家庭维修服务',
+  'Childcare/Daycare': '托儿/幼托',
+  'Senior Care/Elderly': '养老/老年护理',
+  'Medical Clinic': '医疗诊所',
+  'Pharmacy/Drug Store': '药店/药房',
+  'Dental Practice': '牙科诊所',
+  'Veterinary Clinic': '宠物医院',
+  'Florist/Plant Shop': '花店/植物商店',
+  'Bakery/Cafe': '烘焙/咖啡店',
+  'Brewery/Winery': '酿酒厂/酒庄',
+  'Sports Team/Club': '体育俱乐部',
+  'Church/Religious Organization': '宗教组织',
+  'Museum/Gallery': '博物馆/画廊',
+  'Theater/Cinema': '剧院/影院',
+  'Marketing Agency': '营销机构',
+  'Freelancer Platform': '自由职业者平台',
+  'Event Management': '活动管理',
+  'Magazine/Blog': '杂志/博客',
+  'Newsletter Platform': '新闻通讯平台',
+  'Membership/Community': '会员/社区',
+  'Digital Products/Downloads': '数字产品/下载',
+  'Coding Bootcamp': '编程训练营',
+  'Language Learning App': '语言学习应用',
+  'Habit Tracker': '习惯追踪器',
+  'Meditation & Mindfulness': '冥想正念',
+  'Sleep Tracker': '睡眠追踪器',
+  'Recipe & Cooking App': '食谱/烹饪应用',
+  'Grocery & Shopping List': '购物清单应用',
+  'Weather App': '天气应用',
+  'Calendar & Scheduling App': '日历/日程应用',
+  'Notes & Writing App': '笔记/写作应用',
+  'Personal Finance Tracker': '个人理财追踪',
+  'Password Manager': '密码管理器',
+  'VPN & Privacy Tool': 'VPN/隐私工具',
+  'Cybersecurity Platform': '网络安全平台',
+  'Developer Tool / IDE': '开发者工具/IDE',
+  'Inventory & Stock Management': '库存管理',
+  'Invoice & Billing Tool': '发票/账单工具',
+  'CRM & Client Management': 'CRM/客户管理',
+  'Generative Art Platform': '生成艺术平台',
+  'AI Photo & Avatar Generator': 'AI照片/头像生成',
+  'Space Tech / Aerospace': '航天科技',
+  'Biotech / Life Sciences': '生物科技/生命科学',
+  'Quantum Computing Interface': '量子计算界面',
+  'Autonomous Drone Fleet Manager': '无人机管理平台',
+  'Sustainable Energy / Climate Tech': '可持续能源/气候科技',
+  'Spatial Computing OS / App': '空间计算应用',
+  'Ride Hailing / Transportation': '网约车/出行',
+  'Parking Finder': '停车位查找',
+  'Public Transit Guide': '公交导航',
+  'Road Trip Planner': '自驾旅行规划',
+  'Running & Cycling GPS': '跑步/骑行GPS',
+  'Yoga & Stretching Guide': '瑜伽/拉伸指导',
+  'Calorie & Nutrition Counter': '卡路里/营养计算',
+  'Fasting & Intermittent Timer': '间歇性断食计时',
+  'Water & Hydration Reminder': '喝水提醒',
+  'Medication & Pill Reminder': '服药提醒',
+  'Period & Cycle Tracker': '经期追踪',
+  'Mood Tracker': '情绪追踪',
+  'Diary & Journal App': '日记应用',
+  'Biohacking / Longevity App': '生物黑客/长寿应用',
+  'Kids Learning (ABC & Math)': '儿童学习应用',
+  'Flashcard & Study Tool': '闪卡/学习工具',
+  'Study Together / Virtual Coworking': '线上自习室',
+  'Coding Challenge & Practice': '编程挑战/练习',
+  'Music Instrument Learning': '乐器学习',
+  'Book & Reading Tracker': '阅读追踪器',
+  'Bookmark & Read-Later': '收藏/稍后阅读',
+  'Chat & Messaging App': '聊天/通讯应用',
+  'Anonymous Community / Confession': '匿名社区/树洞',
+  'Couple & Relationship App': '情侣/关系应用',
+  'Family Calendar & Chores': '家庭日历/家务',
+  'Parenting & Baby Tracker': '育儿/宝宝追踪',
+  'Plant Care Tracker': '植物养护追踪',
+  'Home Decoration & Interior Design': '家装/室内设计',
+  'Wardrobe & Outfit Planner': '衣橱/穿搭规划',
+  'Gift & Wishlist': '礼物/愿望清单',
+  'Local Events & Discovery': '本地活动/发现',
+  'Booking & Appointment App': '预约应用',
+  'Expense Splitter / Bill Split': 'AA/分账应用',
+  'Link-in-Bio Page Builder': '个人链接页构建',
+  'Photo Editor & Filters': '照片编辑/滤镜',
+  'Short Video Editor': '短视频编辑',
+  'Drawing & Sketching Canvas': '绘画/素描画布',
+  'Meme & Sticker Maker': '表情包/贴纸制作',
+  'Music Creation & Beat Maker': '音乐创作/节拍器',
+  'Voice Recorder & Memo': '录音/语音备忘',
+  'Wallpaper & Theme App': '壁纸/主题应用',
+  'Timer & Pomodoro': '计时器/番茄钟',
+  'Alarm & World Clock': '闹钟/世界时钟',
+  'Calculator & Unit Converter': '计算器/单位转换',
+  'Scanner & Document Manager': '扫描/文档管理',
+  'File Manager & Transfer': '文件管理/传输',
+  'Translator App': '翻译应用',
+  'Email Client': '邮件客户端',
+  'White Noise & Ambient Sound': '白噪音/环境音',
+  'Casual Puzzle Game': '休闲益智游戏',
+  'Trivia & Quiz Game': '问答/竞猜游戏',
+  'Word & Crossword Game': '文字/填字游戏',
+  'Card & Board Game': '纸牌/棋盘游戏',
+  'Idle & Clicker Game': '放置/点击游戏',
+  'Arcade & Retro Game': '街机/复古游戏',
+  'Architecture / Interior': '建筑/室内设计',
+  'Emergency SOS & Safety': '紧急求助/安全',
+  'Airline': '航空公司',
 }
 
 const products = productsRaw.map((p, i) => ({
@@ -225,46 +314,6 @@ const products = productsRaw.map((p, i) => ({
   considerations: p['Key Considerations'] || '',
 }))
 
-// Process colors
-const colorsRaw = readCSV('colors.csv')
-const colors = colorsRaw.map((c, i) => ({
-  id: parseInt(c['No']) || i + 1,
-  productType: c['Product Type'] || '',
-  primary: c['Primary'] || '',
-  onPrimary: c['On Primary'] || '',
-  secondary: c['Secondary'] || '',
-  onSecondary: c['On Secondary'] || '',
-  accent: c['Accent'] || '',
-  onAccent: c['On Accent'] || '',
-  background: c['Background'] || '',
-  foreground: c['Foreground'] || '',
-  card: c['Card'] || '',
-  cardForeground: c['Card Foreground'] || '',
-  muted: c['Muted'] || '',
-  mutedForeground: c['Muted Foreground'] || '',
-  border: c['Border'] || '',
-  destructive: c['Destructive'] || '',
-  onDestructive: c['On Destructive'] || '',
-  ring: c['Ring'] || '',
-  notes: c['Notes'] || '',
-}))
-
-// Process typography
-const typographyRaw = readCSV('typography.csv')
-const typography = typographyRaw.map((t, i) => ({
-  id: parseInt(t['No']) || i + 1,
-  name: t['Font Pairing Name'] || '',
-  category: t['Category'] || '',
-  headingFont: t['Heading Font'] || '',
-  bodyFont: t['Body Font'] || '',
-  keywords: (t['Mood/Style Keywords'] || '').split(',').map(k => k.trim()).filter(Boolean),
-  bestFor: t['Best For'] || '',
-  googleFontsUrl: t['Google Fonts URL'] || '',
-  cssImport: t['CSS Import'] || '',
-  tailwindConfig: t['Tailwind Config'] || '',
-  notes: t['Notes'] || '',
-}))
-
 // Write output files
 function writeTS(filename, varName, data, typeName) {
   const content = `import type { ${typeName} } from './types'\n\nexport const ${varName}: ${typeName}[] = ${JSON.stringify(data, null, 2)}\n`
@@ -273,14 +322,10 @@ function writeTS(filename, varName, data, typeName) {
 
 writeTS('styles.ts', 'styles', styles, 'UIStyle')
 writeTS('products.ts', 'products', products, 'ProductType')
-writeTS('colors.ts', 'colors', colors, 'ColorPalette')
-writeTS('typography.ts', 'typography', typography, 'FontPairing')
 
 // Write index
 const indexContent = `export { styles } from './styles'
 export { products } from './products'
-export { colors } from './colors'
-export { typography } from './typography'
 export type { UIStyle, ProductType, ColorPalette, FontPairing, StyleCategory } from './types'
 `
 writeFileSync(join(OUT_DIR, 'index.ts'), indexContent, 'utf-8')
@@ -288,5 +333,3 @@ writeFileSync(join(OUT_DIR, 'index.ts'), indexContent, 'utf-8')
 console.log(`Generated data files:`)
 console.log(`  - styles.ts: ${styles.length} styles`)
 console.log(`  - products.ts: ${products.length} products`)
-console.log(`  - colors.ts: ${colors.length} color palettes`)
-console.log(`  - typography.ts: ${typography.length} font pairings`)

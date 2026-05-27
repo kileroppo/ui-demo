@@ -5,6 +5,7 @@ import { StyleCard } from '../components/StyleCard'
 import { SearchBar } from '../components/SearchBar'
 import { FilterPanel } from '../components/FilterPanel'
 import { searchAndSort } from '../utils/search'
+import { useDebounce } from '../hooks/useDebounce'
 import {
   filterStyles,
   getCategories,
@@ -19,6 +20,7 @@ export function StyleGallery() {
   const initialQuery = searchParams.get('q') || ''
 
   const [query, setQuery] = useState(initialQuery)
+  const [debouncedQuery, setDebouncedQuery] = useState(initialQuery)
   const [filters, setFilters] = useState<FilterOptions>(
     initialCategory ? { category: initialCategory } : {}
   )
@@ -28,9 +30,9 @@ export function StyleGallery() {
   const accessibilityRatings = useMemo(() => getAccessibilityRatings(styles), [])
 
   const results = useMemo(() => {
-    const searched = searchAndSort(styles, query)
+    const searched = searchAndSort(styles, debouncedQuery)
     return filterStyles(searched, filters)
-  }, [query, filters])
+  }, [debouncedQuery, filters])
 
   const updateSearchParams = useCallback(
     (newQuery: string, newFilters: FilterOptions) => {
@@ -44,14 +46,19 @@ export function StyleGallery() {
     [setSearchParams]
   )
 
+  const debouncedSearch = useDebounce((value: string) => {
+    setDebouncedQuery(value)
+    updateSearchParams(value, filters)
+  }, 200)
+
   const handleQueryChange = (value: string) => {
     setQuery(value)
-    updateSearchParams(value, filters)
+    debouncedSearch(value)
   }
 
   const handleFilterChange = (newFilters: FilterOptions) => {
     setFilters(newFilters)
-    updateSearchParams(query, newFilters)
+    updateSearchParams(debouncedQuery, newFilters)
   }
 
   return (

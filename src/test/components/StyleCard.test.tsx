@@ -8,7 +8,6 @@ const mockStyle: UIStyle = {
   id: 1,
   nameEn: 'Glassmorphism',
   nameZh: '玻璃拟态',
-  category: 'General',
   type: 'General',
   keywords: ['Frosted glass', 'transparent', 'blurred', 'layered'],
   primaryColors: 'rgba(255,255,255,0.15)',

@@ -1,20 +1,31 @@
 import { useState, useMemo } from 'react'
 import { products } from '../data'
 import { SearchBar } from '../components/SearchBar'
+import { useDebounce } from '../hooks/useDebounce'
 
 export function ProductGallery() {
   const [query, setQuery] = useState('')
+  const [debouncedQuery, setDebouncedQuery] = useState('')
+
+  const debouncedSearch = useDebounce((value: string) => {
+    setDebouncedQuery(value)
+  }, 200)
+
+  const handleSearch = (value: string) => {
+    setQuery(value)
+    debouncedSearch(value)
+  }
 
   const filtered = useMemo(() => {
-    if (!query) return products
-    const lower = query.toLowerCase()
+    if (!debouncedQuery) return products
+    const lower = debouncedQuery.toLowerCase()
     return products.filter((p) => {
       const text = [p.name, p.nameZh, ...p.keywords, p.primaryStyle, p.considerations]
         .join(' ')
         .toLowerCase()
       return text.includes(lower)
     })
-  }, [query])
+  }, [debouncedQuery])
 
   return (
     <div>
@@ -24,7 +35,7 @@ export function ProductGallery() {
       </p>
 
       <div className="mb-6">
-        <SearchBar value={query} onChange={setQuery} />
+        <SearchBar value={query} onChange={handleSearch} />
       </div>
 
       <p className="text-sm text-gray-500 mb-4" aria-live="polite">

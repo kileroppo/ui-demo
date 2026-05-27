@@ -59,7 +59,6 @@ export function searchStyles(styles: UIStyle[], query: string): UIStyle[] {
     const searchableText = [
       style.nameEn,
       style.nameZh,
-      style.category,
       style.type,
       ...style.keywords,
       style.bestFor,
@@ -113,7 +112,7 @@ export function getSearchScore(style: UIStyle, query: string): number {
   })
 
   // Category match
-  if (style.category.toLowerCase().includes(normalizedQuery)) score += 30
+  if (style.type.toLowerCase().includes(normalizedQuery)) score += 30
 
   // Chinese alias boost
   for (const [zhKey, enValues] of Object.entries(CHINESE_ALIASES)) {

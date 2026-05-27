@@ -2,7 +2,6 @@ export interface UIStyle {
   id: number
   nameEn: string
   nameZh: string
-  category: string
   type: string
   keywords: string[]
   primaryColors: string

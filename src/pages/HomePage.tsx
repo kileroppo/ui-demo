@@ -6,17 +6,24 @@ import { SearchBar } from '../components/SearchBar'
 import { StyleCard } from '../components/StyleCard'
 import { searchAndSort } from '../utils/search'
 import { getCategories } from '../utils/filters'
+import { useDebounce } from '../hooks/useDebounce'
 
 export function HomePage() {
   const [query, setQuery] = useState('')
+  const [debouncedQuery, setDebouncedQuery] = useState('')
   const navigate = useNavigate()
 
   const categories = getCategories(styles)
   const featured = styles.slice(0, 6)
-  const results = query ? searchAndSort(styles, query) : featured
+  const results = debouncedQuery ? searchAndSort(styles, debouncedQuery) : featured
+
+  const debouncedSearch = useDebounce((value: string) => {
+    setDebouncedQuery(value)
+  }, 200)
 
   const handleSearch = (value: string) => {
     setQuery(value)
+    debouncedSearch(value)
   }
 
   return (
@@ -70,9 +77,9 @@ export function HomePage() {
       <section>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-semibold text-gray-900">
-            {query ? `搜索结果 (${results.length})` : '精选风格'}
+            {debouncedQuery ? `搜索结果 (${results.length})` : '精选风格'}
           </h2>
-          {!query && (
+          {!debouncedQuery && (
             <Link to="/styles" className="text-sm text-blue-600 hover:underline">
               查看全部 &rarr;
             </Link>
@@ -88,7 +95,7 @@ export function HomePage() {
         ) : (
           <div className="text-center py-16" role="status">
             <div className="text-4xl mb-3">🔍</div>
-            <p className="text-gray-600 font-medium">未找到「{query}」相关的风格</p>
+            <p className="text-gray-600 font-medium">未找到「{debouncedQuery}」相关的风格</p>
             <p className="text-sm text-gray-400 mt-1">
               试试其他关键词，如「玻璃」「极简」「暗色」
             </p>

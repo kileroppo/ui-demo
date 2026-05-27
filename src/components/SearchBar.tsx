@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Search } from 'lucide-react'
 
 interface Props {
@@ -7,8 +7,22 @@ interface Props {
   autoFocus?: boolean
 }
 
+const PLACEHOLDER_ITEMS = [
+  '搜索玻璃拟态...',
+  '搜索暗色模式...',
+  '搜索极简主义...',
+]
+
 export function SearchBar({ value, onChange, autoFocus }: Props) {
   const inputRef = useRef<HTMLInputElement>(null)
+  const [placeholderIndex, setPlaceholderIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPlaceholderIndex((prev) => (prev + 1) % PLACEHOLDER_ITEMS.length)
+    }, 3000)
+    return () => clearInterval(timer)
+  }, [])
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -29,8 +43,8 @@ export function SearchBar({ value, onChange, autoFocus }: Props) {
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="搜索风格... (支持中英文, Ctrl+K)"
-        className="w-full pl-10 pr-16 py-2 rounded-lg border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow duration-200"
+        placeholder={PLACEHOLDER_ITEMS[placeholderIndex]}
+        className="w-full pl-10 pr-16 py-3 rounded-lg border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent glow-focus transition-shadow duration-200"
         aria-label="搜索风格"
         autoFocus={autoFocus}
       />

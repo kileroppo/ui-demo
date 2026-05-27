@@ -1,0 +1,132 @@
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { render, screen, act } from '@testing-library/react'
+import { AnimatedCounter } from '../../components/AnimatedCounter'
+
+describe('AnimatedCounter', () => {
+  let mockObserverInstances: { callback: IntersectionObserverCallback; disconnect: ReturnType<typeof vi.fn> }[]
+
+  beforeEach(() => {
+    vi.useFakeTimers()
+    mockObserverInstances = []
+
+    const MockIntersectionObserver = vi.fn((callback: IntersectionObserverCallback) => {
+      const instance = {
+        callback,
+        observe: vi.fn(),
+        unobserve: vi.fn(),
+        disconnect: vi.fn(),
+      }
+      mockObserverInstances.push(instance)
+      return instance
+    })
+
+    vi.stubGlobal('IntersectionObserver', MockIntersectionObserver)
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
+    vi.unstubAllGlobals()
+  })
+
+  it('renders with initial count of 0', () => {
+    render(<AnimatedCounter end={76} suffix=" 种" label="设计风格" />)
+    expect(screen.getByText('0 种')).toBeInTheDocument()
+    expect(screen.getByText('设计风格')).toBeInTheDocument()
+  })
+
+  it('has accessible label', () => {
+    render(<AnimatedCounter end={76} suffix=" 种" label="设计风格" />)
+    expect(screen.getByLabelText('设计风格')).toBeInTheDocument()
+  })
+
+  it('animates to target value when element intersects', () => {
+    render(<AnimatedCounter end={100} suffix="+" label="实时演示" duration={1000} />)
+
+    // Simulate intersection
+    const observer = mockObserverInstances[0]
+    act(() => {
+      observer.callback(
+        [{ isIntersecting: true } as IntersectionObserverEntry],
+        {} as IntersectionObserver
+      )
+    })
+
+    // Advance past duration
+    act(() => {
+      vi.advanceTimersByTime(1100)
+    })
+
+    expect(screen.getByText('100+')).toBeInTheDocument()
+  })
+
+  it('does not animate before intersection', () => {
+    render(<AnimatedCounter end={50} suffix="" label="测试" duration={500} />)
+
+    act(() => {
+      vi.advanceTimersByTime(2000)
+    })
+
+    expect(screen.getByText('0')).toBeInTheDocument()
+  })
+
+  it('does not re-animate after first animation', () => {
+    render(<AnimatedCounter end={10} suffix="" label="测试" duration={500} />)
+
+    const observer = mockObserverInstances[0]
+
+    // First intersection
+    act(() => {
+      observer.callback(
+        [{ isIntersecting: true } as IntersectionObserverEntry],
+        {} as IntersectionObserver
+      )
+    })
+
+    act(() => {
+      vi.advanceTimersByTime(600)
+    })
+
+    expect(screen.getByText('10')).toBeInTheDocument()
+
+    // Second intersection should not reset
+    act(() => {
+      observer.callback(
+        [{ isIntersecting: true } as IntersectionObserverEntry],
+        {} as IntersectionObserver
+      )
+    })
+
+    // Value should still be 10
+    expect(screen.getByText('10')).toBeInTheDocument()
+  })
+
+  it('disconnects observer on unmount', () => {
+    const { unmount } = render(<AnimatedCounter end={10} suffix="" label="测试" />)
+    const observer = mockObserverInstances[0]
+    unmount()
+    expect(observer.disconnect).toHaveBeenCalled()
+  })
+
+  it('shows partial count during animation', () => {
+    render(<AnimatedCounter end={100} suffix="" label="测试" duration={1000} />)
+
+    const observer = mockObserverInstances[0]
+    act(() => {
+      observer.callback(
+        [{ isIntersecting: true } as IntersectionObserverEntry],
+        {} as IntersectionObserver
+      )
+    })
+
+    // Advance partially
+    act(() => {
+      vi.advanceTimersByTime(500)
+    })
+
+    // Should be partially animated (not 0, not 100)
+    const counterEl = screen.getByLabelText('测试')
+    const value = parseInt(counterEl.querySelector('div')!.textContent || '0')
+    expect(value).toBeGreaterThan(0)
+    expect(value).toBeLessThan(100)
+  })
+})

@@ -20,7 +20,7 @@ describe('StyleGallery', () => {
         <StyleGallery />
       </MemoryRouter>
     )
-    expect(screen.getByPlaceholderText(/搜索风格/)).toBeInTheDocument()
+    expect(screen.getByLabelText('搜索风格')).toBeInTheDocument()
   })
 
   it('renders filter panel', () => {
@@ -49,7 +49,7 @@ describe('StyleGallery', () => {
       </MemoryRouter>
     )
 
-    const input = screen.getByPlaceholderText(/搜索风格/)
+    const input = screen.getByLabelText('搜索风格')
     await user.type(input, 'zzz_nomatch')
     await waitFor(() => {
       expect(screen.getByText(/未找到/)).toBeInTheDocument()

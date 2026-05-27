@@ -1,9 +1,22 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { App } from '../App'
 
 describe('App', () => {
+  beforeEach(() => {
+    const MockIntersectionObserver = vi.fn((callback: IntersectionObserverCallback) => ({
+      observe: vi.fn(),
+      unobserve: vi.fn(),
+      disconnect: vi.fn(),
+    }))
+    vi.stubGlobal('IntersectionObserver', MockIntersectionObserver)
+  })
+
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
   it('renders without crashing', () => {
     render(<App />)
     expect(screen.getByText('UI 风格库')).toBeInTheDocument()
@@ -11,7 +24,8 @@ describe('App', () => {
 
   it('renders home page by default', () => {
     render(<App />)
-    expect(screen.getByText('设计风格')).toBeInTheDocument()
+    const gradientTexts = screen.getAllByText('设计风格')
+    expect(gradientTexts.length).toBeGreaterThan(0)
     expect(screen.getByText(/发现你的下一个/)).toBeInTheDocument()
   })
 

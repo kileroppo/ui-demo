@@ -4,9 +4,23 @@ import { Palette, Sparkles, Zap } from 'lucide-react'
 import { styles } from '../data'
 import { SearchBar } from '../components/SearchBar'
 import { StyleCard } from '../components/StyleCard'
+import { AnimatedCounter } from '../components/AnimatedCounter'
 import { searchAndSort } from '../utils/search'
 import { getCategories } from '../utils/filters'
 import { useDebounce } from '../hooks/useDebounce'
+
+const CATEGORY_COLORS: Record<string, string> = {
+  General: '#6366f1',
+  'Landing Page': '#ec4899',
+  'E-commerce': '#f59e0b',
+  Dashboard: '#10b981',
+  Mobile: '#3b82f6',
+  Content: '#8b5cf6',
+  Social: '#ef4444',
+  Enterprise: '#06b6d4',
+  Creative: '#f97316',
+  Other: '#64748b',
+}
 
 export function HomePage() {
   const [query, setQuery] = useState('')
@@ -29,13 +43,13 @@ export function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="text-center py-16 px-4">
+      <section className="text-center py-16 px-4 rounded-2xl gradient-bg-animated mb-8">
         <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
-          发现你的下一个<span className="text-blue-600">设计风格</span>
+          发现你的下一个<span className="gradient-text">设计风格</span>
         </h1>
-        <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-          收录 {styles.length} 种主流 UI 设计风格，每种风格配有实时演示、
-          技术参数和中文 AI 提示词，帮你快速落地设计方案。
+        <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          从 {styles.length} 种精心收录的 UI 风格中获取灵感，配有实时演示、
+          技术参数和中文 AI 提示词，让你的设计方案从概念到落地只需一步。
         </p>
         <div className="mt-8 flex justify-center">
           <SearchBar value={query} onChange={handleSearch} />
@@ -58,6 +72,15 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="mb-10 py-8 border-y border-gray-100" aria-label="数据统计">
+        <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
+          <AnimatedCounter end={76} suffix=" 种" label="设计风格" />
+          <AnimatedCounter end={161} suffix=" 种" label="产品类型" />
+          <AnimatedCounter end={10} suffix="+" label="实时演示" />
+        </div>
+      </section>
+
       {/* Category Quick Links */}
       <section className="mb-10" aria-label="风格类别快速导航">
         <div className="flex flex-wrap gap-2 justify-center">
@@ -65,8 +88,13 @@ export function HomePage() {
             <button
               key={cat}
               onClick={() => navigate(`/styles?category=${encodeURIComponent(cat)}`)}
-              className="px-4 py-2 text-sm rounded-full bg-white border border-gray-200 text-gray-600 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex items-center gap-2 px-4 py-2 text-sm rounded-full bg-white border border-gray-200 text-gray-600 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
+              <span
+                className="w-2 h-2 rounded-full shrink-0"
+                style={{ backgroundColor: CATEGORY_COLORS[cat] || '#64748b' }}
+                aria-hidden="true"
+              />
               {cat}
             </button>
           ))}

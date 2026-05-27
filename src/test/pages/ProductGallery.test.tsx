@@ -29,7 +29,7 @@ describe('ProductGallery', () => {
         <ProductGallery />
       </MemoryRouter>
     )
-    expect(screen.getByPlaceholderText(/搜索风格/)).toBeInTheDocument()
+    expect(screen.getByLabelText('搜索风格')).toBeInTheDocument()
   })
 
   it('displays product cards', () => {
@@ -50,7 +50,7 @@ describe('ProductGallery', () => {
       </MemoryRouter>
     )
 
-    const input = screen.getByPlaceholderText(/搜索风格/)
+    const input = screen.getByLabelText('搜索风格')
     await user.type(input, 'zzz_nomatch_xyz')
     await waitFor(() => {
       expect(screen.getByText(/未找到/)).toBeInTheDocument()
@@ -74,7 +74,7 @@ describe('ProductGallery', () => {
       </MemoryRouter>
     )
 
-    const input = screen.getByPlaceholderText(/搜索风格/)
+    const input = screen.getByLabelText('搜索风格')
     await user.type(input, 'zzz_nomatch_xyz')
     await waitFor(() => {
       expect(screen.getByText(/试试其他关键词/)).toBeInTheDocument()

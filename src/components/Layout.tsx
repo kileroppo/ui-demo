@@ -19,10 +19,15 @@ export function Layout({ children }: Props) {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Skip to content link */}
+      <a href="#main-content" className="skip-link">
+        跳转到主要内容
+      </a>
+
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
-          <Link to="/" className="text-lg font-bold text-gray-900">
+          <Link to="/" className="text-lg font-bold text-gray-900 hover:text-blue-600 transition-colors">
             UI 风格库
           </Link>
 
@@ -32,11 +37,12 @@ export function Layout({ children }: Props) {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm font-medium transition-colors duration-150 ${
                   location.pathname === item.path
                     ? 'text-blue-600'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
+                aria-current={location.pathname === item.path ? 'page' : undefined}
               >
                 {item.label}
               </Link>
@@ -45,7 +51,7 @@ export function Layout({ children }: Props) {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? '关闭菜单' : '打开菜单'}
             aria-expanded={menuOpen}
@@ -62,11 +68,12 @@ export function Layout({ children }: Props) {
                 key={item.path}
                 to={item.path}
                 onClick={() => setMenuOpen(false)}
-                className={`block px-4 py-3 text-sm font-medium border-b border-gray-50 ${
+                className={`block px-4 py-3 text-sm font-medium border-b border-gray-50 transition-colors ${
                   location.pathname === item.path
                     ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-600'
+                    : 'text-gray-600 hover:bg-gray-50'
                 }`}
+                aria-current={location.pathname === item.path ? 'page' : undefined}
               >
                 {item.label}
               </Link>
@@ -76,7 +83,16 @@ export function Layout({ children }: Props) {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 py-6">{children}</main>
+      <main id="main-content" className="max-w-7xl mx-auto px-4 py-8">
+        {children}
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-100 bg-white">
+        <div className="max-w-7xl mx-auto px-4 py-6 text-center text-xs text-gray-400">
+          UI 风格展示库 - 助力设计师和开发者快速选择合适的界面风格
+        </div>
+      </footer>
     </div>
   )
 }

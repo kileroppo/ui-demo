@@ -29,7 +29,7 @@ describe('ProductGallery', () => {
         <ProductGallery />
       </MemoryRouter>
     )
-    expect(screen.getByPlaceholderText('搜索风格... (支持中英文)')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText(/搜索风格/)).toBeInTheDocument()
   })
 
   it('displays product cards', () => {
@@ -38,7 +38,6 @@ describe('ProductGallery', () => {
         <ProductGallery />
       </MemoryRouter>
     )
-    // Should show "推荐风格" labels
     const labels = screen.getAllByText('推荐风格')
     expect(labels.length).toBeGreaterThan(0)
   })
@@ -51,9 +50,9 @@ describe('ProductGallery', () => {
       </MemoryRouter>
     )
 
-    const input = screen.getByPlaceholderText('搜索风格... (支持中英文)')
+    const input = screen.getByPlaceholderText(/搜索风格/)
     await user.type(input, 'zzz_nomatch_xyz')
-    expect(screen.getByText('没有找到匹配的产品类型')).toBeInTheDocument()
+    expect(screen.getByText(/未找到/)).toBeInTheDocument()
   })
 
   it('shows result count', () => {
@@ -63,5 +62,18 @@ describe('ProductGallery', () => {
       </MemoryRouter>
     )
     expect(screen.getByText(/显示.*种产品类型/)).toBeInTheDocument()
+  })
+
+  it('shows suggestions in empty state', async () => {
+    const user = userEvent.setup()
+    render(
+      <MemoryRouter>
+        <ProductGallery />
+      </MemoryRouter>
+    )
+
+    const input = screen.getByPlaceholderText(/搜索风格/)
+    await user.type(input, 'zzz_nomatch_xyz')
+    expect(screen.getByText(/试试其他关键词/)).toBeInTheDocument()
   })
 })

@@ -9,13 +9,19 @@ interface Props {
 
 export function StyleCard({ style }: Props) {
   return (
-    <div className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-200">
+    <article className="group bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg hover:border-gray-200 transition-all duration-300 hover:-translate-y-0.5 focus-within:ring-2 focus-within:ring-blue-500">
       <div className="overflow-hidden">
         <StyleDemo style={style} />
       </div>
       <div className="p-4">
-        <Link to={`/styles/${style.id}`} className="block">
-          <h3 className="text-lg font-semibold text-gray-900">{style.nameZh}</h3>
+        <Link
+          to={`/styles/${style.id}`}
+          className="block focus:outline-none"
+          aria-label={`查看${style.nameZh}风格详情`}
+        >
+          <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
+            {style.nameZh}
+          </h3>
           <p className="text-sm text-gray-500 mt-0.5">{style.nameEn}</p>
         </Link>
         <div className="flex flex-wrap gap-1 mt-2">
@@ -28,11 +34,11 @@ export function StyleCard({ style }: Props) {
             </span>
           ))}
         </div>
-        <div className="flex items-center justify-between mt-3">
+        <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-50">
           <span className="text-xs text-gray-400">{style.type}</span>
           <CopyButton text={style.promptZh} />
         </div>
       </div>
-    </div>
+    </article>
   )
 }

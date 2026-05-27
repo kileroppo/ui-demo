@@ -74,4 +74,34 @@ describe('Layout', () => {
     await user.click(aboutLink)
     expect(screen.queryByLabelText('移动端导航')).not.toBeInTheDocument()
   })
+
+  it('renders skip-to-content link', () => {
+    render(
+      <MemoryRouter>
+        <Layout>Content</Layout>
+      </MemoryRouter>
+    )
+    expect(screen.getByText('跳转到主要内容')).toBeInTheDocument()
+  })
+
+  it('renders footer', () => {
+    render(
+      <MemoryRouter>
+        <Layout>Content</Layout>
+      </MemoryRouter>
+    )
+    expect(screen.getByText(/助力设计师和开发者/)).toBeInTheDocument()
+  })
+
+  it('marks active navigation item', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <Layout>Content</Layout>
+      </MemoryRouter>
+    )
+    const homeLink = screen.getByRole('navigation', { name: '主导航' })
+      .querySelector('a[aria-current="page"]')
+    expect(homeLink).toBeInTheDocument()
+    expect(homeLink?.textContent).toBe('首页')
+  })
 })

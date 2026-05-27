@@ -11,7 +11,8 @@ describe('HomePage', () => {
         <HomePage />
       </MemoryRouter>
     )
-    expect(screen.getByText('UI 风格展示库')).toBeInTheDocument()
+    expect(screen.getByText(/发现你的下一个/)).toBeInTheDocument()
+    expect(screen.getByText('设计风格')).toBeInTheDocument()
   })
 
   it('renders description with style count', () => {
@@ -20,7 +21,7 @@ describe('HomePage', () => {
         <HomePage />
       </MemoryRouter>
     )
-    expect(screen.getByText(/探索.*种界面设计风格/)).toBeInTheDocument()
+    expect(screen.getByText(/种主流 UI 设计风格/)).toBeInTheDocument()
   })
 
   it('renders search bar', () => {
@@ -29,7 +30,7 @@ describe('HomePage', () => {
         <HomePage />
       </MemoryRouter>
     )
-    expect(screen.getByPlaceholderText('搜索风格... (支持中英文)')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText(/搜索风格/)).toBeInTheDocument()
   })
 
   it('renders featured styles section', () => {
@@ -47,7 +48,7 @@ describe('HomePage', () => {
         <HomePage />
       </MemoryRouter>
     )
-    expect(screen.getByText('查看全部')).toBeInTheDocument()
+    expect(screen.getByText(/查看全部/)).toBeInTheDocument()
   })
 
   it('shows search results when query is entered', async () => {
@@ -58,7 +59,7 @@ describe('HomePage', () => {
       </MemoryRouter>
     )
 
-    const input = screen.getByPlaceholderText('搜索风格... (支持中英文)')
+    const input = screen.getByPlaceholderText(/搜索风格/)
     await user.type(input, 'Glassmorphism')
     expect(screen.getByText(/搜索结果/)).toBeInTheDocument()
   })
@@ -69,8 +70,32 @@ describe('HomePage', () => {
         <HomePage />
       </MemoryRouter>
     )
-    // Should have some category buttons
-    const buttons = screen.getAllByRole('button')
-    expect(buttons.length).toBeGreaterThan(0)
+    // Should have category buttons
+    const nav = screen.getByLabelText('风格类别快速导航')
+    expect(nav).toBeInTheDocument()
+  })
+
+  it('shows empty state when search has no results', async () => {
+    const user = userEvent.setup()
+    render(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
+    )
+
+    const input = screen.getByPlaceholderText(/搜索风格/)
+    await user.type(input, 'zzz_nomatch_xyz')
+    expect(screen.getByText(/未找到/)).toBeInTheDocument()
+  })
+
+  it('renders feature highlights', () => {
+    render(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
+    )
+    expect(screen.getByText('实时风格预览')).toBeInTheDocument()
+    expect(screen.getByText('AI 提示词一键复制')).toBeInTheDocument()
+    expect(screen.getByText('中英双语搜索')).toBeInTheDocument()
   })
 })

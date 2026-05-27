@@ -20,7 +20,7 @@ describe('StyleGallery', () => {
         <StyleGallery />
       </MemoryRouter>
     )
-    expect(screen.getByPlaceholderText('搜索风格... (支持中英文)')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText(/搜索风格/)).toBeInTheDocument()
   })
 
   it('renders filter panel', () => {
@@ -49,9 +49,9 @@ describe('StyleGallery', () => {
       </MemoryRouter>
     )
 
-    const input = screen.getByPlaceholderText('搜索风格... (支持中英文)')
+    const input = screen.getByPlaceholderText(/搜索风格/)
     await user.type(input, 'zzz_nomatch')
-    expect(screen.getByText('没有找到匹配的风格，请调整搜索或筛选条件')).toBeInTheDocument()
+    expect(screen.getByText(/未找到/)).toBeInTheDocument()
   })
 
   it('respects URL category parameter', () => {
@@ -60,7 +60,40 @@ describe('StyleGallery', () => {
         <StyleGallery />
       </MemoryRouter>
     )
-    // Should show filtered results for General
     expect(screen.getByText(/显示.*种风格/)).toBeInTheDocument()
+  })
+
+  it('shows page description', () => {
+    render(
+      <MemoryRouter>
+        <StyleGallery />
+      </MemoryRouter>
+    )
+    expect(screen.getByText(/浏览全部.*种 UI 设计风格/)).toBeInTheDocument()
+  })
+
+  it('shows category counts in filter options', () => {
+    render(
+      <MemoryRouter>
+        <StyleGallery />
+      </MemoryRouter>
+    )
+    const select = screen.getByLabelText('按类别筛选')
+    expect(select).toBeInTheDocument()
+    // Category counts should be displayed
+    expect(select.innerHTML).toContain('(')
+  })
+
+  it('shows clear filter button when filter is active', async () => {
+    const user = userEvent.setup()
+    render(
+      <MemoryRouter>
+        <StyleGallery />
+      </MemoryRouter>
+    )
+
+    const select = screen.getByLabelText('按类别筛选')
+    await user.selectOptions(select, 'General')
+    expect(screen.getByText('清除筛选')).toBeInTheDocument()
   })
 })

@@ -12,9 +12,9 @@ describe('StyleDetailPage', () => {
         </Routes>
       </MemoryRouter>
     )
-    // First style should be displayed
-    expect(screen.getByText(/返回风格库/)).toBeInTheDocument()
     expect(screen.getByText('AI 提示词')).toBeInTheDocument()
+    // Breadcrumbs
+    expect(screen.getByLabelText('面包屑导航')).toBeInTheDocument()
   })
 
   it('shows not found for invalid id', () => {
@@ -28,7 +28,42 @@ describe('StyleDetailPage', () => {
     expect(screen.getByText('未找到该风格')).toBeInTheDocument()
   })
 
-  it('has back link to styles', () => {
+  it('has back link to styles in breadcrumb', () => {
+    render(
+      <MemoryRouter initialEntries={['/styles/1']}>
+        <Routes>
+          <Route path="/styles/:id" element={<StyleDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+    const links = screen.getAllByRole('link')
+    const stylesLink = links.find((l) => l.getAttribute('href') === '/styles')
+    expect(stylesLink).toBeInTheDocument()
+  })
+
+  it('shows related styles section', () => {
+    render(
+      <MemoryRouter initialEntries={['/styles/1']}>
+        <Routes>
+          <Route path="/styles/:id" element={<StyleDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+    expect(screen.getByText('相关风格')).toBeInTheDocument()
+  })
+
+  it('shows not-found helper text for invalid id', () => {
+    render(
+      <MemoryRouter initialEntries={['/styles/99999']}>
+        <Routes>
+          <Route path="/styles/:id" element={<StyleDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+    expect(screen.getByText(/该风格可能已被移除或链接无效/)).toBeInTheDocument()
+  })
+
+  it('shows return link on not found page', () => {
     render(
       <MemoryRouter initialEntries={['/styles/99999']}>
         <Routes>

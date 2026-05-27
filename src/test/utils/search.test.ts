@@ -144,6 +144,24 @@ describe('searchStyles', () => {
     expect(results).toHaveLength(1)
     expect(results[0].id).toBe(1)
   })
+
+  it('searches by Chinese alias (玻璃 -> glass)', () => {
+    const results = searchStyles(mockStyles, '玻璃')
+    expect(results).toHaveLength(1)
+    expect(results[0].nameEn).toBe('Glassmorphism')
+  })
+
+  it('searches by Chinese alias (暗色 -> dark)', () => {
+    const results = searchStyles(mockStyles, '暗色')
+    expect(results).toHaveLength(1)
+    expect(results[0].nameEn).toBe('Dark Mode (OLED)')
+  })
+
+  it('searches by Chinese alias (粗野 -> brutal)', () => {
+    const results = searchStyles(mockStyles, '粗野')
+    expect(results).toHaveLength(1)
+    expect(results[0].nameEn).toBe('Brutalism')
+  })
 })
 
 describe('getSearchScore', () => {
@@ -176,6 +194,11 @@ describe('getSearchScore', () => {
     const score = getSearchScore(mockStyles[0], 'general')
     expect(score).toBeGreaterThan(0)
   })
+
+  it('gives score for Chinese alias match', () => {
+    const score = getSearchScore(mockStyles[0], '玻璃')
+    expect(score).toBeGreaterThan(0)
+  })
 })
 
 describe('searchAndSort', () => {
@@ -193,5 +216,11 @@ describe('searchAndSort', () => {
     const results = searchAndSort(mockStyles, '粗野')
     expect(results).toHaveLength(1)
     expect(results[0].id).toBe(2)
+  })
+
+  it('handles Chinese alias search', () => {
+    const results = searchAndSort(mockStyles, '暗色')
+    expect(results.length).toBeGreaterThan(0)
+    expect(results[0].id).toBe(3)
   })
 })

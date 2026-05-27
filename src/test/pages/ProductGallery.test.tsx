@@ -32,14 +32,46 @@ describe('ProductGallery', () => {
     expect(screen.getByLabelText('搜索风格')).toBeInTheDocument()
   })
 
-  it('displays product cards', () => {
+  it('displays product cards with style links', () => {
     render(
       <MemoryRouter>
         <ProductGallery />
       </MemoryRouter>
     )
-    const labels = screen.getAllByText('推荐风格')
-    expect(labels.length).toBeGreaterThan(0)
+    const links = screen.getAllByRole('link')
+    const styleLinks = links.filter((l) => l.getAttribute('href')?.startsWith('/styles?q='))
+    expect(styleLinks.length).toBeGreaterThan(0)
+  })
+
+  it('renders category sections with headers', () => {
+    render(
+      <MemoryRouter>
+        <ProductGallery />
+      </MemoryRouter>
+    )
+    // Should have category section headings
+    const techSection = screen.getByLabelText(/Tech & SaaS 类别/)
+    expect(techSection).toBeInTheDocument()
+  })
+
+  it('shows category count badges', () => {
+    render(
+      <MemoryRouter>
+        <ProductGallery />
+      </MemoryRouter>
+    )
+    // Category badges show counts as numbers
+    const badges = document.querySelectorAll('.rounded-full.bg-indigo-50.text-indigo-600')
+    expect(badges.length).toBeGreaterThan(0)
+  })
+
+  it('renders category navigation when not searching', () => {
+    render(
+      <MemoryRouter>
+        <ProductGallery />
+      </MemoryRouter>
+    )
+    expect(screen.getByLabelText('产品分类导航')).toBeInTheDocument()
   })
 
   it('filters products by search query', async () => {
@@ -64,6 +96,21 @@ describe('ProductGallery', () => {
       </MemoryRouter>
     )
     expect(screen.getByText(/显示.*种产品类型/)).toBeInTheDocument()
+  })
+
+  it('search still works across categories', async () => {
+    const user = userEvent.setup()
+    render(
+      <MemoryRouter>
+        <ProductGallery />
+      </MemoryRouter>
+    )
+
+    const input = screen.getByLabelText('搜索风格')
+    await user.type(input, 'SaaS')
+    await waitFor(() => {
+      expect(screen.getByText(/显示/)).toBeInTheDocument()
+    })
   })
 
   describe('empty state', () => {

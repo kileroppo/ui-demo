@@ -149,4 +149,15 @@ describe('HomePage', () => {
     const heroSection = heading.closest('section')
     expect(heroSection).toHaveClass('gradient-bg-animated')
   })
+
+  it('renders "Find My Style" CTA button that links to /styles', () => {
+    render(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
+    )
+    const cta = screen.getByRole('link', { name: /找到我的风格/ })
+    expect(cta).toBeInTheDocument()
+    expect(cta).toHaveAttribute('href', '/styles')
+  })
 })

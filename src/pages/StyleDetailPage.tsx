@@ -1,9 +1,10 @@
 import { useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
-import { styles } from '../data'
+import { styles, products } from '../data'
 import { StyleDetail } from '../components/StyleDetail'
 import { StyleCard } from '../components/StyleCard'
+import { getProductsForStyle } from '../utils/productCategories'
 
 export function StyleDetailPage() {
   const { id } = useParams<{ id: string }>()
@@ -14,6 +15,11 @@ export function StyleDetailPage() {
     return styles
       .filter((s) => s.id !== style.id && s.type === style.type)
       .slice(0, 3)
+  }, [style])
+
+  const recommendedProducts = useMemo(() => {
+    if (!style) return []
+    return getProductsForStyle(products, style.nameEn)
   }, [style])
 
   if (!style) {
@@ -60,6 +66,24 @@ export function StyleDetailPage() {
       </nav>
 
       <StyleDetail style={style} />
+
+      {/* Recommended For */}
+      {recommendedProducts.length > 0 && (
+        <section className="mt-10" aria-label="推荐用于">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">推荐用于</h2>
+          <div className="flex flex-wrap gap-2">
+            {recommendedProducts.map((product) => (
+              <Link
+                key={product.id}
+                to={`/products?q=${encodeURIComponent(product.nameZh)}`}
+                className="px-3 py-1.5 text-sm rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-colors border border-indigo-100"
+              >
+                {product.nameZh}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Related Styles */}
       {relatedStyles.length > 0 && (

@@ -1,0 +1,30 @@
+{
+  "id": "FEAT-002",
+  "type": "fix",
+  "description": "Iterative quality improvement pass: Simulate being a harsh real Chinese user and perform 20 rounds of critique and fixes. Focus on: usability, visual quality, search effectiveness, mobile responsiveness, accessibility, performance, content completeness, Chinese localization quality. Each round should identify 2-3 concrete issues and fix them. Guided by Dao De Jing (simplicity, naturalness, effortlessness) and Art of War (decisive improvements, knowing strengths/weaknesses).",
+  "status": "pending",
+  "steps": [
+    "1. Round 1-5 (Foundation): Fix any build/test issues from FEAT-001. Verify all 67 styles render correctly. Ensure search finds styles by Chinese keywords. Fix any missing Chinese translations. Ensure mobile nav works on all screen sizes.",
+    "2. Round 6-10 (Usability): Add keyboard shortcuts for search (Ctrl+K / Cmd+K). Improve empty state messaging when search has no results. Add breadcrumb navigation. Improve loading states. Add category count badges. Ensure filter state persists in URL params.",
+    "3. Round 11-15 (Visual Polish): Improve style card hover animations. Add smooth page transitions. Improve color contrast for accessibility. Add skeleton loading states. Improve the visual hierarchy of the detail page. Polish the responsive grid spacing.",
+    "4. Round 16-20 (Content & Performance): Verify all Chinese prompts are natural and useful. Add 'related styles' recommendations on detail pages. Add lazy loading for images/demos below the fold. Optimize bundle size. Add meta tags for SEO. Final accessibility audit.",
+    "5. After all 20 rounds: Run final pnpm build and pnpm test -- --coverage to confirm everything still passes with >= 90% coverage. Fix any regressions introduced during iteration."
+  ],
+  "acceptance_criteria": [
+    "All 20 iteration rounds produce concrete improvements documented in code comments or commit messages",
+    "pnpm build still succeeds after all iterations",
+    "pnpm test -- --coverage still shows >= 90% coverage after all iterations",
+    "Search responds within 100ms for any query",
+    "Mobile layout has no horizontal overflow",
+    "All Chinese text reads naturally (no machine-translation artifacts)",
+    "Keyboard navigation works throughout the app",
+    "No accessibility warnings in the built output"
+  ],
+  "verification": [
+    "Run: cd /projects/sandbox/ui-demo && pnpm build",
+    "Run: cd /projects/sandbox/ui-demo && pnpm test -- --coverage",
+    "Verify all tests pass and coverage remains >= 90%"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

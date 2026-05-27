@@ -1,0 +1,82 @@
+import { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { Menu, X } from 'lucide-react'
+
+const NAV_ITEMS = [
+  { path: '/', label: '首页' },
+  { path: '/styles', label: '风格库' },
+  { path: '/products', label: '产品推荐' },
+  { path: '/about', label: '关于' },
+]
+
+interface Props {
+  children: React.ReactNode
+}
+
+export function Layout({ children }: Props) {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
+          <Link to="/" className="text-lg font-bold text-gray-900">
+            UI 风格库
+          </Link>
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-6" aria-label="主导航">
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-sm font-medium transition-colors ${
+                  location.pathname === item.path
+                    ? 'text-blue-600'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? '关闭菜单' : '打开菜单'}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+
+        {/* Mobile Nav */}
+        {menuOpen && (
+          <nav className="md:hidden border-t border-gray-100 bg-white" aria-label="移动端导航">
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setMenuOpen(false)}
+                className={`block px-4 py-3 text-sm font-medium border-b border-gray-50 ${
+                  location.pathname === item.path
+                    ? 'text-blue-600 bg-blue-50'
+                    : 'text-gray-600'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        )}
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 py-6">{children}</main>
+    </div>
+  )
+}

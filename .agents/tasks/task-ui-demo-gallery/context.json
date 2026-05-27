@@ -1,0 +1,25 @@
+{
+  "project_type": "React + Vite static gallery app with Chinese UI",
+  "language": "TypeScript",
+  "build_system": "Vite with pnpm",
+  "test_framework": "Vitest with React Testing Library, coverage >= 90%",
+  "build_command": "pnpm build",
+  "test_command": "pnpm test -- --coverage",
+  "verification_instructions": "1. Run pnpm install. 2. Run pnpm build to verify no build errors. 3. Run pnpm test -- --coverage to verify all tests pass with >= 90% coverage.",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "1. cd /projects/sandbox/ui-demo. 2. pnpm install. 3. pnpm dev for local dev server.",
+  "environment_constraints": "Node.js v22 with pnpm available. Full network access (OPEN_INTERNET). Source data at /projects/sandbox/ui-ux-pro-max-skill/src/ui-ux-pro-max/data/",
+  "contribution_requirements": "Chinese localization for all user-facing text. Test coverage >= 90%. Philosophy: Dao De Jing (simplicity, naturalness) guides UX; Art of War (decisive, strategic) guides iteration.",
+  "key_patterns": "Source CSV files contain: styles.csv (67 UI styles with keywords, colors, effects, AI prompts), products.csv (161 product types with style recommendations), colors.csv (161 color palettes), typography.csv (57 font pairings), landing.csv (landing page patterns), charts.csv (chart type recommendations), ux-guidelines.csv (99 UX guidelines), ui-reasoning.csv (161 reasoning rules). Each style row has: No, Style Category, Type, Keywords, Primary Colors, Secondary Colors, Effects & Animation, Best For, Do Not Use For, AI Prompt Keywords, CSS/Technical Keywords, Implementation Checklist, Design System Variables.",
+  "relevant_files": [
+    "/projects/sandbox/ui-ux-pro-max-skill/src/ui-ux-pro-max/data/styles.csv",
+    "/projects/sandbox/ui-ux-pro-max-skill/src/ui-ux-pro-max/data/products.csv",
+    "/projects/sandbox/ui-ux-pro-max-skill/src/ui-ux-pro-max/data/colors.csv",
+    "/projects/sandbox/ui-ux-pro-max-skill/src/ui-ux-pro-max/data/typography.csv",
+    "/projects/sandbox/ui-ux-pro-max-skill/src/ui-ux-pro-max/data/landing.csv",
+    "/projects/sandbox/ui-ux-pro-max-skill/src/ui-ux-pro-max/data/charts.csv",
+    "/projects/sandbox/ui-ux-pro-max-skill/src/ui-ux-pro-max/data/ux-guidelines.csv",
+    "/projects/sandbox/ui-ux-pro-max-skill/src/ui-ux-pro-max/data/ui-reasoning.csv"
+  ],
+  "directory_structure": "Greenfield project - to be created with: src/ (components, pages, data, utils, hooks), public/, tests/"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Build the complete React + Vite + TypeScript project scaffold with all dependencies, data layer parsing CSV source files into typed JSON, and the full UI gallery application with search, filtering, style showcase cards with live CSS demos, product type recommendations, Chinese prompts (copy-paste ready), responsive layout, and comprehensive test suite with >= 90% coverage.",
+  "status": "in_progress",
+  "steps": [
+    "1. Initialize React + Vite + TypeScript project in /projects/sandbox/ui-demo with pnpm. Install dependencies: react, react-dom, react-router-dom, tailwindcss, @tailwindcss/vite, lucide-react, papaparse (for CSV parsing at build time). Dev dependencies: vitest, @testing-library/react, @testing-library/jest-dom, @testing-library/user-event, jsdom, @vitest/coverage-v8, @types/react, @types/react-dom, typescript.",
+    "2. Create a build-time script (scripts/build-data.ts) that reads all CSV files from /projects/sandbox/ui-ux-pro-max-skill/src/ui-ux-pro-max/data/ (styles.csv, products.csv, colors.csv, typography.csv, landing.csv, charts.csv, ux-guidelines.csv, ui-reasoning.csv) and outputs typed JSON files into src/data/. Each JSON file should have clean TypeScript interfaces. Add Chinese translations for style names, descriptions, and prompts.",
+    "3. Create the data layer: src/data/types.ts with interfaces (UIStyle, ProductType, ColorPalette, FontPairing, LandingPattern, ChartType, UXGuideline, UIReasoning). src/data/index.ts exports all parsed data. Each style must include: id, nameEn, nameZh (Chinese name), category, keywords, primaryColors, secondaryColors, effects, bestFor, doNotUseFor, promptEn, promptZh (Chinese AI prompt), cssKeywords, implementationChecklist, designVariables.",
+    "4. Create utility functions: src/utils/search.ts (fuzzy search across style names, keywords, categories in both Chinese and English), src/utils/filters.ts (filter by category, mood, use-case, performance rating, accessibility rating).",
+    "5. Create core UI components: src/components/StyleCard.tsx (displays a UI style with a LIVE CSS mini-demo showing the style visually - e.g., glassmorphism shows frosted glass effect, brutalism shows raw blocks, neumorphism shows soft shadows - plus Chinese name, English name, keywords, and a copy-to-clipboard prompt button), src/components/SearchBar.tsx (search input with Chinese placeholder), src/components/FilterPanel.tsx (category filters, accessibility filter, performance filter), src/components/StyleDetail.tsx (full detail view with complete prompt in Chinese, color swatches, implementation checklist, best-for/avoid info).",
+    "6. Create page components: src/pages/HomePage.tsx (hero section with search, category quick-links, featured styles grid), src/pages/StyleGallery.tsx (full gallery with filters + search + grid of StyleCards), src/pages/StyleDetailPage.tsx (individual style detail), src/pages/ProductGallery.tsx (browse by product/industry type - shows recommended styles per product), src/pages/About.tsx (explains the tool in Chinese, credits data source).",
+    "7. Create the App.tsx with React Router, responsive navigation (mobile hamburger menu + desktop sidebar/topnav), and a Layout component. All text must be in Chinese. Navigation items: 首页 (Home), 风格库 (Style Gallery), 产品推荐 (Product Recommendations), 关于 (About).",
+    "8. Create live style demos in src/components/demos/ - at minimum 10 distinct demo components for the most popular styles: GlassmorphismDemo, NeumorphismDemo, BrutalismDemo, MinimalismDemo, DarkModeDemo, VibrantBlockDemo, AuroraDemo, ClaymorphismDemo, RetroFuturismDemo, FlatDesignDemo. Each renders a small interactive card/button showing that style's visual characteristics using actual CSS.",
+    "9. Implement the Chinese prompt system: Each style has a ready-to-use Chinese prompt (stored in data) that users can copy. Format: '请设计一个[风格名称]界面。使用：[具体效果]。配色：[色彩方案]。适用于：[场景]。技术要点：[CSS关键属性]。' Include a one-click copy button with visual feedback.",
+    "10. Configure Tailwind CSS with @tailwindcss/vite plugin, custom theme extending colors from the data. Set up dark mode toggle. Ensure responsive breakpoints work for mobile/tablet/desktop.",
+    "11. Write comprehensive tests achieving >= 90% coverage: tests for data parsing utilities (search, filter functions), tests for each component (rendering, interactions, copy-to-clipboard), tests for page routing, tests for responsive behavior. Use vitest + @testing-library/react + jsdom. Configure vitest.config.ts with coverage thresholds set to 90.",
+    "12. Configure the package.json scripts: dev, build, test, test:coverage, preview. The build script should first run the data build script then vite build. Ensure pnpm build and pnpm test both pass cleanly."
+  ],
+  "acceptance_criteria": [
+    "pnpm install completes without errors",
+    "pnpm build produces a working static site in dist/",
+    "pnpm test passes all tests with >= 90% line/branch/function coverage",
+    "The gallery displays all 67 UI styles with Chinese names and descriptions",
+    "Each style card shows a live CSS visual demo of that style",
+    "Search works in both Chinese and English (e.g. searching '玻璃' finds Glassmorphism)",
+    "Filter by category, accessibility, performance works correctly",
+    "Product recommendations page shows 161 product types with their recommended styles",
+    "Each style has a Chinese AI prompt that can be copied with one click",
+    "Layout is responsive (mobile-friendly with hamburger nav)",
+    "All user-facing text is in Chinese"
+  ],
+  "verification": [
+    "Run: cd /projects/sandbox/ui-demo && pnpm install && pnpm build",
+    "Run: cd /projects/sandbox/ui-demo && pnpm test -- --coverage",
+    "Verify coverage output shows >= 90% for lines, branches, functions, statements"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

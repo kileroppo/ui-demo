@@ -1,0 +1,7 @@
+{
+  "task_id": "task-ui-demo-gallery",
+  "task_description": "Build a Chinese-friendly UI style showcase gallery system based on ui-ux-pro-max source data. Features 67 UI styles with live demos, 161 product recommendations, Chinese AI prompts, search/filter, responsive design. Test coverage >= 90%. Iteratively improved over 20 rounds.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001", "FEAT-002"],
+  "blocked_reason": null
+}

@@ -1,8 +1,16 @@
-import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { render, screen, act } from '@testing-library/react'
 import { PageTransition } from '../../components/PageTransition'
 
 describe('PageTransition', () => {
+  beforeEach(() => {
+    vi.useFakeTimers()
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+
   it('renders children', () => {
     render(
       <PageTransition transitionKey="/">
@@ -12,13 +20,51 @@ describe('PageTransition', () => {
     expect(screen.getByText('Hello World')).toBeInTheDocument()
   })
 
-  it('applies animate-fade-in-up class', () => {
+  it('does not apply animation class on initial render', () => {
     const { container } = render(
       <PageTransition transitionKey="/">
         <p>Content</p>
       </PageTransition>
     )
+    expect(container.firstElementChild).not.toHaveClass('animate-fade-in-up')
+  })
+
+  it('applies animate-fade-in-up class when transitionKey changes', () => {
+    const { container, rerender } = render(
+      <PageTransition transitionKey="/">
+        <p>Content</p>
+      </PageTransition>
+    )
+
+    rerender(
+      <PageTransition transitionKey="/styles">
+        <p>Content</p>
+      </PageTransition>
+    )
+
     expect(container.firstElementChild).toHaveClass('animate-fade-in-up')
+  })
+
+  it('removes animation class after timeout', () => {
+    const { container, rerender } = render(
+      <PageTransition transitionKey="/">
+        <p>Content</p>
+      </PageTransition>
+    )
+
+    rerender(
+      <PageTransition transitionKey="/styles">
+        <p>Content</p>
+      </PageTransition>
+    )
+
+    expect(container.firstElementChild).toHaveClass('animate-fade-in-up')
+
+    act(() => {
+      vi.advanceTimersByTime(300)
+    })
+
+    expect(container.firstElementChild).not.toHaveClass('animate-fade-in-up')
   })
 
   it('applies additional className', () => {
@@ -27,17 +73,22 @@ describe('PageTransition', () => {
         <p>Content</p>
       </PageTransition>
     )
-    expect(container.firstElementChild).toHaveClass('animate-fade-in-up')
     expect(container.firstElementChild).toHaveClass('extra-class')
   })
 
-  it('uses default empty className when not provided', () => {
-    const { container } = render(
-      <PageTransition transitionKey="/test">
-        <p>Test</p>
+  it('preserves children across transition key changes without remounting', () => {
+    const { rerender } = render(
+      <PageTransition transitionKey="/">
+        <p>Preserved Content</p>
       </PageTransition>
     )
-    const wrapper = container.firstElementChild
-    expect(wrapper?.className).toContain('animate-fade-in-up')
+
+    rerender(
+      <PageTransition transitionKey="/new">
+        <p>Preserved Content</p>
+      </PageTransition>
+    )
+
+    expect(screen.getByText('Preserved Content')).toBeInTheDocument()
   })
 })

@@ -32,20 +32,24 @@ export function AnimatedCounter({ end, duration = 1500, suffix = '', label }: Pr
   useEffect(() => {
     if (!hasAnimated) return
 
-    const startTime = Date.now()
-    const timer = setInterval(() => {
-      const elapsed = Date.now() - startTime
+    let rafId: number
+    const startTime = performance.now()
+
+    function animate(now: number) {
+      const elapsed = now - startTime
       const progress = Math.min(elapsed / duration, 1)
       // Ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3)
       setCount(Math.round(eased * end))
 
-      if (progress >= 1) {
-        clearInterval(timer)
+      if (progress < 1) {
+        rafId = requestAnimationFrame(animate)
       }
-    }, 16)
+    }
 
-    return () => clearInterval(timer)
+    rafId = requestAnimationFrame(animate)
+
+    return () => cancelAnimationFrame(rafId)
   }, [hasAnimated, end, duration])
 
   return (

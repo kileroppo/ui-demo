@@ -110,6 +110,7 @@ export function SearchBar({ value, onChange, autoFocus }: Props) {
         onClose={handleClose}
         visible={showSuggestions}
         recentSearches={getRecent()}
+        containerRef={containerRef}
       />
     </div>
   )

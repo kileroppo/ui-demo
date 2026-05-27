@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Copy, Check } from 'lucide-react'
 import { copyToClipboard } from '../utils/clipboard'
 
@@ -12,6 +12,13 @@ export function CopyButton({ text, label = '复制提示词' }: Props) {
   const [animating, setAnimating] = useState(false)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const animTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+      if (animTimeoutRef.current) clearTimeout(animTimeoutRef.current)
+    }
+  }, [])
 
   const handleCopy = async () => {
     const success = await copyToClipboard(text)

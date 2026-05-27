@@ -105,26 +105,16 @@ describe('StyleDetailPage', () => {
   })
 
   it('hides "Recommended For" section when no products match', () => {
-    // Style ID 99999 doesn't exist so this won't show, but let's use a style that
-    // has a unique name unlikely to match any product's primaryStyle/secondaryStyles
-    // We'll render with a valid style that has no product matches
-    // Style 76 or a high-numbered style might not be referenced
+    // Style ID 13 is "Skeuomorphism" which is not referenced by any product's
+    // primaryStyle or secondaryStyles fields
     render(
-      <MemoryRouter initialEntries={['/styles/76']}>
+      <MemoryRouter initialEntries={['/styles/13']}>
         <Routes>
           <Route path="/styles/:id" element={<StyleDetailPage />} />
         </Routes>
       </MemoryRouter>
     )
-    // If no products match, the section should not exist
-    const section = screen.queryByLabelText('推荐用于')
-    // This might or might not be null depending on data; test that it's conditionally rendered
-    if (section === null) {
-      expect(section).toBeNull()
-    } else {
-      // If it exists, it should have links
-      const links = section.querySelectorAll('a')
-      expect(links.length).toBeGreaterThan(0)
-    }
+    // The section should not exist since no products reference this style
+    expect(screen.queryByLabelText('推荐用于')).toBeNull()
   })
 })

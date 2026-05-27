@@ -37,6 +37,10 @@ function matchesKeyword(searchText: string, keyword: string): boolean {
 function getProductCategory(product: ProductType): string {
   const searchText = [product.name, ...product.keywords].join(' ').toLowerCase()
 
+  // Categories are checked in insertion order intentionally. The first match wins,
+  // establishing a priority: Tech > Finance > Healthcare > E-commerce > Services >
+  // Creative > Education > Lifestyle. This ensures that a product matching multiple
+  // categories lands in the most specific/relevant one by design.
   for (const [category, keywords] of Object.entries(CATEGORY_KEYWORDS)) {
     for (const keyword of keywords) {
       if (matchesKeyword(searchText, keyword)) {

@@ -19,6 +19,7 @@ interface Props {
   onClose: () => void
   visible: boolean
   recentSearches: string[]
+  containerRef?: React.RefObject<HTMLElement | null>
 }
 
 interface SuggestionItem {
@@ -27,7 +28,7 @@ interface SuggestionItem {
   color?: string
 }
 
-export function SearchSuggestions({ query, onSelect, onClose, visible, recentSearches }: Props) {
+export function SearchSuggestions({ query, onSelect, onClose, visible, recentSearches, containerRef }: Props) {
   const [activeIndex, setActiveIndex] = useState(-1)
   const listRef = useRef<HTMLDivElement>(null)
 
@@ -75,6 +76,11 @@ export function SearchSuggestions({ query, onSelect, onClose, visible, recentSea
     if (!visible) return
 
     function handleKeyDown(e: KeyboardEvent) {
+      // Only intercept keys when focus is within the search container
+      if (containerRef?.current && !containerRef.current.contains(document.activeElement)) {
+        return
+      }
+
       if (e.key === 'ArrowDown') {
         e.preventDefault()
         setActiveIndex((prev) => (prev + 1) % items.length)
@@ -92,7 +98,7 @@ export function SearchSuggestions({ query, onSelect, onClose, visible, recentSea
 
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [visible, items, activeIndex, onSelect, onClose])
+  }, [visible, items, activeIndex, onSelect, onClose, containerRef])
 
   useEffect(() => {
     if (activeIndex >= 0 && listRef.current) {

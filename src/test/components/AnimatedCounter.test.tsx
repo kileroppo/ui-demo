@@ -4,10 +4,13 @@ import { AnimatedCounter } from '../../components/AnimatedCounter'
 
 describe('AnimatedCounter', () => {
   let mockObserverInstances: { callback: IntersectionObserverCallback; disconnect: ReturnType<typeof vi.fn> }[]
+  let rafCallbacks: ((time: number) => void)[]
+  let rafId: number
 
   beforeEach(() => {
-    vi.useFakeTimers()
     mockObserverInstances = []
+    rafCallbacks = []
+    rafId = 0
 
     const MockIntersectionObserver = vi.fn((callback: IntersectionObserverCallback) => {
       const instance = {
@@ -21,12 +24,25 @@ describe('AnimatedCounter', () => {
     })
 
     vi.stubGlobal('IntersectionObserver', MockIntersectionObserver)
+    vi.stubGlobal('requestAnimationFrame', (cb: (time: number) => void) => {
+      rafCallbacks.push(cb)
+      return ++rafId
+    })
+    vi.stubGlobal('cancelAnimationFrame', vi.fn())
+    vi.spyOn(performance, 'now').mockReturnValue(0)
   })
 
   afterEach(() => {
-    vi.useRealTimers()
     vi.unstubAllGlobals()
+    vi.restoreAllMocks()
   })
+
+  function flushRAF(time: number) {
+    vi.spyOn(performance, 'now').mockReturnValue(time)
+    const cbs = [...rafCallbacks]
+    rafCallbacks = []
+    cbs.forEach((cb) => cb(time))
+  }
 
   it('renders with initial count of 0', () => {
     render(<AnimatedCounter end={76} suffix=" 种" label="设计风格" />)
@@ -51,9 +67,9 @@ describe('AnimatedCounter', () => {
       )
     })
 
-    // Advance past duration
+    // Advance past duration via rAF
     act(() => {
-      vi.advanceTimersByTime(1100)
+      flushRAF(1100)
     })
 
     expect(screen.getByText('100+')).toBeInTheDocument()
@@ -63,7 +79,7 @@ describe('AnimatedCounter', () => {
     render(<AnimatedCounter end={50} suffix="" label="测试" duration={500} />)
 
     act(() => {
-      vi.advanceTimersByTime(2000)
+      flushRAF(2000)
     })
 
     expect(screen.getByText('0')).toBeInTheDocument()
@@ -83,7 +99,7 @@ describe('AnimatedCounter', () => {
     })
 
     act(() => {
-      vi.advanceTimersByTime(600)
+      flushRAF(600)
     })
 
     expect(screen.getByText('10')).toBeInTheDocument()
@@ -120,7 +136,7 @@ describe('AnimatedCounter', () => {
 
     // Advance partially
     act(() => {
-      vi.advanceTimersByTime(500)
+      flushRAF(500)
     })
 
     // Should be partially animated (not 0, not 100)
@@ -128,5 +144,20 @@ describe('AnimatedCounter', () => {
     const value = parseInt(counterEl.querySelector('div')!.textContent || '0')
     expect(value).toBeGreaterThan(0)
     expect(value).toBeLessThan(100)
+  })
+
+  it('cancels animation frame on unmount', () => {
+    const { unmount } = render(<AnimatedCounter end={100} suffix="" label="测试" duration={1000} />)
+
+    const observer = mockObserverInstances[0]
+    act(() => {
+      observer.callback(
+        [{ isIntersecting: true } as IntersectionObserverEntry],
+        {} as IntersectionObserver
+      )
+    })
+
+    unmount()
+    expect(cancelAnimationFrame).toHaveBeenCalled()
   })
 })

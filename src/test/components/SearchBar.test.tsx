@@ -122,10 +122,10 @@ describe('SearchBar', () => {
     it('hides dropdown on escape', () => {
       render(<SearchBar value="" onChange={() => {}} />)
       const input = screen.getByRole('textbox')
-      fireEvent.focus(input)
+      act(() => { input.focus() })
       expect(screen.getByText('热门搜索')).toBeInTheDocument()
 
-      fireEvent.keyDown(document, { key: 'Escape' })
+      fireEvent.keyDown(input, { key: 'Escape' })
       expect(screen.queryByText('热门搜索')).not.toBeInTheDocument()
     })
 

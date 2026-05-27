@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
@@ -15,7 +15,16 @@ interface Props {
 
 export function Layout({ children }: Props) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -25,7 +34,12 @@ export function Layout({ children }: Props) {
       </a>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <header
+        className={`sticky top-0 z-50 bg-white/95 backdrop-blur-sm transition-shadow duration-300 ${
+          scrolled ? 'shadow-sm' : ''
+        }`}
+        data-testid="header"
+      >
         <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
           <Link to="/" className="text-lg font-bold text-gray-900 hover:text-blue-600 transition-colors">
             UI 风格库
@@ -37,7 +51,7 @@ export function Layout({ children }: Props) {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-colors duration-150 ${
+                className={`relative text-sm font-medium transition-colors duration-150 group ${
                   location.pathname === item.path
                     ? 'text-blue-600'
                     : 'text-gray-600 hover:text-gray-900'
@@ -45,6 +59,13 @@ export function Layout({ children }: Props) {
                 aria-current={location.pathname === item.path ? 'page' : undefined}
               >
                 {item.label}
+                <span
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-blue-600 transition-transform duration-200 origin-left ${
+                    location.pathname === item.path
+                      ? 'w-full scale-x-100'
+                      : 'w-full scale-x-0 group-hover:scale-x-100'
+                  }`}
+                />
               </Link>
             ))}
           </nav>
@@ -59,6 +80,9 @@ export function Layout({ children }: Props) {
             {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
+
+        {/* Gradient bottom border */}
+        <div className="h-px bg-gradient-to-r from-transparent via-blue-100 to-transparent" />
 
         {/* Mobile Nav */}
         {menuOpen && (

@@ -1,10 +1,26 @@
-import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { render, screen, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { Layout } from '../../components/Layout'
 
 describe('Layout', () => {
+  let scrollHandler: (() => void) | null = null
+
+  beforeEach(() => {
+    scrollHandler = null
+    vi.spyOn(window, 'addEventListener').mockImplementation((event, handler) => {
+      if (event === 'scroll') {
+        scrollHandler = handler as () => void
+      }
+    })
+    vi.spyOn(window, 'removeEventListener').mockImplementation(() => {})
+  })
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
   it('renders site title', () => {
     render(
       <MemoryRouter>
@@ -103,5 +119,58 @@ describe('Layout', () => {
       .querySelector('a[aria-current="page"]')
     expect(homeLink).toBeInTheDocument()
     expect(homeLink?.textContent).toBe('首页')
+  })
+
+  it('header has no shadow when not scrolled', () => {
+    Object.defineProperty(window, 'scrollY', { value: 0, writable: true })
+    render(
+      <MemoryRouter>
+        <Layout>Content</Layout>
+      </MemoryRouter>
+    )
+    const header = screen.getByTestId('header')
+    expect(header.className).not.toContain('shadow-sm')
+  })
+
+  it('header gains shadow-sm class when scrolled past 10px', () => {
+    Object.defineProperty(window, 'scrollY', { value: 0, writable: true })
+    render(
+      <MemoryRouter>
+        <Layout>Content</Layout>
+      </MemoryRouter>
+    )
+
+    const header = screen.getByTestId('header')
+    expect(header.className).not.toContain('shadow-sm')
+
+    Object.defineProperty(window, 'scrollY', { value: 50, writable: true })
+    act(() => {
+      scrollHandler?.()
+    })
+
+    expect(header.className).toContain('shadow-sm')
+  })
+
+  it('header removes shadow when scrolled back to top', () => {
+    Object.defineProperty(window, 'scrollY', { value: 50, writable: true })
+    render(
+      <MemoryRouter>
+        <Layout>Content</Layout>
+      </MemoryRouter>
+    )
+
+    act(() => {
+      scrollHandler?.()
+    })
+
+    const header = screen.getByTestId('header')
+    expect(header.className).toContain('shadow-sm')
+
+    Object.defineProperty(window, 'scrollY', { value: 5, writable: true })
+    act(() => {
+      scrollHandler?.()
+    })
+
+    expect(header.className).not.toContain('shadow-sm')
   })
 })

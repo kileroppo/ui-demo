@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import { App } from '../App'
+import { App, SkeletonLoading } from '../App'
 
 describe('App', () => {
   beforeEach(() => {
@@ -11,10 +11,13 @@ describe('App', () => {
       disconnect: vi.fn(),
     }))
     vi.stubGlobal('IntersectionObserver', MockIntersectionObserver)
+    vi.spyOn(window, 'addEventListener').mockImplementation(() => {})
+    vi.spyOn(window, 'removeEventListener').mockImplementation(() => {})
   })
 
   afterEach(() => {
     vi.unstubAllGlobals()
+    vi.restoreAllMocks()
   })
 
   it('renders without crashing', () => {
@@ -82,10 +85,33 @@ describe('App', () => {
   })
 })
 
+describe('SkeletonLoading', () => {
+  it('renders 6 skeleton cards', () => {
+    const { container } = render(<SkeletonLoading />)
+    const skeletonCards = container.querySelectorAll('.skeleton')
+    expect(skeletonCards).toHaveLength(6)
+  })
+
+  it('has loading role and aria-label', () => {
+    render(<SkeletonLoading />)
+    expect(screen.getByRole('status')).toBeInTheDocument()
+    expect(screen.getByLabelText('加载中')).toBeInTheDocument()
+  })
+
+  it('skeleton cards have proper styling classes', () => {
+    const { container } = render(<SkeletonLoading />)
+    const firstCard = container.querySelector('.skeleton')
+    expect(firstCard).toHaveClass('h-48')
+    expect(firstCard).toHaveClass('rounded-xl')
+  })
+})
+
 // Test component that uses the same lazy routes but within a provided router
 import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Layout } from '../components/Layout'
+import { PageTransition } from '../components/PageTransition'
+import { BackToTop } from '../components/BackToTop'
 import { HomePage } from '../pages/HomePage'
 
 const StyleGallery = lazy(() =>
@@ -104,15 +130,18 @@ const About = lazy(() =>
 function TestApp() {
   return (
     <Layout>
-      <Suspense fallback={<div>加载中...</div>}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/styles" element={<StyleGallery />} />
-          <Route path="/styles/:id" element={<StyleDetailPage />} />
-          <Route path="/products" element={<ProductGallery />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
+      <Suspense fallback={<SkeletonLoading />}>
+        <PageTransition transitionKey="test">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/styles" element={<StyleGallery />} />
+            <Route path="/styles/:id" element={<StyleDetailPage />} />
+            <Route path="/products" element={<ProductGallery />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </PageTransition>
       </Suspense>
+      <BackToTop />
     </Layout>
   )
 }

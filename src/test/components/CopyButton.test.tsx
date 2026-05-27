@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { CopyButton } from '../../components/CopyButton'
 import * as clipboardUtil from '../../utils/clipboard'
@@ -60,5 +60,40 @@ describe('CopyButton', () => {
       expect(screen.queryByText('已复制')).not.toBeInTheDocument()
     })
     expect(screen.getByText('复制提示词')).toBeInTheDocument()
+  })
+
+  it('adds copy-success animation class on successful copy', async () => {
+    const user = userEvent.setup()
+    render(<CopyButton text="test" />)
+
+    const button = screen.getByRole('button')
+    await user.click(button)
+
+    await waitFor(() => {
+      expect(button.className).toContain('copy-success')
+    })
+  })
+
+  it('removes copy-success animation class after timeout', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime })
+    render(<CopyButton text="test" />)
+
+    const button = screen.getByRole('button')
+    await user.click(button)
+
+    await waitFor(() => {
+      expect(button.className).toContain('copy-success')
+    })
+
+    await act(async () => {
+      vi.advanceTimersByTime(300)
+    })
+
+    await waitFor(() => {
+      expect(button.className).not.toContain('copy-success')
+    })
+
+    vi.useRealTimers()
   })
 })

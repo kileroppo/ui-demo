@@ -85,4 +85,29 @@ describe('StyleDemo', () => {
     render(<StyleDemo style={createStyle('Unknown Style', '未知风格')} />)
     expect(screen.getByText('未知风格')).toBeInTheDocument()
   })
+
+  it('renders NeubrutalismDemo for Neubrutalism style', () => {
+    render(<StyleDemo style={createStyle('Neubrutalism', 'Neubrutalism')} />)
+    expect(screen.getByText('Bold & Raw')).toBeInTheDocument()
+  })
+
+  it('renders BentoGridDemo for Bento Box Grid style', () => {
+    render(<StyleDemo style={createStyle('Bento Box Grid', 'Bento Box Grid')} />)
+    expect(screen.getByText('Main')).toBeInTheDocument()
+  })
+
+  it('renders CyberpunkDemo for Cyberpunk UI style', () => {
+    render(<StyleDemo style={createStyle('Cyberpunk UI', 'Cyberpunk UI')} />)
+    expect(screen.getByText('CYBER//PUNK')).toBeInTheDocument()
+  })
+
+  it('renders LiquidGlassDemo for Liquid Glass style', () => {
+    render(<StyleDemo style={createStyle('Liquid Glass', '流体玻璃')} />)
+    expect(screen.getByText('Liquid Glass')).toBeInTheDocument()
+  })
+
+  it('renders AIUINativeDemo for AI-Native UI style', () => {
+    render(<StyleDemo style={createStyle('AI-Native UI', 'AI-Native UI')} />)
+    expect(screen.getByText('AI Assistant')).toBeInTheDocument()
+  })
 })

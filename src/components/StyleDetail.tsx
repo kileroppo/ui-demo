@@ -10,7 +10,7 @@ export function StyleDetail({ style }: Props) {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
-        <div className="h-48">
+        <div className="h-64 border-b border-gray-100 rounded-t-2xl overflow-hidden">
           <StyleDemo style={style} />
         </div>
         <div className="p-6 md:p-8">

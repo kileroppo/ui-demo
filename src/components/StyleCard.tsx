@@ -10,7 +10,7 @@ interface Props {
 export function StyleCard({ style }: Props) {
   return (
     <article className="group bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-lg hover:border-gray-200 transition-all duration-300 hover:-translate-y-0.5 focus-within:ring-2 focus-within:ring-blue-500">
-      <div className="overflow-hidden h-40">
+      <div className="overflow-hidden h-40 transition-transform duration-300 group-hover:scale-[1.02]">
         <StyleDemo style={style} />
       </div>
       <div className="p-4">

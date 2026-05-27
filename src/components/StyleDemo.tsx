@@ -10,6 +10,11 @@ import {
   ClaymorphismDemo,
   RetroFuturismDemo,
   FlatDesignDemo,
+  NeubrutalismDemo,
+  BentoGridDemo,
+  CyberpunkDemo,
+  LiquidGlassDemo,
+  AIUINativeDemo,
   GenericStyleDemo,
 } from './demos'
 
@@ -28,6 +33,11 @@ const DEMO_MAP: Record<string, React.ComponentType> = {
   'Claymorphism': ClaymorphismDemo,
   'Retro-Futurism': RetroFuturismDemo,
   'Flat Design': FlatDesignDemo,
+  'Neubrutalism': NeubrutalismDemo,
+  'Bento Box Grid': BentoGridDemo,
+  'Cyberpunk UI': CyberpunkDemo,
+  'Liquid Glass': LiquidGlassDemo,
+  'AI-Native UI': AIUINativeDemo,
 }
 
 export function StyleDemo({ style }: Props) {

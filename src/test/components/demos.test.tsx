@@ -99,21 +99,63 @@ describe('GenericStyleDemo', () => {
     designVariables: '',
   }
 
-  it('renders Chinese name as label', () => {
+  it('renders Chinese name as heading', () => {
     render(<GenericStyleDemo style={baseStyle} />)
     expect(screen.getByText('自定义风格')).toBeInTheDocument()
   })
 
-  it('renders with color from primaryColors', () => {
-    const { container } = render(<GenericStyleDemo style={baseStyle} />)
-    const innerDiv = container.querySelector('div > div > div')
-    expect(innerDiv).toHaveStyle({ background: '#6366f1' })
+  it('renders a button element', () => {
+    render(<GenericStyleDemo style={baseStyle} />)
+    expect(screen.getByRole('button')).toBeInTheDocument()
+  })
+
+  it('renders type and complexity info', () => {
+    render(<GenericStyleDemo style={baseStyle} />)
+    expect(screen.getByText('General · Standard')).toBeInTheDocument()
+  })
+
+  it('uses hex color from primaryColors for heading', () => {
+    render(<GenericStyleDemo style={baseStyle} />)
+    const heading = screen.getByText('自定义风格')
+    expect(heading).toHaveStyle({ color: '#6366f1' })
   })
 
   it('uses fallback color when no hex found', () => {
     const styleNoColor = { ...baseStyle, primaryColors: 'no color here' }
-    const { container } = render(<GenericStyleDemo style={styleNoColor} />)
-    const innerDiv = container.querySelector('div > div > div')
-    expect(innerDiv).toHaveStyle({ background: '#6366f1' })
+    render(<GenericStyleDemo style={styleNoColor} />)
+    const heading = screen.getByText('自定义风格')
+    expect(heading).toHaveStyle({ color: '#6366f1' })
+  })
+
+  it('applies border-radius from cssKeywords', () => {
+    const styleWithRadius = { ...baseStyle, cssKeywords: 'border-radius: 20px; color: red;' }
+    const { container } = render(<GenericStyleDemo style={styleWithRadius} />)
+    const card = container.querySelector('[style*="border-radius: 20px"]')
+    expect(card).not.toBeNull()
+  })
+
+  it('applies box-shadow from cssKeywords', () => {
+    const styleWithShadow = { ...baseStyle, cssKeywords: 'box-shadow: 0 8px 24px rgba(0,0,0,0.2);' }
+    const { container } = render(<GenericStyleDemo style={styleWithShadow} />)
+    const card = container.querySelector('[style*="box-shadow"]')
+    expect(card).not.toBeNull()
+  })
+
+  it('shows gradient button for high complexity styles', () => {
+    const complexStyle = { ...baseStyle, complexity: 'High' }
+    render(<GenericStyleDemo style={complexStyle} />)
+    expect(screen.getByRole('button', { name: '探索' })).toBeInTheDocument()
+  })
+
+  it('shows simple button for normal complexity styles', () => {
+    render(<GenericStyleDemo style={baseStyle} />)
+    expect(screen.getByRole('button', { name: '查看' })).toBeInTheDocument()
+  })
+
+  it('renders with multiple hex colors from primaryColors', () => {
+    const multiColorStyle = { ...baseStyle, primaryColors: '#ff6b6b and #4ecdc4' }
+    render(<GenericStyleDemo style={multiColorStyle} />)
+    const heading = screen.getByText('自定义风格')
+    expect(heading).toHaveStyle({ color: '#ff6b6b' })
   })
 })

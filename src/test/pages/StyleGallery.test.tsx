@@ -98,4 +98,44 @@ describe('StyleGallery', () => {
     await user.selectOptions(select, 'General')
     expect(screen.getByText('清除筛选')).toBeInTheDocument()
   })
+
+  describe('empty state', () => {
+    it('shows suggestion chips when no results found', async () => {
+      const user = userEvent.setup()
+      render(
+        <MemoryRouter>
+          <StyleGallery />
+        </MemoryRouter>
+      )
+
+      const input = screen.getByLabelText('搜索风格')
+      await user.type(input, 'zzz_nomatch_xyz')
+      await waitFor(() => {
+        expect(screen.getByText('试试：')).toBeInTheDocument()
+      })
+      expect(screen.getByRole('button', { name: '玻璃拟态' })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: '极简主义' })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: '暗色模式' })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: '赛博朋克' })).toBeInTheDocument()
+    })
+
+    it('clicking a suggestion chip updates the search query', async () => {
+      const user = userEvent.setup()
+      render(
+        <MemoryRouter>
+          <StyleGallery />
+        </MemoryRouter>
+      )
+
+      const input = screen.getByLabelText('搜索风格')
+      await user.type(input, 'zzz_nomatch_xyz')
+      await waitFor(() => {
+        expect(screen.getByRole('button', { name: '玻璃拟态' })).toBeInTheDocument()
+      })
+      await user.click(screen.getByRole('button', { name: '玻璃拟态' }))
+      await waitFor(() => {
+        expect(input).toHaveValue('玻璃拟态')
+      })
+    })
+  })
 })

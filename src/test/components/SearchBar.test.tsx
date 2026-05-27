@@ -6,6 +6,7 @@ import { SearchBar } from '../../components/SearchBar'
 describe('SearchBar', () => {
   beforeEach(() => {
     vi.useFakeTimers()
+    localStorage.clear()
   })
 
   afterEach(() => {
@@ -85,6 +86,68 @@ describe('SearchBar', () => {
     // No error should occur after unmount when timer fires
     act(() => {
       vi.advanceTimersByTime(3000)
+    })
+  })
+
+  describe('clear button', () => {
+    it('shows clear button when input has text', () => {
+      render(<SearchBar value="something" onChange={() => {}} />)
+      expect(screen.getByLabelText('清除搜索')).toBeInTheDocument()
+    })
+
+    it('does not show clear button when input is empty', () => {
+      render(<SearchBar value="" onChange={() => {}} />)
+      expect(screen.queryByLabelText('清除搜索')).not.toBeInTheDocument()
+    })
+
+    it('calls onChange with empty string when clear button is clicked', async () => {
+      vi.useRealTimers()
+      const user = userEvent.setup()
+      const onChange = vi.fn()
+      render(<SearchBar value="test" onChange={onChange} />)
+
+      await user.click(screen.getByLabelText('清除搜索'))
+      expect(onChange).toHaveBeenCalledWith('')
+    })
+  })
+
+  describe('suggestions dropdown', () => {
+    it('shows dropdown on focus', () => {
+      render(<SearchBar value="" onChange={() => {}} />)
+      const input = screen.getByRole('textbox')
+      fireEvent.focus(input)
+      expect(screen.getByText('热门搜索')).toBeInTheDocument()
+    })
+
+    it('hides dropdown on escape', () => {
+      render(<SearchBar value="" onChange={() => {}} />)
+      const input = screen.getByRole('textbox')
+      fireEvent.focus(input)
+      expect(screen.getByText('热门搜索')).toBeInTheDocument()
+
+      fireEvent.keyDown(document, { key: 'Escape' })
+      expect(screen.queryByText('热门搜索')).not.toBeInTheDocument()
+    })
+
+    it('hides dropdown on blur after delay', () => {
+      render(<SearchBar value="" onChange={() => {}} />)
+      const input = screen.getByRole('textbox')
+      fireEvent.focus(input)
+      expect(screen.getByText('热门搜索')).toBeInTheDocument()
+
+      fireEvent.blur(input)
+      act(() => {
+        vi.advanceTimersByTime(200)
+      })
+      expect(screen.queryByText('热门搜索')).not.toBeInTheDocument()
+    })
+
+    it('has aria-expanded attribute', () => {
+      render(<SearchBar value="" onChange={() => {}} />)
+      const input = screen.getByRole('textbox')
+      expect(input).toHaveAttribute('aria-expanded', 'false')
+      fireEvent.focus(input)
+      expect(input).toHaveAttribute('aria-expanded', 'true')
     })
   })
 })

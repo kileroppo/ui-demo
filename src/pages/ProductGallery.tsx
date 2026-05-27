@@ -74,9 +74,20 @@ export function ProductGallery() {
         <div className="text-center py-16" role="status">
           <div className="text-4xl mb-3">🔍</div>
           <p className="text-gray-600 font-medium">未找到「{query}」相关的产品类型</p>
-          <p className="text-sm text-gray-400 mt-1">
-            试试其他关键词，如「电商」「社交」「金融」
-          </p>
+          <div className="mt-4">
+            <p className="text-sm text-gray-400 mb-2">试试：</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {['电商', '社交', '金融', '医疗'].map((chip) => (
+                <button
+                  key={chip}
+                  onClick={() => handleSearch(chip)}
+                  className="px-3 py-1.5 text-sm rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-colors"
+                >
+                  {chip}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </div>

@@ -66,18 +66,43 @@ describe('ProductGallery', () => {
     expect(screen.getByText(/显示.*种产品类型/)).toBeInTheDocument()
   })
 
-  it('shows suggestions in empty state', async () => {
-    const user = userEvent.setup()
-    render(
-      <MemoryRouter>
-        <ProductGallery />
-      </MemoryRouter>
-    )
+  describe('empty state', () => {
+    it('shows suggestion chips when no results found', async () => {
+      const user = userEvent.setup()
+      render(
+        <MemoryRouter>
+          <ProductGallery />
+        </MemoryRouter>
+      )
 
-    const input = screen.getByLabelText('搜索风格')
-    await user.type(input, 'zzz_nomatch_xyz')
-    await waitFor(() => {
-      expect(screen.getByText(/试试其他关键词/)).toBeInTheDocument()
+      const input = screen.getByLabelText('搜索风格')
+      await user.type(input, 'zzz_nomatch_xyz')
+      await waitFor(() => {
+        expect(screen.getByText('试试：')).toBeInTheDocument()
+      })
+      expect(screen.getByRole('button', { name: '电商' })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: '社交' })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: '金融' })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: '医疗' })).toBeInTheDocument()
+    })
+
+    it('clicking a suggestion chip updates the search query', async () => {
+      const user = userEvent.setup()
+      render(
+        <MemoryRouter>
+          <ProductGallery />
+        </MemoryRouter>
+      )
+
+      const input = screen.getByLabelText('搜索风格')
+      await user.type(input, 'zzz_nomatch_xyz')
+      await waitFor(() => {
+        expect(screen.getByRole('button', { name: '电商' })).toBeInTheDocument()
+      })
+      await user.click(screen.getByRole('button', { name: '电商' }))
+      await waitFor(() => {
+        expect(input).toHaveValue('电商')
+      })
     })
   })
 })

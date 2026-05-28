@@ -1,0 +1,745 @@
+# Instincts generated from https://github.com/kileroppo/ui-demo
+# Generated: 2026-05-28T08:51:13.468Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: ui-demo-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: feat, fix, docs, chore
+
+## Evidence
+
+- 23 commits analyzed
+- Detected conventional commit pattern
+- Examples: feat: visual hierarchy revolution - animated hero, stats counters, enhanced components, fix: address review issues - scoped keyboard handler, rAF animation, safe unmount cleanup
+
+---
+id: ui-demo-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Commit Length
+
+## Action
+
+Write moderate-length commit messages (~78 characters)
+
+## Evidence
+
+- Average commit message length: 78 chars
+- Based on 23 commits
+
+---
+id: ui-demo-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Naming Files
+
+## Action
+
+Use PascalCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: PascalCase
+
+---
+id: ui-demo-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: ui-demo-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: ui-demo-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: components, data, hooks, pages, test
+
+---
+id: ui-demo-test-colocate
+trigger: "when writing tests"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Test Colocate
+
+## Action
+
+Place test file next to the source file (e.g., Button.test.tsx next to Button.tsx)
+
+## Evidence
+
+- Colocated test pattern detected
+- Tests live alongside source files
+
+---
+id: ui-demo-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Test Framework
+
+## Action
+
+Use vitest as the test framework
+
+## Evidence
+
+- Test framework detected: vitest
+- File pattern: *.test.tsx
+
+---
+id: ui-demo-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.tsx
+
+## Evidence
+
+- File pattern: *.test.tsx
+- Consistent across test files
+
+---
+id: ui-demo-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Test Mocking
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: vi.mock
+- Consistent across test files
+
+---
+id: ui-demo-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~27x per month
+- Files: src/components/*, src/pages/*, src/test/*
+
+---
+id: ui-demo-workflow-add-new-feature-or-component
+trigger: "when doing add new feature or component"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Workflow Add New Feature Or Component
+
+## Action
+
+Follow the add-new-feature-or-component workflow:
+1. Create or update one or more files in src/components/, src/pages/, src/hooks/, or src/utils/ to implement the feature.
+2. Update or create corresponding test files in src/test/components/, src/test/pages/, src/test/hooks/, or src/test/utils/.
+3. Update shared files (e.g., src/index.css, src/App.tsx, src/components/Layout.tsx) if necessary for integration or styling.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~10x per month
+- Files: src/components/*.tsx, src/pages/*.tsx, src/hooks/*.ts
+
+---
+id: ui-demo-workflow-add-new-page-or-route
+trigger: "when doing add new page or route"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Workflow Add New Page Or Route
+
+## Action
+
+Follow the add-new-page-or-route workflow:
+1. Create a new file in src/pages/ for the page implementation.
+2. Register the route in src/App.tsx (and/or update navigation in src/components/Layout.tsx).
+3. Create or update test files in src/test/pages/ for the new page.
+4. Optionally, update navigation items or related components.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: src/pages/*.tsx, src/App.tsx, src/components/Layout.tsx
+
+---
+id: ui-demo-workflow-add-or-update-custom-hook
+trigger: "when doing add or update custom hook"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Workflow Add Or Update Custom Hook
+
+## Action
+
+Follow the add-or-update-custom-hook workflow:
+1. Create or update a file in src/hooks/ for the hook logic.
+2. Create or update corresponding test file in src/test/hooks/.
+3. Integrate the hook into components or pages as needed.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: src/hooks/*.ts, src/test/hooks/*.test.ts
+
+---
+id: ui-demo-workflow-feature-development-with-tests-and-style
+trigger: "when doing feature development with tests and style"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Workflow Feature Development With Tests And Style
+
+## Action
+
+Follow the feature-development-with-tests-and-style workflow:
+1. Implement or update feature in src/components/, src/pages/, or src/hooks/.
+2. Update or create tests in src/test/ directories.
+3. Update src/index.css or design token files for new styles.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: src/components/*.tsx, src/pages/*.tsx, src/hooks/*.ts
+
+---
+id: ui-demo-workflow-fix-bug-or-address-code-review
+trigger: "when doing fix bug or address code review"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Workflow Fix Bug Or Address Code Review
+
+## Action
+
+Follow the fix-bug-or-address-code-review workflow:
+1. Update implementation files in src/components/, src/pages/, src/hooks/, or src/utils/ to fix the issue.
+2. Update or add tests in src/test/ to cover the fix.
+3. Add comments or documentation if needed.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: src/components/*.tsx, src/pages/*.tsx, src/hooks/*.ts
+
+---
+id: ui-demo-workflow-add-or-update-documentation
+trigger: "when doing add or update documentation"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/kileroppo/ui-demo
+---
+
+# Ui Demo Workflow Add Or Update Documentation
+
+## Action
+
+Follow the add-or-update-documentation workflow:
+1. Update or create files in docs/ and/or README.md.
+2. Optionally, update documentation comments in code.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: README.md, docs/*.md
+
+---
+id: ui-demo-instinct-file-naming
+trigger: "When creating a new file in src/components, src/pages, or src/hooks"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct File Naming
+
+## Action
+
+Name the file using PascalCase (e.g., AnimatedCounter.tsx)
+
+## Evidence
+
+- Pattern in files: src/components/AnimatedCounter.tsx, src/pages/HomePage.tsx
+
+---
+id: ui-demo-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Function Naming
+
+## Action
+
+Name the function using camelCase
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions
+
+---
+id: ui-demo-instinct-class-naming
+trigger: "When defining a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Class Naming
+
+## Action
+
+Name the class using PascalCase
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes
+
+---
+id: ui-demo-instinct-constant-naming
+trigger: "When declaring a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Constant Naming
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants
+
+---
+id: ui-demo-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+
+---
+id: ui-demo-instinct-export-style
+trigger: "When exporting modules or functions"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+
+---
+id: ui-demo-instinct-test-file-location
+trigger: "When adding tests for a component, page, hook, or util"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Test File Location
+
+## Action
+
+Place test files in src/test/ with matching subfolders (e.g., src/test/components/ComponentName.test.tsx)
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation
+- Pattern in testing.filePattern
+
+---
+id: ui-demo-instinct-test-framework
+trigger: "When writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Test Framework
+
+## Action
+
+Use vitest as the testing framework
+
+## Evidence
+
+- Pattern in testing.framework
+
+---
+id: ui-demo-instinct-test-mocking
+trigger: "When mocking modules in tests"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Test Mocking
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- Pattern in testing.mockingStyle
+
+---
+id: ui-demo-instinct-test-coverage
+trigger: "When configuring tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Test Coverage
+
+## Action
+
+Enable coverage reporting in vitest config
+
+## Evidence
+
+- Pattern in testing.coverageConfig
+
+---
+id: ui-demo-instinct-commit-format
+trigger: "When making a commit"
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Commit Format
+
+## Action
+
+Use conventional commit format with prefixes: feat, fix, docs, chore
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Seen in commits: 'feat: visual hierarchy revolution...', 'fix: address review issues...'
+
+---
+id: ui-demo-instinct-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Commit Length
+
+## Action
+
+Keep the commit message around 78 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength
+
+---
+id: ui-demo-instinct-add-new-feature-or-component
+trigger: "When someone wants to add a new feature or UI component to the app"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Add New Feature Or Component
+
+## Action
+
+Create/update files in src/components/, src/pages/, src/hooks/, or src/utils/; add/modify tests in src/test/; update shared files (src/index.css, src/App.tsx, src/components/Layout.tsx) as needed
+
+## Evidence
+
+- Workflow: add-new-feature-or-component
+- Example commits and files in workflow definition
+
+---
+id: ui-demo-instinct-add-new-page-or-route
+trigger: "When someone wants to add a new navigable page or route"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Add New Page Or Route
+
+## Action
+
+Create a file in src/pages/, register the route in src/App.tsx and/or src/components/Layout.tsx, and add/update tests in src/test/pages/
+
+## Evidence
+
+- Workflow: add-new-page-or-route
+- Example commits and files in workflow definition
+
+---
+id: ui-demo-instinct-add-or-update-custom-hook
+trigger: "When someone wants to add or enhance reusable logic via a hook"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Add Or Update Custom Hook
+
+## Action
+
+Create or update a file in src/hooks/; create or update corresponding test file in src/test/hooks/
+
+## Evidence
+
+- Workflow: add-or-update-custom-hook
+- Example commits and files in workflow definition
+
+---
+id: ui-demo-instinct-feature-development-with-tests-and-style
+trigger: "When someone wants to deliver a feature with UI, logic, and visual polish"
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Feature Development With Tests And Style
+
+## Action
+
+Implement/update feature in src/components/, src/pages/, or src/hooks/; update/create tests in src/test/; update src/index.css or design token files for styles
+
+## Evidence
+
+- Workflow: feature-development-with-tests-and-style
+- Example commits and files in workflow definition
+
+---
+id: ui-demo-instinct-fix-bug-or-address-code-review
+trigger: "When someone needs to fix a bug or respond to review feedback"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Fix Bug Or Address Code Review
+
+## Action
+
+Update implementation files in src/components/, src/pages/, src/hooks/, or src/utils/; update/add tests in src/test/; add comments or documentation if needed
+
+## Evidence
+
+- Workflow: fix-bug-or-address-code-review
+- Example commits and files in workflow definition
+
+---
+id: ui-demo-instinct-add-or-update-documentation
+trigger: "When someone wants to document new features or update existing docs"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Add Or Update Documentation
+
+## Action
+
+Update or create files in docs/ and/or README.md; optionally update documentation comments in code
+
+## Evidence
+
+- Workflow: add-or-update-documentation
+- Example commits and files in workflow definition
+
+---
+id: ui-demo-instinct-error-handling
+trigger: "When handling errors in code"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: kileroppo/ui-demo
+---
+
+# Ui Demo Instinct Error Handling
+
+## Action
+
+Use try-catch blocks for error handling; do not use custom error classes or error boundaries
+
+## Evidence
+
+- Pattern in errorHandling.style
+- Pattern in errorHandling.customErrorClasses, errorBoundaries
+

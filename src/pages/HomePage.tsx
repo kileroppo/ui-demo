@@ -84,7 +84,7 @@ export function HomePage() {
       {/* Find My Style CTA */}
       <section className="mb-10 text-center">
         <Link
-          to="/styles"
+          to="/advisor"
           className="inline-flex items-center gap-2 px-6 py-3 text-white font-medium rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 hover:scale-105 transition-all duration-200 shadow-md"
         >
           <Sparkles className="w-5 h-5" aria-hidden="true" />

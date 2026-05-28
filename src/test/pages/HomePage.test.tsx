@@ -158,6 +158,6 @@ describe('HomePage', () => {
     )
     const cta = screen.getByRole('link', { name: /找到我的风格/ })
     expect(cta).toBeInTheDocument()
-    expect(cta).toHaveAttribute('href', '/styles')
+    expect(cta).toHaveAttribute('href', '/advisor')
   })
 })

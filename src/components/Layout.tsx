@@ -8,6 +8,7 @@ const NAV_ITEMS = [
   { path: '/', label: '首页' },
   { path: '/styles', label: '风格库' },
   { path: '/products', label: '产品推荐' },
+  { path: '/advisor', label: '风格顾问' },
   { path: '/about', label: '关于' },
 ]
 

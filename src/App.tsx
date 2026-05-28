@@ -17,6 +17,12 @@ const ProductGallery = lazy(() =>
 const About = lazy(() =>
   import('./pages/About').then((m) => ({ default: m.About }))
 )
+const ComparePage = lazy(() =>
+  import('./pages/ComparePage').then((m) => ({ default: m.ComparePage }))
+)
+const StyleAdvisor = lazy(() =>
+  import('./pages/StyleAdvisor').then((m) => ({ default: m.StyleAdvisor }))
+)
 
 export function SkeletonLoading() {
   return (
@@ -42,6 +48,8 @@ function AppRoutes() {
             <Route path="/styles" element={<StyleGallery />} />
             <Route path="/styles/:id" element={<StyleDetailPage />} />
             <Route path="/products" element={<ProductGallery />} />
+            <Route path="/compare" element={<ComparePage />} />
+            <Route path="/advisor" element={<StyleAdvisor />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </PageTransition>

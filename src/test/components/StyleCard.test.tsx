@@ -1,5 +1,6 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { StyleCard } from '../../components/StyleCard'
 import type { UIStyle } from '../../data/types'
@@ -36,6 +37,10 @@ function renderWithRouter(ui: React.ReactElement) {
 }
 
 describe('StyleCard', () => {
+  beforeEach(() => {
+    localStorage.clear()
+  })
+
   it('renders Chinese style name', () => {
     renderWithRouter(<StyleCard style={mockStyle} />)
     expect(screen.getByText('玻璃拟态')).toBeInTheDocument()
@@ -82,7 +87,8 @@ describe('StyleCard', () => {
   it('renders color dot indicator with extracted rgba color', () => {
     renderWithRouter(<StyleCard style={mockStyle} />)
     const article = screen.getByRole('article')
-    const dot = article.querySelector('span[aria-hidden="true"]')
+    const dots = article.querySelectorAll('span[aria-hidden="true"]')
+    const dot = dots[0]
     expect(dot).toBeInTheDocument()
     expect(dot).toHaveStyle({ backgroundColor: 'rgba(255,255,255,0.15)' })
   })
@@ -91,7 +97,8 @@ describe('StyleCard', () => {
     const hexStyle = { ...mockStyle, primaryColors: 'Deep Blue #1e40af' }
     renderWithRouter(<StyleCard style={hexStyle} />)
     const article = screen.getByRole('article')
-    const dot = article.querySelector('span[aria-hidden="true"]')
+    const dots = article.querySelectorAll('span[aria-hidden="true"]')
+    const dot = dots[0]
     expect(dot).toHaveStyle({ backgroundColor: '#1e40af' })
   })
 
@@ -99,7 +106,8 @@ describe('StyleCard', () => {
     const noColorStyle = { ...mockStyle, primaryColors: 'no color here' }
     renderWithRouter(<StyleCard style={noColorStyle} />)
     const article = screen.getByRole('article')
-    const dot = article.querySelector('span[aria-hidden="true"]')
+    const dots = article.querySelectorAll('span[aria-hidden="true"]')
+    const dot = dots[0]
     expect(dot).toHaveStyle({ backgroundColor: '#6366f1' })
   })
 
@@ -116,5 +124,36 @@ describe('StyleCard', () => {
     const wrapper = copyButton.closest('.opacity-0')
     expect(wrapper).toBeInTheDocument()
     expect(wrapper).toHaveClass('group-hover:opacity-100')
+  })
+
+  // Favorite button tests
+  it('renders favorite button with aria-label', () => {
+    renderWithRouter(<StyleCard style={mockStyle} />)
+    expect(screen.getByLabelText('收藏')).toBeInTheDocument()
+  })
+
+  it('toggles favorite on click', async () => {
+    const user = userEvent.setup()
+    renderWithRouter(<StyleCard style={mockStyle} />)
+
+    const favBtn = screen.getByLabelText('收藏')
+    await user.click(favBtn)
+    expect(screen.getByLabelText('取消收藏')).toBeInTheDocument()
+  })
+
+  it('shows filled heart when favorited', async () => {
+    localStorage.setItem('favorite-styles', JSON.stringify([1]))
+    renderWithRouter(<StyleCard style={mockStyle} />)
+    expect(screen.getByLabelText('取消收藏')).toBeInTheDocument()
+  })
+
+  it('unfavorites when already favorited', async () => {
+    const user = userEvent.setup()
+    localStorage.setItem('favorite-styles', JSON.stringify([1]))
+    renderWithRouter(<StyleCard style={mockStyle} />)
+
+    const favBtn = screen.getByLabelText('取消收藏')
+    await user.click(favBtn)
+    expect(screen.getByLabelText('收藏')).toBeInTheDocument()
   })
 })

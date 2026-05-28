@@ -1,11 +1,13 @@
 import { useState, useMemo, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { Heart } from 'lucide-react'
 import { styles } from '../data'
 import { StyleCard } from '../components/StyleCard'
 import { SearchBar } from '../components/SearchBar'
 import { FilterPanel } from '../components/FilterPanel'
 import { searchAndSort } from '../utils/search'
 import { useDebounce } from '../hooks/useDebounce'
+import { useFavorites } from '../hooks/useFavorites'
 import {
   filterStyles,
   getCategories,
@@ -24,6 +26,8 @@ export function StyleGallery() {
   const [filters, setFilters] = useState<FilterOptions>(
     initialCategory ? { category: initialCategory } : {}
   )
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false)
+  const { favorites, count: favoritesCount } = useFavorites()
 
   const categories = useMemo(() => getCategories(styles), [])
   const performanceRatings = useMemo(() => getPerformanceRatings(styles), [])
@@ -31,8 +35,12 @@ export function StyleGallery() {
 
   const results = useMemo(() => {
     const searched = searchAndSort(styles, debouncedQuery)
-    return filterStyles(searched, filters)
-  }, [debouncedQuery, filters])
+    const filtered = filterStyles(searched, filters)
+    if (showFavoritesOnly) {
+      return filtered.filter((s) => favorites.includes(s.id))
+    }
+    return filtered
+  }, [debouncedQuery, filters, showFavoritesOnly, favorites])
 
   const updateSearchParams = useCallback(
     (newQuery: string, newFilters: FilterOptions) => {
@@ -63,8 +71,8 @@ export function StyleGallery() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-gray-900 mb-2">风格库</h1>
-      <p className="text-sm text-gray-500 mb-6">
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">风格库</h1>
+      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
         浏览全部 {styles.length} 种 UI 设计风格，支持按类别、性能等维度筛选
       </p>
 
@@ -73,7 +81,7 @@ export function StyleGallery() {
         <SearchBar value={query} onChange={handleQueryChange} />
       </div>
 
-      <div className="mb-6">
+      <div className="mb-6 flex flex-wrap items-center gap-3">
         <FilterPanel
           filters={filters}
           onChange={handleFilterChange}
@@ -82,10 +90,23 @@ export function StyleGallery() {
           accessibilityRatings={accessibilityRatings}
           categoryCounts={getCategoryCounts(styles)}
         />
+        <button
+          onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+          className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-lg border transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+            showFavoritesOnly
+              ? 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-700 text-red-600 dark:text-red-400'
+              : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+          }`}
+          aria-pressed={showFavoritesOnly}
+          aria-label="我的收藏"
+        >
+          <Heart className={`w-3.5 h-3.5 ${showFavoritesOnly ? 'fill-red-500 text-red-500' : ''}`} />
+          我的收藏{favoritesCount > 0 && ` (${favoritesCount})`}
+        </button>
       </div>
 
       {/* Results Count */}
-      <p className="text-sm text-gray-500 mb-4" aria-live="polite">
+      <p className="text-sm text-gray-500 dark:text-gray-400 mb-4" aria-live="polite">
         显示 {results.length} / {styles.length} 种风格
       </p>
 
@@ -99,17 +120,17 @@ export function StyleGallery() {
       ) : (
         <div className="text-center py-16" role="status">
           <div className="text-4xl mb-3">🔍</div>
-          <p className="text-gray-600 font-medium">
+          <p className="text-gray-600 dark:text-gray-300 font-medium">
             {query ? `未找到「${query}」相关的风格` : '没有符合筛选条件的风格'}
           </p>
           <div className="mt-4">
-            <p className="text-sm text-gray-400 mb-2">试试：</p>
+            <p className="text-sm text-gray-400 dark:text-gray-500 mb-2">试试：</p>
             <div className="flex flex-wrap justify-center gap-2">
               {['玻璃拟态', '极简主义', '暗色模式', '赛博朋克'].map((chip) => (
                 <button
                   key={chip}
                   onClick={() => handleQueryChange(chip)}
-                  className="px-3 py-1.5 text-sm rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-colors"
+                  className="px-3 py-1.5 text-sm rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors"
                 >
                   {chip}
                 </button>
@@ -119,7 +140,7 @@ export function StyleGallery() {
           {(filters.category || filters.performance || filters.accessibility) && (
             <button
               onClick={() => handleFilterChange({})}
-              className="mt-4 px-4 py-2 text-sm rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors"
+              className="mt-4 px-4 py-2 text-sm rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
             >
               清除全部筛选
             </button>

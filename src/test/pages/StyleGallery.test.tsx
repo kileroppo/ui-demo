@@ -1,10 +1,17 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { StyleGallery } from '../../pages/StyleGallery'
 
 describe('StyleGallery', () => {
+  beforeEach(() => {
+    localStorage.clear()
+    vi.spyOn(window, 'matchMedia').mockReturnValue({
+      matches: false,
+    } as MediaQueryList)
+  })
+
   it('renders page heading', () => {
     render(
       <MemoryRouter>
@@ -135,6 +142,83 @@ describe('StyleGallery', () => {
       await user.click(screen.getByRole('button', { name: '玻璃拟态' }))
       await waitFor(() => {
         expect(input).toHaveValue('玻璃拟态')
+      })
+    })
+  })
+
+  describe('favorites filter', () => {
+    it('renders favorites filter button', () => {
+      render(
+        <MemoryRouter>
+          <StyleGallery />
+        </MemoryRouter>
+      )
+      expect(screen.getByLabelText('我的收藏')).toBeInTheDocument()
+    })
+
+    it('shows favorites count in button when > 0', () => {
+      localStorage.setItem('favorite-styles', JSON.stringify([1, 2]))
+      render(
+        <MemoryRouter>
+          <StyleGallery />
+        </MemoryRouter>
+      )
+      expect(screen.getByText(/我的收藏.*\(2\)/)).toBeInTheDocument()
+    })
+
+    it('filters to show only favorited styles when active', async () => {
+      const user = userEvent.setup()
+      localStorage.setItem('favorite-styles', JSON.stringify([1]))
+      render(
+        <MemoryRouter>
+          <StyleGallery />
+        </MemoryRouter>
+      )
+
+      const favButton = screen.getByLabelText('我的收藏')
+      await user.click(favButton)
+
+      await waitFor(() => {
+        expect(screen.getByText(/显示 1 \//)).toBeInTheDocument()
+      })
+    })
+
+    it('shows no results when favorites filter active but no favorites', async () => {
+      const user = userEvent.setup()
+      render(
+        <MemoryRouter>
+          <StyleGallery />
+        </MemoryRouter>
+      )
+
+      const favButton = screen.getByLabelText('我的收藏')
+      await user.click(favButton)
+
+      await waitFor(() => {
+        expect(screen.getByText(/显示 0 \//)).toBeInTheDocument()
+      })
+    })
+
+    it('toggles favorites filter off on second click', async () => {
+      const user = userEvent.setup()
+      localStorage.setItem('favorite-styles', JSON.stringify([1]))
+      render(
+        <MemoryRouter>
+          <StyleGallery />
+        </MemoryRouter>
+      )
+
+      const favButton = screen.getByLabelText('我的收藏')
+      await user.click(favButton)
+
+      await waitFor(() => {
+        expect(screen.getByText(/显示 1 \//)).toBeInTheDocument()
+      })
+
+      await user.click(favButton)
+
+      await waitFor(() => {
+        expect(screen.queryByText(/显示 1 \//)).not.toBeInTheDocument()
       })
     })
   })

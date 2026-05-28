@@ -26,7 +26,7 @@ export function FilterPanel({
       <select
         value={filters.category || ''}
         onChange={(e) => handleChange('category', e.target.value)}
-        className="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-150"
+        className="px-3 py-1.5 text-sm rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-150"
         aria-label="按类别筛选"
       >
         <option value="">全部类别</option>
@@ -40,7 +40,7 @@ export function FilterPanel({
       <select
         value={filters.performance || ''}
         onChange={(e) => handleChange('performance', e.target.value)}
-        className="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-150"
+        className="px-3 py-1.5 text-sm rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-150"
         aria-label="按性能筛选"
       >
         <option value="">全部性能</option>
@@ -54,7 +54,7 @@ export function FilterPanel({
       <select
         value={filters.accessibility || ''}
         onChange={(e) => handleChange('accessibility', e.target.value)}
-        className="px-3 py-1.5 text-sm rounded-lg border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-150"
+        className="px-3 py-1.5 text-sm rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-150"
         aria-label="按无障碍等级筛选"
       >
         <option value="">全部无障碍</option>
@@ -68,7 +68,7 @@ export function FilterPanel({
       {(filters.category || filters.performance || filters.accessibility) && (
         <button
           onClick={() => onChange({})}
-          className="px-3 py-1.5 text-sm rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-3 py-1.5 text-sm rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500"
           aria-label="清除所有筛选条件"
         >
           清除筛选

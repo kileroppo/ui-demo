@@ -44,10 +44,10 @@ export function HomePage() {
     <div>
       {/* Hero Section */}
       <section className="text-center py-16 px-4 rounded-2xl gradient-bg-animated mb-8">
-        <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
+        <h1 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
           发现你的下一个<span className="gradient-text">设计风格</span>
         </h1>
-        <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
           从 {styles.length} 种精心收录的 UI 风格中获取灵感，配有实时演示、
           技术参数和中文 AI 提示词，让你的设计方案从概念到落地只需一步。
         </p>
@@ -57,15 +57,15 @@ export function HomePage() {
 
         {/* Feature highlights */}
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
-          <div className="flex items-center gap-2 justify-center text-sm text-gray-600">
+          <div className="flex items-center gap-2 justify-center text-sm text-gray-600 dark:text-gray-300">
             <Palette className="w-4 h-4 text-blue-500" aria-hidden="true" />
             <span>实时风格预览</span>
           </div>
-          <div className="flex items-center gap-2 justify-center text-sm text-gray-600">
+          <div className="flex items-center gap-2 justify-center text-sm text-gray-600 dark:text-gray-300">
             <Sparkles className="w-4 h-4 text-purple-500" aria-hidden="true" />
             <span>AI 提示词一键复制</span>
           </div>
-          <div className="flex items-center gap-2 justify-center text-sm text-gray-600">
+          <div className="flex items-center gap-2 justify-center text-sm text-gray-600 dark:text-gray-300">
             <Zap className="w-4 h-4 text-amber-500" aria-hidden="true" />
             <span>中英双语搜索</span>
           </div>
@@ -73,7 +73,7 @@ export function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="mb-10 py-8 border-y border-gray-100" aria-label="数据统计">
+      <section className="mb-10 py-8 border-y border-gray-100 dark:border-gray-700" aria-label="数据统计">
         <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
           <AnimatedCounter end={76} suffix=" 种" label="设计风格" />
           <AnimatedCounter end={161} suffix=" 种" label="产品类型" />
@@ -99,7 +99,7 @@ export function HomePage() {
             <button
               key={cat}
               onClick={() => navigate(`/styles?category=${encodeURIComponent(cat)}`)}
-              className="flex items-center gap-2 px-4 py-2 text-sm rounded-full bg-white border border-gray-200 text-gray-600 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex items-center gap-2 px-4 py-2 text-sm rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-700 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <span
                 className="w-2 h-2 rounded-full shrink-0"
@@ -115,7 +115,7 @@ export function HomePage() {
       {/* Results / Featured Grid */}
       <section>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
             {debouncedQuery ? `搜索结果 (${results.length})` : '精选风格'}
           </h2>
           {!debouncedQuery && (
@@ -134,8 +134,8 @@ export function HomePage() {
         ) : (
           <div className="text-center py-16" role="status">
             <div className="text-4xl mb-3">🔍</div>
-            <p className="text-gray-600 font-medium">未找到「{debouncedQuery}」相关的风格</p>
-            <p className="text-sm text-gray-400 mt-1">
+            <p className="text-gray-600 dark:text-gray-300 font-medium">未找到「{debouncedQuery}」相关的风格</p>
+            <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">
               试试其他关键词，如「玻璃」「极简」「暗色」
             </p>
           </div>

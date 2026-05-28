@@ -9,12 +9,17 @@ describe('Layout', () => {
 
   beforeEach(() => {
     scrollHandler = null
+    localStorage.clear()
+    document.documentElement.classList.remove('dark')
     vi.spyOn(window, 'addEventListener').mockImplementation((event, handler) => {
       if (event === 'scroll') {
         scrollHandler = handler as () => void
       }
     })
     vi.spyOn(window, 'removeEventListener').mockImplementation(() => {})
+    vi.spyOn(window, 'matchMedia').mockReturnValue({
+      matches: false,
+    } as MediaQueryList)
   })
 
   afterEach(() => {
@@ -118,7 +123,7 @@ describe('Layout', () => {
     const homeLink = screen.getByRole('navigation', { name: '主导航' })
       .querySelector('a[aria-current="page"]')
     expect(homeLink).toBeInTheDocument()
-    expect(homeLink?.textContent).toBe('首页')
+    expect(homeLink?.textContent).toContain('首页')
   })
 
   it('header has no shadow when not scrolled', () => {
@@ -172,5 +177,49 @@ describe('Layout', () => {
     })
 
     expect(header.className).not.toContain('shadow-sm')
+  })
+
+  // Dark mode toggle tests
+  it('renders dark mode toggle button', () => {
+    render(
+      <MemoryRouter>
+        <Layout>Content</Layout>
+      </MemoryRouter>
+    )
+    expect(screen.getAllByLabelText('切换到深色模式').length).toBeGreaterThan(0)
+  })
+
+  it('toggle changes to sun icon in dark mode', async () => {
+    const user = userEvent.setup()
+    render(
+      <MemoryRouter>
+        <Layout>Content</Layout>
+      </MemoryRouter>
+    )
+
+    const toggleButtons = screen.getAllByLabelText('切换到深色模式')
+    await user.click(toggleButtons[0])
+    expect(screen.getAllByLabelText('切换到浅色模式').length).toBeGreaterThan(0)
+  })
+
+  it('shows favorites badge when favorites exist', () => {
+    localStorage.setItem('favorite-styles', JSON.stringify([1, 2, 3]))
+    render(
+      <MemoryRouter>
+        <Layout>Content</Layout>
+      </MemoryRouter>
+    )
+    expect(screen.getAllByText('3').length).toBeGreaterThan(0)
+  })
+
+  it('does not show favorites badge when no favorites', () => {
+    render(
+      <MemoryRouter>
+        <Layout>Content</Layout>
+      </MemoryRouter>
+    )
+    const navDesktop = screen.getByRole('navigation', { name: '主导航' })
+    const badge = navDesktop.querySelector('.bg-red-500')
+    expect(badge).not.toBeInTheDocument()
   })
 })

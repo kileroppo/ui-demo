@@ -26,8 +26,8 @@ export function StyleDetailPage() {
     return (
       <div className="text-center py-16">
         <div className="text-4xl mb-3">😕</div>
-        <h1 className="text-xl font-bold text-gray-900">未找到该风格</h1>
-        <p className="text-sm text-gray-500 mt-2">该风格可能已被移除或链接无效</p>
+        <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">未找到该风格</h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">该风格可能已被移除或链接无效</p>
         <Link
           to="/styles"
           className="mt-4 inline-block px-4 py-2 text-sm bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
@@ -42,7 +42,7 @@ export function StyleDetailPage() {
     <div>
       {/* Breadcrumb Navigation */}
       <nav aria-label="面包屑导航" className="mb-4">
-        <ol className="flex items-center gap-1 text-sm text-gray-500">
+        <ol className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400">
           <li>
             <Link to="/" className="hover:text-blue-600 transition-colors">
               首页
@@ -59,7 +59,7 @@ export function StyleDetailPage() {
           <li aria-hidden="true">
             <ChevronRight className="w-3.5 h-3.5" />
           </li>
-          <li className="text-gray-900 font-medium" aria-current="page">
+          <li className="text-gray-900 dark:text-gray-100 font-medium" aria-current="page">
             {style.nameZh}
           </li>
         </ol>
@@ -70,7 +70,7 @@ export function StyleDetailPage() {
       {/* Recommended For */}
       {recommendedProducts.length > 0 && (
         <section className="mt-10" aria-label="推荐用于">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">推荐用于</h2>
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">推荐用于</h2>
           <div className="flex flex-wrap gap-2">
             {recommendedProducts.map((product) => (
               <Link
@@ -88,7 +88,7 @@ export function StyleDetailPage() {
       {/* Related Styles */}
       {relatedStyles.length > 0 && (
         <section className="mt-10" aria-label="相关风格推荐">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">相关风格</h2>
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">相关风格</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedStyles.map((s) => (
               <StyleCard key={s.id} style={s} />

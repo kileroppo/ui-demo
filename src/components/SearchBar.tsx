@@ -85,7 +85,7 @@ export function SearchBar({ value, onChange, autoFocus }: Props) {
         onFocus={handleFocus}
         onBlur={handleBlur}
         placeholder={PLACEHOLDER_ITEMS[placeholderIndex]}
-        className="w-full pl-10 pr-20 py-3 rounded-lg border border-gray-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent glow-focus transition-shadow duration-200"
+        className="w-full pl-10 pr-20 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent glow-focus transition-shadow duration-200"
         aria-label="搜索风格"
         autoFocus={autoFocus}
         aria-expanded={showSuggestions}

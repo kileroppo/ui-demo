@@ -152,7 +152,7 @@ export function StyleDetail({ style }: Props) {
               <ul className="space-y-1.5">
                 {style.implementationChecklist.map((item, i) => (
                   <li key={i} className="text-sm text-gray-600 dark:text-gray-300 flex items-start gap-2">
-                    <span className="text-blue-400 mt-0.5">&#9744;</span>
+                    <span className="text-blue-400 mt-0.5" aria-hidden="true">&#8226;</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -163,9 +163,12 @@ export function StyleDetail({ style }: Props) {
           {/* CSS Keywords */}
           <div className="mt-6">
             <h2 className="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-1">CSS 技术要点</h2>
-            <pre className="text-sm text-gray-600 font-mono bg-gray-900 text-green-300 p-4 rounded-lg overflow-x-auto">
-              <code>{style.cssKeywords}</code>
-            </pre>
+            <div className="relative">
+              <pre className="text-sm text-gray-600 font-mono bg-gray-900 text-green-300 p-4 rounded-lg overflow-x-auto">
+                <code>{style.cssKeywords}</code>
+              </pre>
+              <div className="absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-gray-900 to-transparent rounded-r-lg pointer-events-none sm:hidden" aria-hidden="true" />
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Heart } from 'lucide-react'
+import { Heart, GitCompare } from 'lucide-react'
 import type { UIStyle } from '../data/types'
 import { StyleDemo } from './StyleDemo'
 import { CopyButton } from './CopyButton'
@@ -7,9 +7,11 @@ import { useFavorites } from '../hooks/useFavorites'
 
 interface Props {
   style: UIStyle
+  onCompareToggle?: (id: number) => void
+  isCompareSelected?: boolean
 }
 
-export function StyleCard({ style }: Props) {
+export function StyleCard({ style, onCompareToggle, isCompareSelected }: Props) {
   const { isFavorite, toggle } = useFavorites()
   const favorited = isFavorite(style.id)
 
@@ -32,6 +34,21 @@ export function StyleCard({ style }: Props) {
           }`}
         />
       </button>
+      {/* Compare button */}
+      {onCompareToggle && (
+        <button
+          onClick={() => onCompareToggle(style.id)}
+          className={`absolute top-2 left-2 p-1.5 rounded-full backdrop-blur-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+            isCompareSelected
+              ? 'bg-blue-500 text-white'
+              : 'bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-700 text-gray-400 dark:text-gray-500'
+          }`}
+          aria-label={isCompareSelected ? '取消对比' : '加入对比'}
+          aria-pressed={isCompareSelected}
+        >
+          <GitCompare className="w-4 h-4" />
+        </button>
+      )}
       <div className="p-3 sm:p-4">
         <div className="flex items-center gap-2">
           <span
@@ -59,10 +76,15 @@ export function StyleCard({ style }: Props) {
               {keyword}
             </span>
           ))}
+          {style.keywords.length > 4 && (
+            <span className="px-2 py-0.5 text-xs rounded-full bg-gray-200 dark:bg-gray-600 text-gray-500 dark:text-gray-400">
+              +{style.keywords.length - 4}
+            </span>
+          )}
         </div>
         <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-50 dark:border-gray-700">
           <span className="text-xs text-gray-400 dark:text-gray-500">{style.type}</span>
-          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <div className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
             <CopyButton text={style.promptZh} />
           </div>
         </div>

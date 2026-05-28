@@ -117,7 +117,7 @@ export function SearchSuggestions({ query, onSelect, onClose, visible, recentSea
   return (
     <div
       ref={listRef}
-      className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto"
+      className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto"
       role="listbox"
       aria-label="搜索建议"
     >
@@ -134,7 +134,7 @@ export function SearchSuggestions({ query, onSelect, onClose, visible, recentSea
           }
           const sec = sectionLabels[item.section]
           sectionHeader = (
-            <div className="px-3 py-1.5 text-xs text-gray-400 font-medium flex items-center gap-1.5 border-t border-gray-100 first:border-t-0">
+            <div className="px-3 py-1.5 text-xs text-gray-400 dark:text-gray-500 font-medium flex items-center gap-1.5 border-t border-gray-100 dark:border-gray-700 first:border-t-0">
               {sec.icon}
               {sec.text}
             </div>
@@ -151,7 +151,7 @@ export function SearchSuggestions({ query, onSelect, onClose, visible, recentSea
               aria-selected={isActive}
               data-index={itemIndex}
               className={`px-3 py-2 text-sm cursor-pointer flex items-center gap-2 ${
-                isActive ? 'bg-indigo-50 text-indigo-700' : 'text-gray-700 hover:bg-gray-50'
+                isActive ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
               }`}
               onClick={() => onSelect(item.label)}
               onMouseEnter={() => setActiveIndex(idx)}

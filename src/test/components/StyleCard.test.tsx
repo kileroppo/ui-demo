@@ -121,9 +121,9 @@ describe('StyleCard', () => {
   it('copy button has hover opacity transition class', () => {
     renderWithRouter(<StyleCard style={mockStyle} />)
     const copyButton = screen.getByText('复制提示词')
-    const wrapper = copyButton.closest('.opacity-0')
+    const wrapper = copyButton.closest('.sm\\:opacity-0')
     expect(wrapper).toBeInTheDocument()
-    expect(wrapper).toHaveClass('group-hover:opacity-100')
+    expect(wrapper).toHaveClass('sm:group-hover:opacity-100')
   })
 
   // Favorite button tests

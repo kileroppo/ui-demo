@@ -12,15 +12,15 @@ export const CATEGORY_KEYWORDS: Record<string, string[]> = {
 }
 
 export const CATEGORY_ICONS: Record<string, string> = {
-  'Tech & SaaS': '💻',
-  Finance: '💰',
-  Healthcare: '🏥',
-  'E-commerce': '🛒',
-  Services: '🏨',
-  Creative: '🎨',
-  Education: '📚',
-  Lifestyle: '🌿',
-  Other: '📦',
+  'Tech & SaaS': 'Monitor',
+  Finance: 'Banknote',
+  Healthcare: 'Heart',
+  'E-commerce': 'ShoppingCart',
+  Services: 'Hotel',
+  Creative: 'Palette',
+  Education: 'BookOpen',
+  Lifestyle: 'Leaf',
+  Other: 'Package',
 }
 
 function matchesKeyword(searchText: string, keyword: string): boolean {

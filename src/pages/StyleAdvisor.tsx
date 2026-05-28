@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react'
+import { ChevronLeft, ChevronRight, RotateCcw, Loader2 } from 'lucide-react'
 import { getRecommendations, type AdvisorAnswers, type ScoredStyle } from '../utils/styleAdvisor'
 import { StyleCard } from '../components/StyleCard'
 
@@ -75,9 +75,16 @@ export function StyleAdvisor() {
     complexity: '',
   })
   const [results, setResults] = useState<ScoredStyle[] | null>(null)
+  const [computing, setComputing] = useState(false)
 
   const totalSteps = QUESTIONS.length
   const currentQuestion = QUESTIONS[step]
+
+  useEffect(() => {
+    return () => {
+      // cleanup handled by component unmount
+    }
+  }, [])
 
   const handleSelect = (value: string) => {
     const newAnswers = { ...answers, [currentQuestion.key]: value }
@@ -86,8 +93,12 @@ export function StyleAdvisor() {
     if (step < totalSteps - 1) {
       setStep(step + 1)
     } else {
-      const recs = getRecommendations(newAnswers)
-      setResults(recs)
+      setComputing(true)
+      setTimeout(() => {
+        const recs = getRecommendations(newAnswers)
+        setResults(recs)
+        setComputing(false)
+      }, 600)
     }
   }
 
@@ -107,6 +118,20 @@ export function StyleAdvisor() {
       complexity: '',
     })
     setResults(null)
+  }
+
+  if (computing) {
+    return (
+      <div className="max-w-xl mx-auto text-center py-16">
+        <Loader2 className="w-10 h-10 mx-auto text-blue-600 animate-spin" aria-hidden="true" />
+        <p className="mt-4 text-lg font-medium text-gray-700 dark:text-gray-200">
+          正在分析你的偏好...
+        </p>
+        <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          为你匹配最合适的风格
+        </p>
+      </div>
+    )
   }
 
   if (results) {
@@ -168,12 +193,12 @@ export function StyleAdvisor() {
       <div className="mb-6">
         <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-2">
           <span>第 {step + 1} 步 / 共 {totalSteps} 步</span>
-          <span>{Math.round(((step + 1) / totalSteps) * 100)}%</span>
+          <span>{Math.round((step / totalSteps) * 100)}%</span>
         </div>
         <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
           <div
             className="h-full bg-blue-600 rounded-full transition-all duration-300"
-            style={{ width: `${((step + 1) / totalSteps) * 100}%` }}
+            style={{ width: `${(step / totalSteps) * 100}%` }}
           />
         </div>
       </div>

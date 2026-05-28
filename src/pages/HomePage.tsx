@@ -44,7 +44,7 @@ export function HomePage() {
     <div>
       {/* Hero Section */}
       <section className="text-center py-8 md:py-16 px-4 rounded-2xl gradient-bg-animated mb-8">
-        <h1 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
           发现你的下一个<span className="gradient-text">设计风格</span>
         </h1>
         <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
@@ -138,6 +138,17 @@ export function HomePage() {
             <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">
               试试其他关键词，如「玻璃」「极简」「暗色」
             </p>
+          </div>
+        )}
+
+        {debouncedQuery && results.length > 0 && (
+          <div className="mt-6 text-center">
+            <Link
+              to={`/styles?q=${encodeURIComponent(debouncedQuery)}`}
+              className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              在风格库中查看更多 &rarr;
+            </Link>
           </div>
         )}
       </section>

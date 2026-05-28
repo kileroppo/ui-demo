@@ -8,7 +8,7 @@ interface Props {
 export function OnboardingTooltip({ id, title, description, onDismiss }: Props) {
   return (
     <div
-      className="absolute z-50 mt-2 w-64 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700"
+      className="absolute z-50 mt-2 w-64 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 animate-scale-in"
       role="tooltip"
       data-testid={`onboarding-tooltip-${id}`}
     >

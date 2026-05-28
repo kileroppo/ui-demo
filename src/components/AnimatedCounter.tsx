@@ -7,12 +7,30 @@ interface Props {
   label: string
 }
 
+function getSessionAnimated(label: string): boolean {
+  try {
+    return sessionStorage.getItem(`counter-animated-${label}`) === 'true'
+  } catch {
+    return false
+  }
+}
+
+function setSessionAnimated(label: string): void {
+  try {
+    sessionStorage.setItem(`counter-animated-${label}`, 'true')
+  } catch {
+    // ignore
+  }
+}
+
 export function AnimatedCounter({ end, duration = 1500, suffix = '', label }: Props) {
-  const [count, setCount] = useState(0)
-  const [hasAnimated, setHasAnimated] = useState(false)
+  const alreadyAnimatedRef = useRef(getSessionAnimated(label))
+  const [count, setCount] = useState(alreadyAnimatedRef.current ? end : 0)
+  const [hasAnimated, setHasAnimated] = useState(alreadyAnimatedRef.current)
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (alreadyAnimatedRef.current) return
     const element = ref.current
     if (!element) return
 
@@ -20,6 +38,7 @@ export function AnimatedCounter({ end, duration = 1500, suffix = '', label }: Pr
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true)
+          setSessionAnimated(label)
         }
       },
       { threshold: 0.3 }
@@ -27,10 +46,10 @@ export function AnimatedCounter({ end, duration = 1500, suffix = '', label }: Pr
 
     observer.observe(element)
     return () => observer.disconnect()
-  }, [hasAnimated])
+  }, [hasAnimated, label])
 
   useEffect(() => {
-    if (!hasAnimated) return
+    if (!hasAnimated || alreadyAnimatedRef.current) return
 
     let rafId: number
     const startTime = performance.now()

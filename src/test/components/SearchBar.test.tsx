@@ -63,7 +63,8 @@ describe('SearchBar', () => {
 
   it('shows keyboard shortcut hint', () => {
     render(<SearchBar value="" onChange={() => {}} />)
-    expect(screen.getByText('⌘K')).toBeInTheDocument()
+    // In test environment (non-Mac), shows Ctrl+K
+    expect(screen.getByText('Ctrl+K')).toBeInTheDocument()
   })
 
   it('focuses input on Ctrl+K keyboard shortcut', () => {

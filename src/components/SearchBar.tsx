@@ -15,6 +15,16 @@ const PLACEHOLDER_ITEMS = [
   '搜索极简主义...',
 ]
 
+function getIsMac(): boolean {
+  if (typeof navigator === 'undefined') return false
+  return /Mac|iPod|iPhone|iPad/.test(navigator.platform || '') || /Macintosh/.test(navigator.userAgent || '')
+}
+
+function getPrefersReducedMotion(): boolean {
+  if (typeof window === 'undefined') return false
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
 export function SearchBar({ value, onChange, autoFocus }: Props) {
   const inputRef = useRef<HTMLInputElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -22,8 +32,10 @@ export function SearchBar({ value, onChange, autoFocus }: Props) {
   const [showSuggestions, setShowSuggestions] = useState(false)
   const blurTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const { getRecent, addSearch } = useRecentSearches()
+  const isMac = getIsMac()
 
   useEffect(() => {
+    if (getPrefersReducedMotion()) return
     const timer = setInterval(() => {
       setPlaceholderIndex((prev) => (prev + 1) % PLACEHOLDER_ITEMS.length)
     }, 3000)
@@ -102,7 +114,7 @@ export function SearchBar({ value, onChange, autoFocus }: Props) {
         </button>
       )}
       <kbd className="absolute right-3 top-1/2 -translate-y-1/2 hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] text-gray-500 bg-gray-100 rounded border border-gray-200 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-600">
-        ⌘K
+        {isMac ? '⌘K' : 'Ctrl+K'}
       </kbd>
       <SearchSuggestions
         query={value}

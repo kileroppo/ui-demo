@@ -37,13 +37,9 @@ export function CopyButton({ text, label = '复制提示词' }: Props) {
   return (
     <button
       onClick={handleCopy}
-      className={`inline-flex items-center gap-1 px-3 py-1.5 text-xs rounded-lg transition-colors duration-200 ${
+      className={`inline-flex items-center gap-1 px-3 py-1.5 text-xs rounded-lg transition-colors duration-200 text-white ${
         animating ? 'copy-success' : ''
-      }`}
-      style={{
-        background: copied ? '#22c55e' : '#3b82f6',
-        color: '#ffffff',
-      }}
+      } ${copied ? 'bg-green-500' : 'bg-blue-500'}`}
       aria-label={copied ? '已复制' : label}
     >
       {copied ? (

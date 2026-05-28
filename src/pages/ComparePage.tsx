@@ -24,7 +24,7 @@ export function ComparePage() {
           选择 2-3 个风格进行对比
         </h1>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-          返回风格库，点击对比按钮选择你想比较的风格
+          在风格库中选择2-3个风格进行对比
         </p>
         <Link
           to="/styles"

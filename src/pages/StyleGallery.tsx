@@ -9,6 +9,7 @@ import { FilterPanel } from '../components/FilterPanel'
 import { SortControl, type SortOption } from '../components/SortControl'
 import { ViewToggle, type ViewMode } from '../components/ViewToggle'
 import { OnboardingTooltip } from '../components/OnboardingTooltip'
+import { CompareBar } from '../components/CompareBar'
 import { searchAndSort } from '../utils/search'
 import { useDebounce } from '../hooks/useDebounce'
 import { useFavorites } from '../hooks/useFavorites'
@@ -73,8 +74,23 @@ export function StyleGallery() {
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false)
   const [sortOption, setSortOption] = useState<SortOption>('default')
   const [viewMode, setViewMode] = useState<ViewMode>(getStoredViewMode)
+  const [compareSelected, setCompareSelected] = useState<number[]>([])
   const { favorites, count: favoritesCount } = useFavorites()
   const { shouldShow, dismiss } = useOnboarding()
+
+  const handleCompareToggle = useCallback((id: number) => {
+    setCompareSelected((prev) => {
+      if (prev.includes(id)) {
+        return prev.filter((x) => x !== id)
+      }
+      if (prev.length >= 3) return prev
+      return [...prev, id]
+    })
+  }, [])
+
+  const handleCompareClear = useCallback(() => {
+    setCompareSelected([])
+  }, [])
 
   const activeOnboardingTip = shouldShow('gallery-search')
     ? 'gallery-search'
@@ -201,7 +217,12 @@ export function StyleGallery() {
         viewMode === 'grid' ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {results.map((style) => (
-              <StyleCard key={style.id} style={style} />
+              <StyleCard
+                key={style.id}
+                style={style}
+                onCompareToggle={handleCompareToggle}
+                isCompareSelected={compareSelected.includes(style.id)}
+              />
             ))}
           </div>
         ) : (
@@ -251,6 +272,8 @@ export function StyleGallery() {
           )}
         </div>
       )}
+
+      <CompareBar selected={compareSelected} styles={styles} onClear={handleCompareClear} />
     </div>
   )
 }

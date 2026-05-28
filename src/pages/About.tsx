@@ -20,7 +20,7 @@ export function About() {
         <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
           <AnimatedCounter end={76} suffix="种" label="设计风格" />
           <AnimatedCounter end={161} suffix="种" label="产品类型" />
-          <AnimatedCounter end={15} suffix="+" label="实时演示" />
+          <AnimatedCounter end={16} suffix="种" label="实时演示" />
         </div>
       </section>
 

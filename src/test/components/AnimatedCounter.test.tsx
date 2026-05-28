@@ -3,7 +3,7 @@ import { render, screen, act } from '@testing-library/react'
 import { AnimatedCounter } from '../../components/AnimatedCounter'
 
 describe('AnimatedCounter', () => {
-  let mockObserverInstances: { callback: IntersectionObserverCallback; disconnect: ReturnType<typeof vi.fn> }[]
+  let mockObserverInstances: { callback: IntersectionObserverCallback; disconnect: ReturnType<typeof vi.fn>; observe: ReturnType<typeof vi.fn> }[]
   let rafCallbacks: ((time: number) => void)[]
   let rafId: number
 
@@ -11,6 +11,7 @@ describe('AnimatedCounter', () => {
     mockObserverInstances = []
     rafCallbacks = []
     rafId = 0
+    sessionStorage.clear()
 
     const MockIntersectionObserver = vi.fn((callback: IntersectionObserverCallback) => {
       const instance = {
@@ -35,6 +36,7 @@ describe('AnimatedCounter', () => {
   afterEach(() => {
     vi.unstubAllGlobals()
     vi.restoreAllMocks()
+    sessionStorage.clear()
   })
 
   function flushRAF(time: number) {
@@ -159,5 +161,15 @@ describe('AnimatedCounter', () => {
 
     unmount()
     expect(cancelAnimationFrame).toHaveBeenCalled()
+  })
+
+  it('skips animation when sessionStorage flag is set', () => {
+    sessionStorage.setItem('counter-animated-实时演示', 'true')
+    render(<AnimatedCounter end={100} suffix="+" label="实时演示" duration={1000} />)
+
+    // Should immediately show end value without animation
+    expect(screen.getByText('100+')).toBeInTheDocument()
+    // No observer created since alreadyAnimatedRef.current is true
+    expect(mockObserverInstances.length).toBe(0)
   })
 })

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { StyleAdvisor } from '../../pages/StyleAdvisor'
@@ -17,6 +17,14 @@ describe('StyleAdvisor', () => {
   afterEach(() => {
     vi.unstubAllGlobals()
   })
+
+  async function completeQuiz(user: ReturnType<typeof userEvent.setup>) {
+    await user.click(screen.getByText('科技SaaS'))
+    await user.click(screen.getByText('专业'))
+    await user.click(screen.getByText('极致轻量'))
+    await user.click(screen.getByText('必须'))
+    await user.click(screen.getByText('简单'))
+  }
 
   it('renders first question', () => {
     render(
@@ -97,19 +105,16 @@ describe('StyleAdvisor', () => {
       </MemoryRouter>
     )
 
-    // Step 1
-    await user.click(screen.getByText('科技SaaS'))
-    // Step 2
-    await user.click(screen.getByText('专业'))
-    // Step 3
-    await user.click(screen.getByText('极致轻量'))
-    // Step 4
-    await user.click(screen.getByText('必须'))
-    // Step 5
-    await user.click(screen.getByText('简单'))
+    await completeQuiz(user)
 
-    // Should show results
-    expect(screen.getByText('推荐结果')).toBeInTheDocument()
+    // Should show computing state first
+    expect(screen.getByText('正在分析你的偏好...')).toBeInTheDocument()
+
+    // Wait for the 600ms computing delay to pass
+    await waitFor(() => {
+      expect(screen.getByText('推荐结果')).toBeInTheDocument()
+    }, { timeout: 2000 })
+
     expect(screen.getByText('重新测试')).toBeInTheDocument()
   })
 
@@ -121,14 +126,12 @@ describe('StyleAdvisor', () => {
       </MemoryRouter>
     )
 
-    // Complete quiz
-    await user.click(screen.getByText('科技SaaS'))
-    await user.click(screen.getByText('专业'))
-    await user.click(screen.getByText('极致轻量'))
-    await user.click(screen.getByText('必须'))
-    await user.click(screen.getByText('简单'))
+    await completeQuiz(user)
 
-    expect(screen.getByText('推荐结果')).toBeInTheDocument()
+    // Wait for results
+    await waitFor(() => {
+      expect(screen.getByText('推荐结果')).toBeInTheDocument()
+    }, { timeout: 2000 })
 
     // Click restart
     await user.click(screen.getByText('重新测试'))
@@ -144,11 +147,11 @@ describe('StyleAdvisor', () => {
       </MemoryRouter>
     )
 
-    await user.click(screen.getByText('科技SaaS'))
-    await user.click(screen.getByText('专业'))
-    await user.click(screen.getByText('极致轻量'))
-    await user.click(screen.getByText('必须'))
-    await user.click(screen.getByText('简单'))
+    await completeQuiz(user)
+
+    await waitFor(() => {
+      expect(screen.getByText('推荐结果')).toBeInTheDocument()
+    }, { timeout: 2000 })
 
     const scoreBadges = screen.getAllByText(/匹配度 \d+ 分/)
     expect(scoreBadges.length).toBeGreaterThan(0)
@@ -211,12 +214,25 @@ describe('StyleAdvisor', () => {
       </MemoryRouter>
     )
 
-    await user.click(screen.getByText('科技SaaS'))
-    await user.click(screen.getByText('专业'))
-    await user.click(screen.getByText('极致轻量'))
-    await user.click(screen.getByText('必须'))
-    await user.click(screen.getByText('简单'))
+    await completeQuiz(user)
 
-    expect(screen.getByText(/浏览全部风格/)).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.getByText(/浏览全部风格/)).toBeInTheDocument()
+    }, { timeout: 2000 })
+  })
+
+  it('shows computing state with loading indicator', async () => {
+    const user = userEvent.setup()
+    render(
+      <MemoryRouter>
+        <StyleAdvisor />
+      </MemoryRouter>
+    )
+
+    await completeQuiz(user)
+
+    // Should show computing state immediately after last step
+    expect(screen.getByText('正在分析你的偏好...')).toBeInTheDocument()
+    expect(screen.getByText('为你匹配最合适的风格')).toBeInTheDocument()
   })
 })

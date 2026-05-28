@@ -17,6 +17,7 @@ const staticPages = [
   '/workshop',
   '/projects',
   '/timeline',
+  '/image-match',
 ]
 
 function generateSitemap(): string {

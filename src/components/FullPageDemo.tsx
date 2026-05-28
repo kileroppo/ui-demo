@@ -80,7 +80,7 @@ export function FullPageDemo({ styleId }: FullPageDemoProps) {
             height: isFullScreen ? '100%' : '600px',
             maxWidth: '100%',
           }}
-          sandbox="allow-same-origin"
+          sandbox=""
         />
       </div>
     </section>

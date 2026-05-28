@@ -81,6 +81,6 @@ describe('FullPageDemo', () => {
   it('iframe has sandbox attribute for security', () => {
     const { container } = render(<FullPageDemo styleId={1} />)
     const iframe = container.querySelector('iframe')
-    expect(iframe?.getAttribute('sandbox')).toBe('allow-same-origin')
+    expect(iframe?.getAttribute('sandbox')).toBe('')
   })
 })

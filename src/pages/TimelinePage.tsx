@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { styles } from '../data'
 
 interface TimelineNode {
   year: number
@@ -77,12 +76,22 @@ const TIMELINE_DATA: TimelineNode[] = [
   },
 ]
 
+// Explicit mapping from timeline node nameEn to style ID.
+// This avoids false positives from bidirectional substring matching
+// (e.g. "Glass" matching both "Glassmorphism" and "Liquid Glass").
+const TIMELINE_STYLE_MAP: Record<string, number> = {
+  'Skeuomorphism': 13,
+  'Flat Design': 12,
+  'Material Design': 76,
+  'Neumorphism': 2,
+  'Glassmorphism': 3,
+  'Brutalism': 4,
+  'Bento Grid': 39,
+  'Liquid Glass': 14,
+}
+
 function findStyleId(nameEn: string): number | null {
-  const match = styles.find((s) =>
-    s.nameEn.toLowerCase().includes(nameEn.toLowerCase()) ||
-    nameEn.toLowerCase().includes(s.nameEn.toLowerCase())
-  )
-  return match ? match.id : null
+  return TIMELINE_STYLE_MAP[nameEn] ?? null
 }
 
 function getTimelineNodes(): TimelineNode[] {

@@ -30,13 +30,16 @@ function loadProjects(): Project[] {
   }
 }
 
-function saveProjects(projects: Project[]): void {
+function saveProjects(projects: Project[]): boolean {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(projects))
-  } catch {
-    // ignore localStorage errors
+  } catch (error) {
+    console.warn('[useProjects] Failed to save projects to localStorage:', error)
+    window.dispatchEvent(new CustomEvent(SYNC_EVENT))
+    return false
   }
   window.dispatchEvent(new CustomEvent(SYNC_EVENT))
+  return true
 }
 
 export function useProjects() {

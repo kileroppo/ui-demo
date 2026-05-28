@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Sun, Moon, Home, Palette, Sparkles, Package, PenTool } from 'lucide-react'
+import { Menu, X, Sun, Moon, Home, Palette, Sparkles, Package, PenTool, FolderOpen } from 'lucide-react'
 import { useThemeMode } from '../hooks/useThemeMode'
 import { useFavorites } from '../hooks/useFavorites'
 
@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { path: '/products', label: '产品推荐' },
   { path: '/advisor', label: '风格顾问' },
   { path: '/workshop', label: '提示词工坊' },
+  { path: '/projects', label: '我的项目' },
   { path: '/about', label: '关于' },
 ]
 
@@ -18,6 +19,7 @@ const BOTTOM_NAV_ITEMS = [
   { path: '/styles', label: '风格库', icon: Palette },
   { path: '/advisor', label: '风格顾问', icon: Sparkles },
   { path: '/workshop', label: '提示词工坊', icon: PenTool },
+  { path: '/projects', label: '我的项目', icon: FolderOpen },
   { path: '/products', label: '产品推荐', icon: Package },
 ]
 

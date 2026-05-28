@@ -29,6 +29,9 @@ const WorkshopPage = lazy(() =>
 const ImageMatchPage = lazy(() =>
   import('./pages/ImageMatchPage').then((m) => ({ default: m.ImageMatchPage }))
 )
+const ProjectsPage = lazy(() =>
+  import('./pages/ProjectsPage').then((m) => ({ default: m.ProjectsPage }))
+)
 
 export function SkeletonLoading() {
   return (
@@ -58,6 +61,7 @@ function AppRoutes() {
             <Route path="/advisor" element={<StyleAdvisor />} />
             <Route path="/workshop" element={<WorkshopPage />} />
             <Route path="/image-match" element={<ImageMatchPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </PageTransition>

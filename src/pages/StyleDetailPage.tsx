@@ -1,16 +1,18 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { ChevronRight, ChevronLeft } from 'lucide-react'
+import { ChevronRight, ChevronLeft, Download } from 'lucide-react'
 import { styles, products } from '../data'
 import { StyleDetail } from '../components/StyleDetail'
 import { StyleCard } from '../components/StyleCard'
 import { StyleComponentPreview } from '../components/StyleComponentPreview'
 import { FullPageDemo } from '../components/FullPageDemo'
+import { ExportModal } from '../components/ExportModal'
 import { getProductsForStyle } from '../utils/productCategories'
 
 export function StyleDetailPage() {
   const { id } = useParams<{ id: string }>()
   const style = styles.find((s) => s.id === Number(id))
+  const [exportOpen, setExportOpen] = useState(false)
 
   const relatedStyles = useMemo(() => {
     if (!style) return []
@@ -76,6 +78,19 @@ export function StyleDetailPage() {
       </nav>
 
       <StyleDetail style={style} />
+
+      {/* Export Design Scheme Button */}
+      <div className="mt-6 flex justify-end">
+        <button
+          onClick={() => setExportOpen(true)}
+          className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+        >
+          <Download className="w-4 h-4" />
+          导出设计方案
+        </button>
+      </div>
+
+      <ExportModal style={style} isOpen={exportOpen} onClose={() => setExportOpen(false)} />
 
       {/* Component Previews */}
       <StyleComponentPreview style={style} />

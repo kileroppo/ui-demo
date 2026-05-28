@@ -138,7 +138,7 @@ describe('StyleGallery', () => {
       const input = screen.getByLabelText('搜索风格')
       await user.type(input, 'zzz_nomatch_xyz')
       await waitFor(() => {
-        expect(screen.getByRole('button', { name: '玻璃拟态' })).toBeInTheDocument()
+        expect(screen.getByText('试试：')).toBeInTheDocument()
       })
       await user.click(screen.getByRole('button', { name: '玻璃拟态' }))
       await waitFor(() => {

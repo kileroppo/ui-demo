@@ -8,9 +8,11 @@ import { SearchBar } from '../components/SearchBar'
 import { FilterPanel } from '../components/FilterPanel'
 import { SortControl, type SortOption } from '../components/SortControl'
 import { ViewToggle, type ViewMode } from '../components/ViewToggle'
+import { OnboardingTooltip } from '../components/OnboardingTooltip'
 import { searchAndSort } from '../utils/search'
 import { useDebounce } from '../hooks/useDebounce'
 import { useFavorites } from '../hooks/useFavorites'
+import { useOnboarding } from '../hooks/useOnboarding'
 import {
   filterStyles,
   getCategories,
@@ -72,6 +74,13 @@ export function StyleGallery() {
   const [sortOption, setSortOption] = useState<SortOption>('default')
   const [viewMode, setViewMode] = useState<ViewMode>(getStoredViewMode)
   const { favorites, count: favoritesCount } = useFavorites()
+  const { shouldShow, dismiss } = useOnboarding()
+
+  const activeOnboardingTip = shouldShow('gallery-search')
+    ? 'gallery-search'
+    : shouldShow('gallery-favorites')
+      ? 'gallery-favorites'
+      : null
 
   const categories = useMemo(() => getCategories(styles), [])
   const performanceRatings = useMemo(() => getPerformanceRatings(styles), [])
@@ -130,8 +139,16 @@ export function StyleGallery() {
       </p>
 
       {/* Search and Filter */}
-      <div className="flex flex-col md:flex-row gap-4 mb-6">
+      <div className="relative flex flex-col md:flex-row gap-4 mb-6">
         <SearchBar value={query} onChange={handleQueryChange} />
+        {activeOnboardingTip === 'gallery-search' && (
+          <OnboardingTooltip
+            id="gallery-search"
+            title="搜索风格"
+            description="输入中文或英文关键词搜索风格，试试'玻璃'或'dark'"
+            onDismiss={() => dismiss('gallery-search')}
+          />
+        )}
       </div>
 
       <div className="mb-6 flex flex-wrap items-center gap-3">
@@ -143,19 +160,29 @@ export function StyleGallery() {
           accessibilityRatings={accessibilityRatings}
           categoryCounts={getCategoryCounts(styles)}
         />
-        <button
-          onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
-          className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-lg border transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-            showFavoritesOnly
-              ? 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-700 text-red-600 dark:text-red-400'
-              : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
-          }`}
-          aria-pressed={showFavoritesOnly}
-          aria-label="我的收藏"
-        >
-          <Heart className={`w-3.5 h-3.5 ${showFavoritesOnly ? 'fill-red-500 text-red-500' : ''}`} />
-          我的收藏{favoritesCount > 0 && ` (${favoritesCount})`}
-        </button>
+        <div className="relative">
+          <button
+            onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-lg border transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+              showFavoritesOnly
+                ? 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-700 text-red-600 dark:text-red-400'
+                : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+            }`}
+            aria-pressed={showFavoritesOnly}
+            aria-label="我的收藏"
+          >
+            <Heart className={`w-3.5 h-3.5 ${showFavoritesOnly ? 'fill-red-500 text-red-500' : ''}`} />
+            我的收藏{favoritesCount > 0 && ` (${favoritesCount})`}
+          </button>
+          {activeOnboardingTip === 'gallery-favorites' && (
+            <OnboardingTooltip
+              id="gallery-favorites"
+              title="收藏风格"
+              description="点击心形图标收藏喜欢的风格"
+              onDismiss={() => dismiss('gallery-favorites')}
+            />
+          )}
+        </div>
       </div>
 
       {/* Sort and View Controls */}
@@ -186,24 +213,34 @@ export function StyleGallery() {
         )
       ) : (
         <div className="text-center py-16" role="status">
-          <div className="text-4xl mb-3">🔍</div>
+          <div className="text-4xl mb-3">{showFavoritesOnly ? '❤️' : '🔍'}</div>
           <p className="text-gray-600 dark:text-gray-300 font-medium">
-            {query ? `未找到「${query}」相关的风格` : '没有符合筛选条件的风格'}
+            {showFavoritesOnly
+              ? '还没有收藏的风格'
+              : query
+                ? `未找到「${query}」相关的风格`
+                : '没有符合筛选条件的风格'}
           </p>
-          <div className="mt-4">
-            <p className="text-sm text-gray-400 dark:text-gray-500 mb-2">试试：</p>
-            <div className="flex flex-wrap justify-center gap-2">
-              {['玻璃拟态', '极简主义', '暗色模式', '赛博朋克'].map((chip) => (
-                <button
-                  key={chip}
-                  onClick={() => handleQueryChange(chip)}
-                  className="px-3 py-1.5 text-sm rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors"
-                >
-                  {chip}
-                </button>
-              ))}
+          {showFavoritesOnly ? (
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+              浏览风格库，点击心形图标收藏你喜欢的风格吧！
+            </p>
+          ) : (
+            <div className="mt-4">
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">试试：</p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {['玻璃拟态', '极简主义', '暗色模式', '赛博朋克'].map((chip) => (
+                  <button
+                    key={chip}
+                    onClick={() => handleQueryChange(chip)}
+                    className="px-3 py-1.5 text-sm rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors"
+                  >
+                    {chip}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
           {(filters.category || filters.performance || filters.accessibility) && (
             <button
               onClick={() => handleFilterChange({})}

@@ -45,9 +45,9 @@ describe('About', () => {
 
   it('renders step descriptions', () => {
     render(<About />)
-    expect(screen.getByText(/浏览风格库/)).toBeInTheDocument()
+    expect(screen.getAllByText(/浏览风格库/).length).toBeGreaterThan(0)
     expect(screen.getByText(/选择最适合你项目的设计风格/)).toBeInTheDocument()
-    expect(screen.getByText(/复制 AI 提示词/)).toBeInTheDocument()
+    expect(screen.getByText(/复制 AI 提示词，开始构建你的设计/)).toBeInTheDocument()
   })
 
   it('renders tech credits section', () => {

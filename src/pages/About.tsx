@@ -52,6 +52,26 @@ export function About() {
         </div>
       </section>
 
+      {/* Getting Started Guide */}
+      <section className="mb-12" aria-label="快速入门指南">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 text-center mb-8">快速入门指南</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { step: 1, text: '浏览风格库，寻找灵感' },
+            { step: 2, text: '使用风格顾问，获得个性化推荐' },
+            { step: 3, text: '对比风格，找到最佳方案' },
+            { step: 4, text: '复制 AI 提示词，开始设计' },
+          ].map(({ step, text }) => (
+            <div key={step} className="flex flex-col items-center text-center p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700">
+              <span className="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 text-sm font-bold mb-3">
+                {step}
+              </span>
+              <p className="text-sm text-gray-700 dark:text-gray-300">{text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Tech Credits */}
       <section className="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-6" aria-label="技术信息">
         <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">技术栈</h2>

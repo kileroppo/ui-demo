@@ -19,7 +19,7 @@ describe('ComparePage', () => {
         <ComparePage />
       </MemoryRouter>
     )
-    expect(screen.getByText('未选择任何风格进行对比')).toBeInTheDocument()
+    expect(screen.getByText('选择 2-3 个风格进行对比')).toBeInTheDocument()
     expect(screen.getByText('前往风格库')).toBeInTheDocument()
   })
 
@@ -29,7 +29,7 @@ describe('ComparePage', () => {
         <ComparePage />
       </MemoryRouter>
     )
-    expect(screen.getByText('未选择任何风格进行对比')).toBeInTheDocument()
+    expect(screen.getByText('选择 2-3 个风格进行对比')).toBeInTheDocument()
   })
 
   it('renders comparison columns for valid style ids', () => {

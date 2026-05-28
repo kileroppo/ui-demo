@@ -51,6 +51,7 @@ export function Layout({ children }: Props) {
           scrolled ? 'shadow-sm' : ''
         }`}
         data-testid="header"
+        role="banner"
       >
         <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
           <Link to="/" className="text-lg font-bold text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
@@ -72,7 +73,7 @@ export function Layout({ children }: Props) {
               >
                 {item.label}
                 {item.path === '/styles' && count > 0 && (
-                  <span className="absolute -top-2 -right-4 min-w-[18px] h-[18px] flex items-center justify-center text-[10px] font-bold rounded-full bg-red-500 text-white">
+                  <span className="absolute -top-2 -right-4 min-w-[18px] h-[18px] flex items-center justify-center text-[10px] font-bold rounded-full bg-red-500 text-white" aria-live="polite" aria-label={`${count} 个收藏`}>
                     {count}
                   </span>
                 )}
@@ -155,13 +156,13 @@ export function Layout({ children }: Props) {
       </header>
 
       {/* Main Content */}
-      <main id="main-content" className="max-w-7xl mx-auto px-4 py-8 pb-24 md:pb-8">
+      <main id="main-content" role="main" className="max-w-7xl mx-auto px-4 py-8 pb-24 md:pb-8">
         {children}
       </main>
 
       {/* Footer */}
-      <footer className="hidden md:block border-t border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 py-6 text-center text-xs text-gray-400 dark:text-gray-500">
+      <footer className="hidden md:block border-t border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-900" role="contentinfo">
+        <div className="max-w-7xl mx-auto px-4 py-6 text-center text-xs text-gray-500 dark:text-gray-400">
           UI 风格展示库 - 助力设计师和开发者快速选择合适的界面风格
         </div>
       </footer>

@@ -19,12 +19,12 @@ export function ComparePage() {
   if (selectedStyles.length === 0) {
     return (
       <div className="text-center py-16">
-        <div className="text-4xl mb-3">⚖️</div>
-        <p className="text-gray-600 dark:text-gray-300 font-medium">
-          未选择任何风格进行对比
-        </p>
-        <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">
-          请先从风格库中选择 2-3 个风格
+        <div className="text-4xl mb-3">📊</div>
+        <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+          选择 2-3 个风格进行对比
+        </h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+          返回风格库，点击对比按钮选择你想比较的风格
         </p>
         <Link
           to="/styles"

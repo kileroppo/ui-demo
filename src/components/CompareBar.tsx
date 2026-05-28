@@ -27,7 +27,7 @@ export function CompareBar({ selected, styles, onClear }: Props) {
       role="status"
       aria-label="对比选择栏"
     >
-      <span className="text-sm text-gray-600 dark:text-gray-300 whitespace-nowrap">
+      <span className="text-sm text-gray-600 dark:text-gray-300 whitespace-nowrap" aria-live="polite">
         已选 {selected.length}/3 个风格
       </span>
       <div className="flex items-center gap-1">

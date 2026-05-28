@@ -21,10 +21,10 @@ interface ChipGroupProps {
 function ChipGroup({ label, options, selected, onSelect, counts, ariaLabel }: ChipGroupProps) {
   return (
     <div className="flex flex-wrap items-center gap-2" role="group" aria-label={ariaLabel}>
-      <span className="text-xs font-medium text-gray-500 dark:text-gray-400">{label}:</span>
+      <span className="text-xs font-medium text-gray-600 dark:text-gray-300">{label}:</span>
       <button
         onClick={() => onSelect('')}
-        className={`px-3 py-1.5 text-sm rounded-full transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
+        className={`px-3 py-1.5 min-h-[44px] sm:min-h-0 text-sm rounded-full transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
           !selected
             ? 'bg-indigo-100 text-indigo-700 border border-indigo-200 dark:bg-indigo-900 dark:text-indigo-300 dark:border-indigo-700'
             : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
@@ -36,7 +36,7 @@ function ChipGroup({ label, options, selected, onSelect, counts, ariaLabel }: Ch
         <button
           key={option}
           onClick={() => onSelect(option)}
-          className={`px-3 py-1.5 text-sm rounded-full transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
+          className={`px-3 py-1.5 min-h-[44px] sm:min-h-0 text-sm rounded-full transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
             selected === option
               ? 'bg-indigo-100 text-indigo-700 border border-indigo-200 dark:bg-indigo-900 dark:text-indigo-300 dark:border-indigo-700'
               : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'

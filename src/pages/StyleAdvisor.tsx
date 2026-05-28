@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronLeft, ChevronRight, RotateCcw, Loader2 } from 'lucide-react'
 import { getRecommendations, type AdvisorAnswers, type ScoredStyle } from '../utils/styleAdvisor'
@@ -76,13 +76,16 @@ export function StyleAdvisor() {
   })
   const [results, setResults] = useState<ScoredStyle[] | null>(null)
   const [computing, setComputing] = useState(false)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const totalSteps = QUESTIONS.length
   const currentQuestion = QUESTIONS[step]
 
   useEffect(() => {
     return () => {
-      // cleanup handled by component unmount
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
     }
   }, [])
 
@@ -94,10 +97,11 @@ export function StyleAdvisor() {
       setStep(step + 1)
     } else {
       setComputing(true)
-      setTimeout(() => {
+      timeoutRef.current = setTimeout(() => {
         const recs = getRecommendations(newAnswers)
         setResults(recs)
         setComputing(false)
+        timeoutRef.current = null
       }, 600)
     }
   }

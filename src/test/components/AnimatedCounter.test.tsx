@@ -164,7 +164,7 @@ describe('AnimatedCounter', () => {
   })
 
   it('skips animation when sessionStorage flag is set', () => {
-    sessionStorage.setItem('counter-animated-实时演示', 'true')
+    sessionStorage.setItem('counter-animated-实时演示-100', 'true')
     render(<AnimatedCounter end={100} suffix="+" label="实时演示" duration={1000} />)
 
     // Should immediately show end value without animation

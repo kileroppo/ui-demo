@@ -17,7 +17,13 @@ const PLACEHOLDER_ITEMS = [
 
 function getIsMac(): boolean {
   if (typeof navigator === 'undefined') return false
-  return /Mac|iPod|iPhone|iPad/.test(navigator.platform || '') || /Macintosh/.test(navigator.userAgent || '')
+  // Prefer modern userAgentData API when available
+  const uaData = (navigator as { userAgentData?: { platform?: string } }).userAgentData
+  if (uaData?.platform) {
+    return /mac/i.test(uaData.platform)
+  }
+  // Fall back to userAgent string
+  return /Macintosh|Mac OS X|iPod|iPhone|iPad/.test(navigator.userAgent || '')
 }
 
 function getPrefersReducedMotion(): boolean {

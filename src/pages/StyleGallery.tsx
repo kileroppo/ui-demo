@@ -228,7 +228,12 @@ export function StyleGallery() {
         ) : (
           <div className="flex flex-col gap-4">
             {results.map((style) => (
-              <StyleListItem key={style.id} style={style} />
+              <StyleListItem
+                key={style.id}
+                style={style}
+                onCompareToggle={handleCompareToggle}
+                isCompareSelected={compareSelected.includes(style.id)}
+              />
             ))}
           </div>
         )

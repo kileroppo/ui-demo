@@ -7,24 +7,24 @@ interface Props {
   label: string
 }
 
-function getSessionAnimated(label: string): boolean {
+function getSessionAnimated(label: string, end: number): boolean {
   try {
-    return sessionStorage.getItem(`counter-animated-${label}`) === 'true'
+    return sessionStorage.getItem(`counter-animated-${label}-${end}`) === 'true'
   } catch {
     return false
   }
 }
 
-function setSessionAnimated(label: string): void {
+function setSessionAnimated(label: string, end: number): void {
   try {
-    sessionStorage.setItem(`counter-animated-${label}`, 'true')
+    sessionStorage.setItem(`counter-animated-${label}-${end}`, 'true')
   } catch {
     // ignore
   }
 }
 
 export function AnimatedCounter({ end, duration = 1500, suffix = '', label }: Props) {
-  const alreadyAnimatedRef = useRef(getSessionAnimated(label))
+  const alreadyAnimatedRef = useRef(getSessionAnimated(label, end))
   const [count, setCount] = useState(alreadyAnimatedRef.current ? end : 0)
   const [hasAnimated, setHasAnimated] = useState(alreadyAnimatedRef.current)
   const ref = useRef<HTMLDivElement>(null)
@@ -38,7 +38,7 @@ export function AnimatedCounter({ end, duration = 1500, suffix = '', label }: Pr
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true)
-          setSessionAnimated(label)
+          setSessionAnimated(label, end)
         }
       },
       { threshold: 0.3 }

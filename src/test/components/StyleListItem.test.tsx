@@ -1,5 +1,6 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { StyleListItem } from '../../components/StyleListItem'
 import type { UIStyle } from '../../data/types'
@@ -88,5 +89,49 @@ describe('StyleListItem', () => {
       </MemoryRouter>
     )
     expect(screen.getByLabelText('复制提示词')).toBeInTheDocument()
+  })
+
+  it('does not render compare button when no onCompareToggle prop', () => {
+    render(
+      <MemoryRouter>
+        <StyleListItem style={mockStyle} />
+      </MemoryRouter>
+    )
+    expect(screen.queryByLabelText('加入对比')).not.toBeInTheDocument()
+    expect(screen.queryByLabelText('取消对比')).not.toBeInTheDocument()
+  })
+
+  it('renders compare button when onCompareToggle is provided', () => {
+    const onCompareToggle = vi.fn()
+    render(
+      <MemoryRouter>
+        <StyleListItem style={mockStyle} onCompareToggle={onCompareToggle} isCompareSelected={false} />
+      </MemoryRouter>
+    )
+    expect(screen.getByLabelText('加入对比')).toBeInTheDocument()
+  })
+
+  it('calls onCompareToggle with style id when compare button clicked', async () => {
+    const user = userEvent.setup()
+    const onCompareToggle = vi.fn()
+    render(
+      <MemoryRouter>
+        <StyleListItem style={mockStyle} onCompareToggle={onCompareToggle} isCompareSelected={false} />
+      </MemoryRouter>
+    )
+    await user.click(screen.getByLabelText('加入对比'))
+    expect(onCompareToggle).toHaveBeenCalledWith(1)
+  })
+
+  it('shows cancel label when isCompareSelected is true', () => {
+    const onCompareToggle = vi.fn()
+    render(
+      <MemoryRouter>
+        <StyleListItem style={mockStyle} onCompareToggle={onCompareToggle} isCompareSelected={true} />
+      </MemoryRouter>
+    )
+    const btn = screen.getByLabelText('取消对比')
+    expect(btn).toBeInTheDocument()
+    expect(btn).toHaveAttribute('aria-pressed', 'true')
   })
 })

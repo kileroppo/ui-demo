@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom'
+import { GitCompare } from 'lucide-react'
 import type { UIStyle } from '../data/types'
 import { StyleDemo } from './StyleDemo'
 import { CopyButton } from './CopyButton'
 
 interface Props {
   style: UIStyle
+  onCompareToggle?: (id: number) => void
+  isCompareSelected?: boolean
 }
 
 const performanceBadgeClass: Record<string, string> = {
@@ -14,7 +17,7 @@ const performanceBadgeClass: Record<string, string> = {
   Low: 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300',
 }
 
-export function StyleListItem({ style }: Props) {
+export function StyleListItem({ style, onCompareToggle, isCompareSelected }: Props) {
   return (
     <article className="flex items-center gap-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 p-3 hover:shadow-md hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-200">
       <div className="w-24 h-24 shrink-0 rounded-lg overflow-hidden">
@@ -43,6 +46,20 @@ export function StyleListItem({ style }: Props) {
         </div>
       </div>
       <div className="flex items-center gap-3 shrink-0">
+        {onCompareToggle && (
+          <button
+            onClick={() => onCompareToggle(style.id)}
+            className={`p-1.5 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+              isCompareSelected
+                ? 'bg-blue-500 text-white'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600'
+            }`}
+            aria-label={isCompareSelected ? '取消对比' : '加入对比'}
+            aria-pressed={isCompareSelected}
+          >
+            <GitCompare className="w-4 h-4" />
+          </button>
+        )}
         {style.performance && (
           <span className={`px-2 py-0.5 text-xs rounded-full ${performanceBadgeClass[style.performance] || 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300'}`}>
             {style.performance}

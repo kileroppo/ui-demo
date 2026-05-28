@@ -1,8 +1,10 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { StyleGallery } from '../../pages/StyleGallery'
+
+const mockIntersectionObserver = vi.fn()
 
 describe('StyleGallery', () => {
   beforeEach(() => {
@@ -10,6 +12,12 @@ describe('StyleGallery', () => {
     vi.spyOn(window, 'matchMedia').mockReturnValue({
       matches: false,
     } as MediaQueryList)
+    mockIntersectionObserver.mockReturnValue({
+      observe: vi.fn(),
+      unobserve: vi.fn(),
+      disconnect: vi.fn(),
+    })
+    window.IntersectionObserver = mockIntersectionObserver as unknown as typeof IntersectionObserver
   })
 
   it('renders page heading', () => {
@@ -324,6 +332,59 @@ describe('StyleGallery', () => {
         </MemoryRouter>
       )
       expect(screen.getByLabelText('列表视图')).toHaveAttribute('aria-pressed', 'true')
+    })
+  })
+
+  describe('lazy rendering', () => {
+    it('renders lazy-card wrappers in grid view', () => {
+      render(
+        <MemoryRouter>
+          <StyleGallery />
+        </MemoryRouter>
+      )
+      const lazyCards = screen.getAllByTestId('lazy-card')
+      expect(lazyCards.length).toBeGreaterThan(0)
+    })
+
+    it('shows placeholder before intersection', () => {
+      render(
+        <MemoryRouter>
+          <StyleGallery />
+        </MemoryRouter>
+      )
+      const lazyCards = screen.getAllByTestId('lazy-card')
+      // Before intersection, cards show placeholder (animate-pulse div)
+      const placeholder = lazyCards[0].querySelector('.animate-pulse')
+      expect(placeholder).toBeInTheDocument()
+    })
+
+    it('shows content after intersection callback triggers', () => {
+      // Capture the callbacks
+      const callbacks: Array<(entries: Array<{ isIntersecting: boolean }>) => void> = []
+      mockIntersectionObserver.mockImplementation((cb: (entries: Array<{ isIntersecting: boolean }>) => void) => {
+        callbacks.push(cb)
+        return {
+          observe: vi.fn(),
+          unobserve: vi.fn(),
+          disconnect: vi.fn(),
+        }
+      })
+
+      render(
+        <MemoryRouter>
+          <StyleGallery />
+        </MemoryRouter>
+      )
+
+      // Trigger all intersection callbacks inside act
+      act(() => {
+        callbacks.forEach((cb) => cb([{ isIntersecting: true }]))
+      })
+
+      // After intersection, at least some lazy-cards should have rendered content
+      const lazyCards = screen.getAllByTestId('lazy-card')
+      const hasRenderedContent = lazyCards.some((card) => !card.querySelector('.animate-pulse'))
+      expect(hasRenderedContent).toBe(true)
     })
   })
 })

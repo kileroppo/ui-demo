@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback, useRef, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { Heart } from 'lucide-react'
 import { styles } from '../data'
@@ -59,6 +59,35 @@ function getStoredViewMode(): ViewMode {
     // ignore
   }
   return 'grid'
+}
+
+function LazyCard({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.unobserve(el)
+        }
+      },
+      { rootMargin: '200px' }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div ref={ref} data-testid="lazy-card">
+      {isVisible ? children : <div className="h-48 rounded-xl bg-gray-100 dark:bg-gray-800 animate-pulse" />}
+    </div>
+  )
 }
 
 export function StyleGallery() {
@@ -217,12 +246,13 @@ export function StyleGallery() {
         viewMode === 'grid' ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {results.map((style) => (
-              <StyleCard
-                key={style.id}
-                style={style}
-                onCompareToggle={handleCompareToggle}
-                isCompareSelected={compareSelected.includes(style.id)}
-              />
+              <LazyCard key={style.id}>
+                <StyleCard
+                  style={style}
+                  onCompareToggle={handleCompareToggle}
+                  isCompareSelected={compareSelected.includes(style.id)}
+                />
+              </LazyCard>
             ))}
           </div>
         ) : (

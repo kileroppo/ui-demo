@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { HelmetProvider, Helmet } from 'react-helmet-async'
 import { Layout } from './components/Layout'
 import { PageTransition } from './components/PageTransition'
 import { BackToTop } from './components/BackToTop'
@@ -32,6 +33,9 @@ const ImageMatchPage = lazy(() =>
 const ProjectsPage = lazy(() =>
   import('./pages/ProjectsPage').then((m) => ({ default: m.ProjectsPage }))
 )
+const TimelinePage = lazy(() =>
+  import('./pages/TimelinePage').then((m) => ({ default: m.TimelinePage }))
+)
 
 export function SkeletonLoading() {
   return (
@@ -62,6 +66,7 @@ function AppRoutes() {
             <Route path="/workshop" element={<WorkshopPage />} />
             <Route path="/image-match" element={<ImageMatchPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/timeline" element={<TimelinePage />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </PageTransition>
@@ -73,10 +78,16 @@ function AppRoutes() {
 
 export function App() {
   return (
-    <BrowserRouter>
-      <Layout>
-        <AppRoutes />
-      </Layout>
-    </BrowserRouter>
+    <HelmetProvider>
+      <Helmet>
+        <title>UI 风格库</title>
+        <meta name="description" content="助力设计师和开发者快速选择合适的界面风格" />
+      </Helmet>
+      <BrowserRouter>
+        <Layout>
+          <AppRoutes />
+        </Layout>
+      </BrowserRouter>
+    </HelmetProvider>
   )
 }

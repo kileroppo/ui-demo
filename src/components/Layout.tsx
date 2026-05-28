@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Sun, Moon, Home, Palette, Sparkles, Package, PenTool, FolderOpen } from 'lucide-react'
+import { Menu, X, Sun, Moon, Home, Palette, Sparkles, Package, PenTool, FolderOpen, Clock } from 'lucide-react'
 import { useThemeMode } from '../hooks/useThemeMode'
 import { useFavorites } from '../hooks/useFavorites'
 
 const NAV_ITEMS = [
   { path: '/', label: '首页' },
   { path: '/styles', label: '风格库' },
+  { path: '/timeline', label: '时间线' },
   { path: '/products', label: '产品推荐' },
   { path: '/advisor', label: '风格顾问' },
   { path: '/workshop', label: '提示词工坊' },
@@ -17,6 +18,7 @@ const NAV_ITEMS = [
 const BOTTOM_NAV_ITEMS = [
   { path: '/', label: '首页', icon: Home },
   { path: '/styles', label: '风格库', icon: Palette },
+  { path: '/timeline', label: '时间线', icon: Clock },
   { path: '/advisor', label: '风格顾问', icon: Sparkles },
   { path: '/workshop', label: '提示词工坊', icon: PenTool },
   { path: '/projects', label: '我的项目', icon: FolderOpen },

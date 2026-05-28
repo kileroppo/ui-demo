@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { ChevronRight, ChevronLeft, Download } from 'lucide-react'
+import { Helmet } from 'react-helmet-async'
 import { styles, products } from '../data'
 import { StyleDetail } from '../components/StyleDetail'
 import { StyleCard } from '../components/StyleCard'
@@ -52,6 +53,13 @@ export function StyleDetailPage() {
 
   return (
     <div>
+      <Helmet>
+        <title>{style.nameZh} - UI 风格库</title>
+        <meta name="description" content={style.bestFor} />
+        <meta property="og:title" content={`${style.nameZh} - UI 风格库`} />
+        <meta property="og:description" content={style.bestFor} />
+      </Helmet>
+
       {/* Breadcrumb Navigation */}
       <nav aria-label="面包屑导航" className="mb-4">
         <ol className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400">

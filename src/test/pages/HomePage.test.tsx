@@ -160,4 +160,44 @@ describe('HomePage', () => {
     expect(cta).toBeInTheDocument()
     expect(cta).toHaveAttribute('href', '/advisor')
   })
+
+  it('renders scenario entry cards section', () => {
+    render(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
+    )
+    const section = screen.getByLabelText('场景入口')
+    expect(section).toBeInTheDocument()
+  })
+
+  it('renders "我知道我要什么" card linking to /styles', () => {
+    render(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
+    )
+    const link = screen.getByRole('link', { name: /我知道我要什么/ })
+    expect(link).toHaveAttribute('href', '/styles')
+  })
+
+  it('renders "帮我选" card linking to /advisor', () => {
+    render(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
+    )
+    const link = screen.getByRole('link', { name: /帮我选/ })
+    expect(link).toHaveAttribute('href', '/advisor')
+  })
+
+  it('renders "我有参考图" card linking to /image-match', () => {
+    render(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
+    )
+    const link = screen.getByRole('link', { name: /我有参考图/ })
+    expect(link).toHaveAttribute('href', '/image-match')
+  })
 })

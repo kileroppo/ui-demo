@@ -23,6 +23,12 @@ const ComparePage = lazy(() =>
 const StyleAdvisor = lazy(() =>
   import('./pages/StyleAdvisor').then((m) => ({ default: m.StyleAdvisor }))
 )
+const WorkshopPage = lazy(() =>
+  import('./pages/WorkshopPage').then((m) => ({ default: m.WorkshopPage }))
+)
+const ImageMatchPage = lazy(() =>
+  import('./pages/ImageMatchPage').then((m) => ({ default: m.ImageMatchPage }))
+)
 
 export function SkeletonLoading() {
   return (
@@ -50,6 +56,8 @@ function AppRoutes() {
             <Route path="/products" element={<ProductGallery />} />
             <Route path="/compare" element={<ComparePage />} />
             <Route path="/advisor" element={<StyleAdvisor />} />
+            <Route path="/workshop" element={<WorkshopPage />} />
+            <Route path="/image-match" element={<ImageMatchPage />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </PageTransition>

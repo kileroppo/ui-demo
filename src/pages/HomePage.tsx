@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Palette, Sparkles, Zap } from 'lucide-react'
+import { Palette, Sparkles, Zap, Search, Camera } from 'lucide-react'
 import { styles } from '../data'
 import { SearchBar } from '../components/SearchBar'
 import { StyleCard } from '../components/StyleCard'
@@ -69,6 +69,36 @@ export function HomePage() {
             <Zap className="w-4 h-4 text-amber-500" aria-hidden="true" />
             <span>中英双语搜索</span>
           </div>
+        </div>
+      </section>
+
+      {/* Scenario Entry Points */}
+      <section className="mb-10" aria-label="场景入口">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <Link
+            to="/styles"
+            className="group p-6 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 hover:shadow-md hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-200"
+          >
+            <Search className="w-8 h-8 text-blue-500 mb-3 group-hover:scale-110 transition-transform" aria-hidden="true" />
+            <h3 className="font-semibold text-gray-900 dark:text-gray-100">我知道我要什么</h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">直接浏览风格库</p>
+          </Link>
+          <Link
+            to="/advisor"
+            className="group p-6 rounded-xl bg-purple-50 dark:bg-purple-900/20 border border-purple-100 dark:border-purple-800 hover:shadow-md hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-200"
+          >
+            <Sparkles className="w-8 h-8 text-purple-500 mb-3 group-hover:scale-110 transition-transform" aria-hidden="true" />
+            <h3 className="font-semibold text-gray-900 dark:text-gray-100">帮我选</h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">AI 风格顾问推荐</p>
+          </Link>
+          <Link
+            to="/image-match"
+            className="group p-6 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-800 hover:shadow-md hover:border-amber-300 dark:hover:border-amber-600 transition-all duration-200"
+          >
+            <Camera className="w-8 h-8 text-amber-500 mb-3 group-hover:scale-110 transition-transform" aria-hidden="true" />
+            <h3 className="font-semibold text-gray-900 dark:text-gray-100">我有参考图</h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">上传图片匹配风格</p>
+          </Link>
         </div>
       </section>
 

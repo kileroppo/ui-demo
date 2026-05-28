@@ -254,7 +254,7 @@ describe('Layout', () => {
     )
     const bottomNav = screen.getByLabelText('移动端底部导航')
     const links = bottomNav.querySelectorAll('a')
-    expect(links).toHaveLength(4)
+    expect(links).toHaveLength(5)
   })
 
   it('mobile bottom nav highlights active item', () => {

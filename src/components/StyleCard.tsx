@@ -15,7 +15,7 @@ export function StyleCard({ style }: Props) {
 
   return (
     <article className="group relative bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-lg hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-300 hover:-translate-y-0.5 focus-within:ring-2 focus-within:ring-blue-500">
-      <div className="overflow-hidden h-40 transition-transform duration-300 group-hover:scale-[1.02]">
+      <div className="overflow-hidden h-32 sm:h-40 transition-transform duration-300 group-hover:scale-[1.02]">
         <StyleDemo style={style} />
       </div>
       {/* Favorite button */}
@@ -32,7 +32,7 @@ export function StyleCard({ style }: Props) {
           }`}
         />
       </button>
-      <div className="p-4">
+      <div className="p-3 sm:p-4">
         <div className="flex items-center gap-2">
           <span
             className="w-2.5 h-2.5 rounded-full shrink-0"

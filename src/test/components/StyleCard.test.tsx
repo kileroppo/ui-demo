@@ -114,7 +114,7 @@ describe('StyleCard', () => {
   it('has demo preview area with fixed height', () => {
     renderWithRouter(<StyleCard style={mockStyle} />)
     const article = screen.getByRole('article')
-    const demoContainer = article.querySelector('.h-40')
+    const demoContainer = article.querySelector('.h-32')
     expect(demoContainer).toBeInTheDocument()
   })
 

@@ -222,4 +222,50 @@ describe('Layout', () => {
     const badge = navDesktop.querySelector('.bg-red-500')
     expect(badge).not.toBeInTheDocument()
   })
+
+  // Mobile bottom nav tests
+  it('renders mobile bottom navigation', () => {
+    render(
+      <MemoryRouter>
+        <Layout>Content</Layout>
+      </MemoryRouter>
+    )
+    expect(screen.getByLabelText('移动端底部导航')).toBeInTheDocument()
+  })
+
+  it('mobile bottom nav has correct items', () => {
+    render(
+      <MemoryRouter>
+        <Layout>Content</Layout>
+      </MemoryRouter>
+    )
+    const bottomNav = screen.getByLabelText('移动端底部导航')
+    expect(bottomNav).toHaveTextContent('首页')
+    expect(bottomNav).toHaveTextContent('风格库')
+    expect(bottomNav).toHaveTextContent('风格顾问')
+    expect(bottomNav).toHaveTextContent('产品推荐')
+  })
+
+  it('mobile bottom nav has 4 navigation links', () => {
+    render(
+      <MemoryRouter>
+        <Layout>Content</Layout>
+      </MemoryRouter>
+    )
+    const bottomNav = screen.getByLabelText('移动端底部导航')
+    const links = bottomNav.querySelectorAll('a')
+    expect(links).toHaveLength(4)
+  })
+
+  it('mobile bottom nav highlights active item', () => {
+    render(
+      <MemoryRouter initialEntries={['/styles']}>
+        <Layout>Content</Layout>
+      </MemoryRouter>
+    )
+    const bottomNav = screen.getByLabelText('移动端底部导航')
+    const activeLink = bottomNav.querySelector('a[aria-current="page"]')
+    expect(activeLink).toBeInTheDocument()
+    expect(activeLink?.textContent).toContain('风格库')
+  })
 })

@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight, ChevronLeft } from 'lucide-react'
 import { styles, products } from '../data'
 import { StyleDetail } from '../components/StyleDetail'
 import { StyleCard } from '../components/StyleCard'
@@ -20,6 +20,14 @@ export function StyleDetailPage() {
   const recommendedProducts = useMemo(() => {
     if (!style) return []
     return getProductsForStyle(products, style.nameEn)
+  }, [style])
+
+  const adjacentStyles = useMemo(() => {
+    if (!style) return { prev: null, next: null }
+    const currentIndex = styles.findIndex((s) => s.id === style.id)
+    const prev = currentIndex > 0 ? styles[currentIndex - 1] : null
+    const next = currentIndex < styles.length - 1 ? styles[currentIndex + 1] : null
+    return { prev, next }
   }, [style])
 
   if (!style) {
@@ -96,6 +104,32 @@ export function StyleDetailPage() {
           </div>
         </section>
       )}
+
+      {/* Previous / Next Navigation */}
+      <nav className="mt-10 flex items-center justify-between gap-4" aria-label="相邻风格导航">
+        {adjacentStyles.prev ? (
+          <Link
+            to={`/styles/${adjacentStyles.prev.id}`}
+            className="flex items-center gap-2 px-4 py-3 min-h-[44px] rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-blue-200 dark:hover:border-blue-700 transition-colors"
+          >
+            <ChevronLeft className="w-4 h-4" aria-hidden="true" />
+            <span className="text-sm font-medium">上一个</span>
+          </Link>
+        ) : (
+          <span />
+        )}
+        {adjacentStyles.next ? (
+          <Link
+            to={`/styles/${adjacentStyles.next.id}`}
+            className="flex items-center gap-2 px-4 py-3 min-h-[44px] rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-blue-200 dark:hover:border-blue-700 transition-colors"
+          >
+            <span className="text-sm font-medium">下一个</span>
+            <ChevronRight className="w-4 h-4" aria-hidden="true" />
+          </Link>
+        ) : (
+          <span />
+        )}
+      </nav>
     </div>
   )
 }

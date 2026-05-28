@@ -47,7 +47,7 @@ describe('App', () => {
       </MemoryRouter>
     )
     await waitFor(() => {
-      expect(screen.getByText('风格库')).toBeInTheDocument()
+      expect(screen.getAllByText('风格库').length).toBeGreaterThanOrEqual(1)
     })
   })
 
@@ -69,7 +69,7 @@ describe('App', () => {
       </MemoryRouter>
     )
     await waitFor(() => {
-      expect(screen.getByText('产品推荐')).toBeInTheDocument()
+      expect(screen.getAllByText('产品推荐').length).toBeGreaterThanOrEqual(1)
     })
   })
 

@@ -43,7 +43,7 @@ export function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="text-center py-16 px-4 rounded-2xl gradient-bg-animated mb-8">
+      <section className="text-center py-8 md:py-16 px-4 rounded-2xl gradient-bg-animated mb-8">
         <h1 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
           发现你的下一个<span className="gradient-text">设计风格</span>
         </h1>
@@ -99,7 +99,7 @@ export function HomePage() {
             <button
               key={cat}
               onClick={() => navigate(`/styles?category=${encodeURIComponent(cat)}`)}
-              className="flex items-center gap-2 px-4 py-2 text-sm rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-700 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex items-center gap-2 px-4 py-2 text-sm rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-700 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-500 min-h-[44px]"
             >
               <span
                 className="w-2 h-2 rounded-full shrink-0"

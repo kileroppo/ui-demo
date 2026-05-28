@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Sun, Moon } from 'lucide-react'
+import { Menu, X, Sun, Moon, Home, Palette, Sparkles, Package } from 'lucide-react'
 import { useThemeMode } from '../hooks/useThemeMode'
 import { useFavorites } from '../hooks/useFavorites'
 
@@ -10,6 +10,13 @@ const NAV_ITEMS = [
   { path: '/products', label: '产品推荐' },
   { path: '/advisor', label: '风格顾问' },
   { path: '/about', label: '关于' },
+]
+
+const BOTTOM_NAV_ITEMS = [
+  { path: '/', label: '首页', icon: Home },
+  { path: '/styles', label: '风格库', icon: Palette },
+  { path: '/advisor', label: '风格顾问', icon: Sparkles },
+  { path: '/products', label: '产品推荐', icon: Package },
 ]
 
 interface Props {
@@ -120,7 +127,7 @@ export function Layout({ children }: Props) {
         {/* Gradient bottom border */}
         <div className="h-px bg-gradient-to-r from-transparent via-blue-100 dark:via-blue-900 to-transparent" />
 
-        {/* Mobile Nav */}
+        {/* Mobile Nav (hamburger dropdown) */}
         {menuOpen && (
           <nav className="md:hidden border-t border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-900" aria-label="移动端导航">
             {NAV_ITEMS.map((item) => (
@@ -148,16 +155,45 @@ export function Layout({ children }: Props) {
       </header>
 
       {/* Main Content */}
-      <main id="main-content" className="max-w-7xl mx-auto px-4 py-8">
+      <main id="main-content" className="max-w-7xl mx-auto px-4 py-8 pb-24 md:pb-8">
         {children}
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-900">
+      <footer className="hidden md:block border-t border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 py-6 text-center text-xs text-gray-400 dark:text-gray-500">
           UI 风格展示库 - 助力设计师和开发者快速选择合适的界面风格
         </div>
       </footer>
+
+      {/* Mobile Bottom Tab Bar */}
+      <nav
+        className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700"
+        aria-label="移动端底部导航"
+        style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
+      >
+        <div className="flex items-center justify-around h-14">
+          {BOTTOM_NAV_ITEMS.map((item) => {
+            const Icon = item.icon
+            const isActive = location.pathname === item.path
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`flex flex-col items-center justify-center min-h-[44px] min-w-[44px] px-2 py-1 transition-colors ${
+                  isActive
+                    ? 'text-blue-600 dark:text-blue-400'
+                    : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+                }`}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                <Icon className="w-5 h-5" aria-hidden="true" />
+                <span className="text-[10px] mt-0.5 font-medium">{item.label}</span>
+              </Link>
+            )
+          })}
+        </div>
+      </nav>
     </div>
   )
 }

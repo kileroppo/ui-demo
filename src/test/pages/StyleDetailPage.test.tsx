@@ -117,4 +117,54 @@ describe('StyleDetailPage', () => {
     // The section should not exist since no products reference this style
     expect(screen.queryByLabelText('推荐用于')).toBeNull()
   })
+
+  // Previous / Next navigation tests
+  it('renders previous and next navigation buttons', () => {
+    render(
+      <MemoryRouter initialEntries={['/styles/2']}>
+        <Routes>
+          <Route path="/styles/:id" element={<StyleDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+    expect(screen.getByText('上一个')).toBeInTheDocument()
+    expect(screen.getByText('下一个')).toBeInTheDocument()
+  })
+
+  it('prev/next link to correct adjacent styles', () => {
+    render(
+      <MemoryRouter initialEntries={['/styles/2']}>
+        <Routes>
+          <Route path="/styles/:id" element={<StyleDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+    const prevLink = screen.getByText('上一个').closest('a')
+    const nextLink = screen.getByText('下一个').closest('a')
+    expect(prevLink).toHaveAttribute('href', '/styles/1')
+    expect(nextLink).toHaveAttribute('href', '/styles/3')
+  })
+
+  it('first style has no previous button', () => {
+    render(
+      <MemoryRouter initialEntries={['/styles/1']}>
+        <Routes>
+          <Route path="/styles/:id" element={<StyleDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+    expect(screen.queryByText('上一个')).not.toBeInTheDocument()
+    expect(screen.getByText('下一个')).toBeInTheDocument()
+  })
+
+  it('renders adjacent style navigation section', () => {
+    render(
+      <MemoryRouter initialEntries={['/styles/3']}>
+        <Routes>
+          <Route path="/styles/:id" element={<StyleDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    )
+    expect(screen.getByLabelText('相邻风格导航')).toBeInTheDocument()
+  })
 })

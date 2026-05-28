@@ -3,8 +3,11 @@ import { useSearchParams } from 'react-router-dom'
 import { Heart } from 'lucide-react'
 import { styles } from '../data'
 import { StyleCard } from '../components/StyleCard'
+import { StyleListItem } from '../components/StyleListItem'
 import { SearchBar } from '../components/SearchBar'
 import { FilterPanel } from '../components/FilterPanel'
+import { SortControl, type SortOption } from '../components/SortControl'
+import { ViewToggle, type ViewMode } from '../components/ViewToggle'
 import { searchAndSort } from '../utils/search'
 import { useDebounce } from '../hooks/useDebounce'
 import { useFavorites } from '../hooks/useFavorites'
@@ -15,6 +18,45 @@ import {
   getAccessibilityRatings,
   type FilterOptions,
 } from '../utils/filters'
+import type { UIStyle } from '../data/types'
+
+const COMPLEXITY_ORDER: Record<string, number> = { Low: 1, Medium: 2, High: 3 }
+const PERFORMANCE_ORDER: Record<string, number> = { Excellent: 1, Good: 2, Medium: 3, Low: 4 }
+
+function sortStyles(list: UIStyle[], sort: SortOption): UIStyle[] {
+  if (sort === 'default') return list
+  const sorted = [...list]
+  switch (sort) {
+    case 'name-asc':
+      return sorted.sort((a, b) => a.nameZh.localeCompare(b.nameZh, 'zh'))
+    case 'name-desc':
+      return sorted.sort((a, b) => b.nameZh.localeCompare(a.nameZh, 'zh'))
+    case 'complexity-asc':
+      return sorted.sort(
+        (a, b) => (COMPLEXITY_ORDER[a.complexity] || 99) - (COMPLEXITY_ORDER[b.complexity] || 99)
+      )
+    case 'complexity-desc':
+      return sorted.sort(
+        (a, b) => (COMPLEXITY_ORDER[b.complexity] || 0) - (COMPLEXITY_ORDER[a.complexity] || 0)
+      )
+    case 'performance-desc':
+      return sorted.sort(
+        (a, b) => (PERFORMANCE_ORDER[a.performance] || 99) - (PERFORMANCE_ORDER[b.performance] || 99)
+      )
+    default:
+      return sorted
+  }
+}
+
+function getStoredViewMode(): ViewMode {
+  try {
+    const stored = localStorage.getItem('gallery-view-mode')
+    if (stored === 'list' || stored === 'grid') return stored
+  } catch {
+    // ignore
+  }
+  return 'grid'
+}
 
 export function StyleGallery() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -27,6 +69,8 @@ export function StyleGallery() {
     initialCategory ? { category: initialCategory } : {}
   )
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false)
+  const [sortOption, setSortOption] = useState<SortOption>('default')
+  const [viewMode, setViewMode] = useState<ViewMode>(getStoredViewMode)
   const { favorites, count: favoritesCount } = useFavorites()
 
   const categories = useMemo(() => getCategories(styles), [])
@@ -36,11 +80,11 @@ export function StyleGallery() {
   const results = useMemo(() => {
     const searched = searchAndSort(styles, debouncedQuery)
     const filtered = filterStyles(searched, filters)
-    if (showFavoritesOnly) {
-      return filtered.filter((s) => favorites.includes(s.id))
-    }
-    return filtered
-  }, [debouncedQuery, filters, showFavoritesOnly, favorites])
+    const favFiltered = showFavoritesOnly
+      ? filtered.filter((s) => favorites.includes(s.id))
+      : filtered
+    return sortStyles(favFiltered, sortOption)
+  }, [debouncedQuery, filters, showFavoritesOnly, favorites, sortOption])
 
   const updateSearchParams = useCallback(
     (newQuery: string, newFilters: FilterOptions) => {
@@ -67,6 +111,15 @@ export function StyleGallery() {
   const handleFilterChange = (newFilters: FilterOptions) => {
     setFilters(newFilters)
     updateSearchParams(debouncedQuery, newFilters)
+  }
+
+  const handleViewModeChange = (mode: ViewMode) => {
+    setViewMode(mode)
+    try {
+      localStorage.setItem('gallery-view-mode', mode)
+    } catch {
+      // ignore
+    }
   }
 
   return (
@@ -105,18 +158,32 @@ export function StyleGallery() {
         </button>
       </div>
 
+      {/* Sort and View Controls */}
+      <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <SortControl value={sortOption} onChange={setSortOption} />
+        <ViewToggle value={viewMode} onChange={handleViewModeChange} />
+      </div>
+
       {/* Results Count */}
       <p className="text-sm text-gray-500 dark:text-gray-400 mb-4" aria-live="polite">
         显示 {results.length} / {styles.length} 种风格
       </p>
 
-      {/* Grid */}
+      {/* Grid / List */}
       {results.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {results.map((style) => (
-            <StyleCard key={style.id} style={style} />
-          ))}
-        </div>
+        viewMode === 'grid' ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {results.map((style) => (
+              <StyleCard key={style.id} style={style} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col gap-4">
+            {results.map((style) => (
+              <StyleListItem key={style.id} style={style} />
+            ))}
+          </div>
+        )
       ) : (
         <div className="text-center py-16" role="status">
           <div className="text-4xl mb-3">🔍</div>

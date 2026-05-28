@@ -20,7 +20,7 @@ export function getRecommendations(answers: AdvisorAnswers): ScoredStyle[] {
     score: calculateScore(style, answers),
   }))
 
-  scored.sort((a, b) => b.score - a.score)
+  scored.sort((a, b) => b.score - a.score || a.style.nameZh.localeCompare(b.style.nameZh))
   return scored.slice(0, 5)
 }
 

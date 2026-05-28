@@ -101,7 +101,7 @@ export function SearchBar({ value, onChange, autoFocus }: Props) {
           <X className="w-4 h-4" />
         </button>
       )}
-      <kbd className="absolute right-3 top-1/2 -translate-y-1/2 hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] text-gray-500 bg-gray-100 rounded border border-gray-200">
+      <kbd className="absolute right-3 top-1/2 -translate-y-1/2 hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] text-gray-500 bg-gray-100 rounded border border-gray-200 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-600">
         ⌘K
       </kbd>
       <SearchSuggestions

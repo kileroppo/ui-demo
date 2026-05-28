@@ -137,4 +137,23 @@ describe('styleAdvisor', () => {
     const results = getRecommendations(answers)
     expect(results[0].score).toBeGreaterThan(0)
   })
+
+  it('uses nameZh alphabetical tiebreaker when scores are equal', () => {
+    const answers: AdvisorAnswers = {
+      productType: '',
+      feeling: '',
+      performance: '',
+      darkMode: '',
+      complexity: '',
+    }
+    const results = getRecommendations(answers)
+    // All scores are 0, so they should be sorted by nameZh
+    for (let i = 0; i < results.length - 1; i++) {
+      if (results[i].score === results[i + 1].score) {
+        expect(
+          results[i].style.nameZh.localeCompare(results[i + 1].style.nameZh)
+        ).toBeLessThanOrEqual(0)
+      }
+    }
+  })
 })

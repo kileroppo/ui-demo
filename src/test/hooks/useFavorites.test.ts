@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { renderHook, act } from '@testing-library/react'
 import { useFavorites } from '../../hooks/useFavorites'
 
@@ -98,5 +98,54 @@ describe('useFavorites', () => {
       result.current.toggle(1)
     })
     expect(result.current.count).toBe(1)
+  })
+
+  describe('cross-instance sync', () => {
+    it('syncs when favorites-updated custom event is dispatched', () => {
+      const { result } = renderHook(() => useFavorites())
+      expect(result.current.favorites).toEqual([])
+
+      // Simulate another instance writing to localStorage
+      act(() => {
+        localStorage.setItem('favorite-styles', JSON.stringify([42]))
+        window.dispatchEvent(new CustomEvent('favorites-updated'))
+      })
+
+      expect(result.current.favorites).toEqual([42])
+    })
+
+    it('syncs when storage event fires (cross-tab)', () => {
+      const { result } = renderHook(() => useFavorites())
+      expect(result.current.favorites).toEqual([])
+
+      act(() => {
+        localStorage.setItem('favorite-styles', JSON.stringify([99]))
+        window.dispatchEvent(new StorageEvent('storage', { key: 'favorite-styles' }))
+      })
+
+      expect(result.current.favorites).toEqual([99])
+    })
+
+    it('dispatches favorites-updated event on toggle', () => {
+      const { result } = renderHook(() => useFavorites())
+      const handler = vi.fn()
+      window.addEventListener('favorites-updated', handler)
+
+      act(() => {
+        result.current.toggle(1)
+      })
+
+      expect(handler).toHaveBeenCalled()
+      window.removeEventListener('favorites-updated', handler)
+    })
+
+    it('cleans up event listeners on unmount', () => {
+      const { unmount } = renderHook(() => useFavorites())
+      const spy = vi.spyOn(window, 'removeEventListener')
+      unmount()
+      expect(spy).toHaveBeenCalledWith('favorites-updated', expect.any(Function))
+      expect(spy).toHaveBeenCalledWith('storage', expect.any(Function))
+      spy.mockRestore()
+    })
   })
 })

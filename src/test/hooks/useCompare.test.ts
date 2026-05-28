@@ -1,12 +1,22 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, beforeEach } from 'vitest'
 import { renderHook, act } from '@testing-library/react'
 import { useCompare } from '../../hooks/useCompare'
 
 describe('useCompare', () => {
+  beforeEach(() => {
+    sessionStorage.clear()
+  })
+
   it('starts with empty selection', () => {
     const { result } = renderHook(() => useCompare())
     expect(result.current.selected).toEqual([])
     expect(result.current.canAdd).toBe(true)
+  })
+
+  it('loads existing selections from sessionStorage', () => {
+    sessionStorage.setItem('compare-selected', JSON.stringify([1, 2]))
+    const { result } = renderHook(() => useCompare())
+    expect(result.current.selected).toEqual([1, 2])
   })
 
   it('toggle adds an ID to selected', () => {
@@ -137,5 +147,50 @@ describe('useCompare', () => {
       result.current.toggle(3)
     })
     expect(result.current.canAdd).toBe(false)
+  })
+
+  describe('sessionStorage persistence', () => {
+    it('persists selections to sessionStorage on toggle', () => {
+      const { result } = renderHook(() => useCompare())
+
+      act(() => {
+        result.current.toggle(7)
+      })
+
+      const stored = JSON.parse(sessionStorage.getItem('compare-selected')!)
+      expect(stored).toEqual([7])
+    })
+
+    it('clears sessionStorage on clear()', () => {
+      const { result } = renderHook(() => useCompare())
+
+      act(() => {
+        result.current.toggle(1)
+      })
+      act(() => {
+        result.current.clear()
+      })
+
+      const stored = JSON.parse(sessionStorage.getItem('compare-selected')!)
+      expect(stored).toEqual([])
+    })
+
+    it('handles invalid sessionStorage gracefully', () => {
+      sessionStorage.setItem('compare-selected', 'not valid json{')
+      const { result } = renderHook(() => useCompare())
+      expect(result.current.selected).toEqual([])
+    })
+
+    it('filters non-number values from sessionStorage', () => {
+      sessionStorage.setItem('compare-selected', JSON.stringify([1, 'two', 3, null]))
+      const { result } = renderHook(() => useCompare())
+      expect(result.current.selected).toEqual([1, 3])
+    })
+
+    it('limits loaded items to MAX_COMPARE', () => {
+      sessionStorage.setItem('compare-selected', JSON.stringify([1, 2, 3, 4, 5]))
+      const { result } = renderHook(() => useCompare())
+      expect(result.current.selected).toEqual([1, 2, 3])
+    })
   })
 })

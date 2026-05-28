@@ -1,6 +1,7 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 
 const STORAGE_KEY = 'favorite-styles'
+const SYNC_EVENT = 'favorites-updated'
 
 function loadFavorites(): number[] {
   try {
@@ -20,10 +21,23 @@ function saveFavorites(favorites: number[]): void {
   } catch {
     // ignore localStorage errors
   }
+  window.dispatchEvent(new CustomEvent(SYNC_EVENT))
 }
 
 export function useFavorites() {
   const [favorites, setFavorites] = useState<number[]>(loadFavorites)
+
+  useEffect(() => {
+    const handleSync = () => {
+      setFavorites(loadFavorites())
+    }
+    window.addEventListener(SYNC_EVENT, handleSync)
+    window.addEventListener('storage', handleSync)
+    return () => {
+      window.removeEventListener(SYNC_EVENT, handleSync)
+      window.removeEventListener('storage', handleSync)
+    }
+  }, [])
 
   const toggle = useCallback((id: number) => {
     setFavorites((prev) => {

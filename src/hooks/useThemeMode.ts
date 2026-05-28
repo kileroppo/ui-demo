@@ -49,7 +49,6 @@ export function useThemeMode() {
       } catch {
         // ignore localStorage errors
       }
-      applyMode(next)
       return next
     })
   }, [])

@@ -4,6 +4,8 @@ import { ChevronRight, ChevronLeft } from 'lucide-react'
 import { styles, products } from '../data'
 import { StyleDetail } from '../components/StyleDetail'
 import { StyleCard } from '../components/StyleCard'
+import { StyleComponentPreview } from '../components/StyleComponentPreview'
+import { FullPageDemo } from '../components/FullPageDemo'
 import { getProductsForStyle } from '../utils/productCategories'
 
 export function StyleDetailPage() {
@@ -74,6 +76,12 @@ export function StyleDetailPage() {
       </nav>
 
       <StyleDetail style={style} />
+
+      {/* Component Previews */}
+      <StyleComponentPreview style={style} />
+
+      {/* Full Page Demo */}
+      <FullPageDemo styleId={style.id} />
 
       {/* Recommended For */}
       {recommendedProducts.length > 0 && (
